@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('profession', function (Blueprint $table) {
             $table->increments('id_profession');
             $table->unsignedInteger('id_class');
-            $table->string('name', 100)->nullable();
+            $table->string('name', 100);
             $table->timestamps();
             $table->foreign('id_class')->references('id_class')->on('class')->onDelete('cascade')->onUpdate('cascade');
         });
