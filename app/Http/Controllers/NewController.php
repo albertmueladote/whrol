@@ -15,6 +15,7 @@ use App\Models\RaceHair;
 use App\Models\Class;
 use App\Models\CareerPath;
 use App\Models\CareerPathCharacteristic;
+use \TCPDF;
 
 class NewController extends Controller
 {
@@ -24,6 +25,7 @@ class NewController extends Controller
         $race = $race->getAll();
         $class = new _Class;
         $class = $class->getAll();
+        $array_nuevo = [];
         return view('new')->with('race', $race)->with('class', $class);
     }
 

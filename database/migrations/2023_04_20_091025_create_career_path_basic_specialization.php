@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('id_basic_specialization')->references('id_basic_specialization')->on('basic_specialization')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        DB::table('id_career_path_basic_specialization')->insert([
+        DB::table('career_path_basic_specialization')->insert([
             [
                 'id_career_path' => 3,
                 'id_basic_specialization' => 28,
