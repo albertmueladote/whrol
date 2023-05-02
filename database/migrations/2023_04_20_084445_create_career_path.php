@@ -2167,7 +2167,7 @@ return new class extends Migration
                 'id_career_path' => 215,
                 'id_profession' => 54,
                 'level' => 3,
-                'name' => 'Sabia del r´´io',
+                'name' => 'Sabia del río',
                 'status_range' => 'Bronce',
                 'status_level' => 5,
                 'created_at' => date('Y-m-d H:i:s'),

@@ -37,3 +37,5 @@ Route::post('/new-random-hair', [App\Http\Controllers\NewController::class, 'hai
 Route::post('/new-random-eye', [App\Http\Controllers\NewController::class, 'eye'])->name('new-random-eye');
 Route::post('/new-random-characteristic', [App\Http\Controllers\NewController::class, 'characteristic'])->name('new-random-characteristic');
 Route::post('/new-random-roll', [App\Http\Controllers\NewController::class, 'characteristic'])->name('new-random-roll');
+
+Route::get('/test', [App\Http\Controllers\NewController::class, 'test'])->name('test');

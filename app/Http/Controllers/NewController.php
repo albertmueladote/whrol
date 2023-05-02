@@ -15,7 +15,10 @@ use App\Models\RaceHair;
 use App\Models\Class;
 use App\Models\CareerPath;
 use App\Models\CareerPathCharacteristic;
-use \TCPDF;
+use App\Models\CareerPathBasicAbility;
+use App\Models\BasicAbility;
+use App\Models\BasicSpecialization;
+use App\Models\RaceProfession;
 
 class NewController extends Controller
 {
@@ -40,7 +43,7 @@ class NewController extends Controller
     public function class(Request $request)
     {
         $profession = new Profession();
-        return $profession->getClass($request->id_class);
+        return $profession->getProfessionRaceProfession($request->id_race, $request->id_class);
     }
 
     public function profession(Request $request)
@@ -62,14 +65,14 @@ class NewController extends Controller
         return array('profession' => $profession->get($request->id_profession), 'career_path' => $career_path, 'characteristic' => $characteristic->getAll(), 'career_path_characteristic' => $career_path_characteristic_array);
     }
 
-    public function Age(Request $request)
+    public function age(Request $request)
     {
         $race = new Race();
         $race = $race->get($request->id_race);
         return rand($race->age_min, $race->age_max);
     }
 
-    public function Height(Request $request)
+    public function height(Request $request)
     {
         $race = new Race();
         $race = $race->get($request->id_race);
@@ -105,5 +108,14 @@ class NewController extends Controller
                 'em' => rand(1,20)
             ];
         return $characteristic;
+    }
+
+    public function test()
+    {
+        $p = new Profession();
+        $p = $p->getAll();
+        $r = new Race();
+        $r = $r->getAll();
+        return view('test')->with('profession', $p)->with('race', $r);
     }
 }

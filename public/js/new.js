@@ -40,6 +40,8 @@ function Page()
 function Race()
 {
     $('select[name="races"]').on('change', function() {
+       // $('input[name="class"]').remove();
+       // $('select[name="class"]').remove();
         RestartRace();
         $.ajax({
             url: 'new-swap-race',
@@ -68,7 +70,6 @@ function Race()
                 $('input[name="walk"]').val(response.race.movement * 2);
                 $('input[name="run"]').val(response.race.movement * 4);
                 Total();
-
             },
             error: function(xhr, status, error) {
                 console.error(textStatus, errorThrown);
@@ -97,7 +98,7 @@ function Class()
             $.ajax({
                 url: 'new-swap-class',
                 type: "POST",
-                data: { id_class: $('select[name="class"]').val() },
+                data: { id_race: $('select[name="races"]').val(), id_class: $('select[name="class"]').val() },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

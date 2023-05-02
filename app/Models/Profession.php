@@ -25,4 +25,9 @@ class Profession extends Model
     {
          return Profession::where('id_class', $id_class)->get(); 
     }
+
+    public function getProfessionRaceProfession($id_race, $id_class)
+    {
+        return Profession::where('race_profession.id_race', $id_race)->where('profession.id_class', $id_class)->join('race_profession', 'race_profession.id_profession', '=', 'profession.id_profession')->get(); 
+    }
 }

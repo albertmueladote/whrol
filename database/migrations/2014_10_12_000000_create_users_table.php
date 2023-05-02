@@ -20,6 +20,17 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+         DB::table('users')->insert([
+            [
+                'name' => 'Albert Muela Dote', 
+                'email' => 'albertmueladote@gmail.com', 
+                'email_verified_at' => null, 
+                'password' => '$10$B.S7rkS/mwa.Hypc.8zt4OwgZXHVIr1baxeW7WK5yzJwptmcaMHiC', 
+                'created_at' => date('Y-m-d H:i:s'), 
+                'updated_at' => date('Y-m-d H:i:s')
+            ]
+        ]);
     }
 
     /**
