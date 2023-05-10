@@ -17,19 +17,6 @@ $(window).ready(function() {
 
 function Page()
 {
-    var height = $(window).height() - 100;
-    var width = $(window).width();
-
-    $('.page-1').css({
-        //'width': width + 'px',
-        'height': height + 'px',
-        'margin-top': '50px'
-    });
-    $('.page-2').css({
-        'height': height + 'px',
-        'margin-top': '50px'
-    });
-
     $('.page-2').toggle();
     $('.next').click(function(){
         $('.page-1').toggle();
@@ -91,7 +78,7 @@ function Class()
                 disabled: true
             }).val('Selecciona clase');
         
-            $('.page-1').append(input);
+            $('.sheet-1').append(input);
         }
         else
         {
@@ -117,7 +104,7 @@ function Class()
                             }));
                         });
                         select.attr('name', 'profession');
-                        $('.page-1').append(select);
+                        $('.sheet-1').append(select);
                         Profession();
                     }
                     else
@@ -128,7 +115,7 @@ function Class()
                             disabled: true
                         }).val('Profesión sin clases');
 
-                        $('.page-1').append(input);
+                        $('.shee-1').append(input);
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
