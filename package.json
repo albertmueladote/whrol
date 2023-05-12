@@ -2,6 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
+	"prod": "NODE_ENV=production node_modules/.bin/vite build --mode production",
         "build": "vite build"
     },
     "devDependencies": {
