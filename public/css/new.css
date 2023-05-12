@@ -1,19 +1,6 @@
-/* Estilos generales del botón */
-.button {
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  height: 37.5px;
-  width: 180px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
-  background-image: url('/assets/img/button1.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/*------------------------------------*/
+@font-face {
+  font-family: ancient;
+  src: url("/fonts/jancient.ttf") format("truetype"); }
 .container-new {
   justify-content: center;
   width: 1320px;
@@ -21,1020 +8,731 @@
   background-size: 920px 1160px;
   background-repeat: no-repeat;
   background-position: center top;
-  height: 90vh;
-}
-
-.section{
-  width: 100%;
-}
-
-.page-1 {
-    background-image: url('/assets/img/player-1.jpg');
-}
-
-.page-2 {
-    background-image: url('/assets/img/player-2.jpg');
-}
-
-input, select {
+  height: 90vh; }
+  .container-new.page-1 {
+    background-image: url("/assets/img/player-1.jpg"); }
+  .container-new.page-2 {
+    background-image: url("/assets/img/player-2.jpg"); }
+  .container-new .section {
+    width: 100%; }
+  .container-new input, .container-new select, .container-new textarea {
     background-color: transparent;
     border: none;
     text-align: center;
-}
-
-input:focus, select:focus {
-  border: none;
-  outline: none;
-}
-
-.buttons-left, .sheet, .buttons-right {
-  vertical-align: top;
-  display: inline-block;
-  height: 100%;
-}
-
-.buttons-left div, .buttons-right div {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.buttons-left div button, .buttons-right div button {
-  width: 100%;
-}
-
-.buttons-left {
-  min-width: 200px;
-  max-width: 200px;
-}
-
-.sheet {
-  max-width: 920px;
-  min-width: 920px;
-  position: relative;
-}
-
-.sheet input, .sheet select  {
-  position: absolute;
-  height: 22px;
-}
-
-.buttons-right {
-  max-width: 200px;
-  min-width: 200px;
-}
-
-.next {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  right: 0;
-}
-
-.next::before
-{
-  content: ''; 
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 0;
-  height: 0;
-  background: linear-gradient(
-      45deg, white 45%, #aaa 50%, #ccc 60%, white
-  );
-  transition-duration: 0.3s;
-}
-
-.next:hover::before {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-}
-
-/** Section 1 **/
-
-.section-1 {
-  height: 15rem;
-}
-
-.section-1 .buttons-left-1 div{
-  height: 25%;
-}
-
-.section-1 .buttons-left-1 div button{
-  margin-top: 11.35px;
-}
-
-input[name="name"] {
-  top: 141px;
-  left: 134px;
-  width: 321px;
-}
-
-select[name="races"] {
-  top: 141px;
-  left: 506px;
-  width: 147px;
-}
-
-select[name="class"] {
-  top: 141px;
-  left: 695px;
-  width: 143px;
-}
-
-input[name="profession"], select[name="profession"] {
-  top: 164px;
-  left: 135px;
-  width: 323px;
-}
-
-input[name="previous_professions"] {
-    top: 184px;
-    left: 202px;
-    width: 454px;
-}
-
-input[name="status"] {
-  top: 184px;
-  left: 703px;
-  width: 136px;
-}
-
-input[name="age"] {
-  top: 209px;
-  left: 113px;
-  width: 158px;
-}
-
-input[name="height"] {
-  top: 209px;
-  left: 315px;
-  width: 141px;
-}
-
-input[name="hair"] {
-  top: 209px;
-  left: 542px;
-  width: 112px;
-}
-
-input[name="eyes"] {
-  top: 209px;
-  left: 739px;
-  width: 100px;
-}
-
-/** Section 2 **/
-
-.section-2 {
-  height: 10rem;
-}
-
-.section-2 .buttons-left-2 div{
-  height: 50%;
-}
-
-.section-2 .buttons-left-2 div button{
-  margin-top: 21px;
-}
-
-.section-2 .buttons-right-2 .content_buttons, .section-2 .buttons-right-2 .content_info {
-  display: inline-block;
-  vertical-align: top;
-  height: 100%;
-}
-
-.section-2 .buttons-right-2 .content_buttons{
-  width: 87%;
-  margin: initial;
-}
-
-.section-2 .buttons-right-2 .content_buttons div {
-  height: 25%;
-  margin-top: 0.5px;
-}
-
-.section-2 .buttons-right-2 .content_info{
-  width: 13%;
-  margin: initial;
-}
-
-.section-2 .buttons-right-2 .content_info .extra_points {
-    border: 1px solid black;
-    width: 38px;
-    width: 38px;
-    margin-top: 57px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 45px;
-    font-size: 2rem;
-    margin-left: 5px;
-}
-
-input[name="ha_ini"] {
-  top: 58px;
-  left: 142px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="hp_ini"] {
-  top: 58px;
-  left: 170px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="f_ini"] {
-  top: 58px;
-  left: 198px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="r_ini"] {
-  top: 58px;
-  left: 226px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ini_ini"] {
-  top: 58px;
-  left: 254px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ag_ini"] {
-  top: 58px;
-  left: 282px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="des_ini"] {
-  top: 58px;
-  left: 310px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="i_ini"] {
-  top: 58px;
-  left: 338px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="v_ini"] {
-  top: 58px;
-  left: 366px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="em_ini"] {
-  top: 58px;
-  left: 394px;
-  width: 28px;
-  height: 29px;
-}
-
-
-input[name="ha_imp"] {
-  top: 88px;
-  left: 142px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="hp_imp"] {
-  top: 88px;
-  left: 170px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="f_imp"] {
-  top: 88px;
-  left: 198px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="r_imp"] {
-  top: 88px;
-  left: 226px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ini_imp"] {
-  top: 88px;
-  left: 254px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ag_imp"] {
-  top: 88px;
-  left: 282px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="des_imp"] {
-  top: 88px;
-  left: 310px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="i_imp"] {
-  top: 88px;
-  left: 338px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="v_imp"] {
-  top: 88px;
-  left: 366px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="em_imp"] {
-  top: 88px;
-  left: 394px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ha_total"] {
-  top: 117px;
-  left: 142px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="hp_total"] {
-  top: 117px;
-  left: 170px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="f_total"] {
-  top: 117px;
-  left: 198px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="r_total"] {
-  top: 117px;
-  left: 226px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ini_total"] {
-  top: 117px;
-  left: 254px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="ag_total"] {
-  top: 117px;
-  left: 282px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="des_total"] {
-  top: 117px;
-  left: 310px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="i_total"] {
-  top: 117px;
-  left: 338px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="v_total"] {
-  top: 117px;
-  left: 366px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="em_total"] {
-  top: 117px;
-  left: 394px;
-  width: 28px;
-  height: 29px;
-}
-
-input[name="destiny"] {
-  left: 490px;
-  top: 35px;
-  width: 27px;
-}
-
-input[name="fortune"] {
-  left: 490px;
-  top: 56px;
-  width: 27px;
-}
-
-input[name="resilience"] {
-  left: 537px;
-  top: 56px;
-  width: 52px;
-}
-
-input[name="resolution"] {
-  left: 588px;
-  top: 56px;
-  width: 58px;
-}
-
-input[name="motivation"] {
-  left: 645px;
-  top: 56px;
-  width: 57px;
-}
-
-input[name="exp_actual"] {
-  left: 721px;
-  top: 56px;
-  width: 43px;
-}
-
-input[name="exp_spent"] {
-  left: 765px;
-  top: 56px;
-  width: 43px;
-}
-
-input[name="exp_total"] {
-  left: 807px;
-  top: 56px;
-  width: 43px;
-}
-
-
-input[name="movement"] {
-  top: 125px;
-  left: 530px;
-  width: 52px;
-}
-
-input[name="walk"] {
-  top: 125px;
-  left: 659px;
-  width: 52px;
-}
-
-input[name="run"] {
-  top: 125px;
-  left: 788px;
-  width: 52px;
-}
-
-/** Section 3 **/
-
-.section-3 {
-  height: 22rem;
-}
-
-input[name="endurance"] {
-  top: 56px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="art"] {
-  top: 78px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="athletics"] {
-  top: 100px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="calm"] {
-  top: 122px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="charisma"] {
-  top: 144px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="animal_charisma"] {
-  top: 165px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="melee"] {
-  top: 187px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="close_combat"] {
-  top: 209px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="drive"] {
-  top: 231px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="to_drink_alcohol"] {
-  top: 253px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="gossip"] {
-  top: 275px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="entertain"] {
-  top: 297px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="climb"] {
-  top: 317px;
-  left: 222px;
-  width: 34px;
-}
-
-input[name="endurance_imp"] {
+    padding-top: 5px; }
+    .container-new input :focus, .container-new select :focus, .container-new textarea :focus {
+      border: none;
+      outline: none; }
+  .container-new .buttons-left, .container-new .sheet, .container-new .buttons-right {
+    vertical-align: top;
+    display: inline-block;
+    height: 100%; }
+  .container-new .buttons-left, .container-new .buttons-right {
+    min-width: 200px;
+    max-width: 200px; }
+    .container-new .buttons-left div, .container-new .buttons-right div {
+      width: 90%;
+      margin: 0 auto; }
+      .container-new .buttons-left div button, .container-new .buttons-right div button {
+        width: 100%; }
+  .container-new .sheet {
+    max-width: 920px;
+    min-width: 920px;
+    position: relative;
+    font-family: "ancient", sans-serif !important;
+    font-size: 1.3rem !important; }
+    .container-new .sheet input, .container-new .sheet select, .container-new .sheet textarea {
+      position: absolute;
+      height: 22px; }
+  .container-new .next {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 0; }
+    .container-new .next::before {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 0;
+      height: 0;
+      background: linear-gradient(45deg, white 45%, #aaa 50%, #ccc 60%, white);
+      transition-duration: 0.3s; }
+    .container-new .next:hover::before {
+      width: 100px;
+      height: 100px;
+      cursor: pointer; }
+  .container-new .section-1 {
+    height: 15rem; }
+    .container-new .section-1 .buttons-left-1 div {
+      height: 25%; }
+      .container-new .section-1 .buttons-left-1 div button {
+        margin-top: 11.35px; }
+    .container-new .section-1 input[name="name"] {
+      top: 141px;
+      left: 134px;
+      width: 321px; }
+    .container-new .section-1 select[name="races"] {
+      top: 141px;
+      left: 506px;
+      width: 147px; }
+    .container-new .section-1 select[name="class"] {
+      top: 141px;
+      left: 695px;
+      width: 143px; }
+    .container-new .section-1 input[name="profession"], .container-new .section-1 select[name="profession"] {
+      top: 164px;
+      left: 135px;
+      width: 323px; }
+    .container-new .section-1 input[name="previous_professions"] {
+      top: 184px;
+      left: 202px;
+      width: 454px; }
+    .container-new .section-1 input[name="status"] {
+      top: 184px;
+      left: 703px;
+      width: 136px; }
+    .container-new .section-1 input[name="age"] {
+      top: 209px;
+      left: 113px;
+      width: 158px; }
+    .container-new .section-1 input[name="height"] {
+      top: 209px;
+      left: 315px;
+      width: 141px; }
+    .container-new .section-1 input[name="hair"] {
+      top: 209px;
+      left: 542px;
+      width: 112px; }
+    .container-new .section-1 input[name="eyes"] {
+      top: 209px;
+      left: 739px;
+      width: 100px; }
+  .container-new .section-2 {
+    height: 10rem; }
+    .container-new .section-2 .buttons-left-2 div {
+      height: 50%; }
+      .container-new .section-2 .buttons-left-2 div button {
+        margin-top: 21px; }
+    .container-new .section-2 .buttons-left-2 .roll_characteristics div {
+      width: 20%;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center; }
+    .container-new .section-2 .buttons-right-2 .content_buttons, .container-new .section-2 .buttons-right-2 .content_info {
+      display: inline-block;
+      vertical-align: top;
+      height: 100%; }
+    .container-new .section-2 .buttons-right-2 .content_buttons {
+      width: 87%;
+      margin: initial; }
+      .container-new .section-2 .buttons-right-2 .content_buttons div {
+        height: 25%;
+        margin-top: 0.5px; }
+    .container-new .section-2 .buttons-right-2 .content_info {
+      width: 13%;
+      margin: initial; }
+      .container-new .section-2 .buttons-right-2 .content_info .extra_points {
+        border: 1px solid black;
+        width: 38px;
+        width: 38px;
+        margin-top: 57px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 2rem;
+        margin-left: 5px; }
+    .container-new .section-2 input[name="ha_ini"] {
+      top: 58px;
+      left: 142px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="hp_ini"] {
+      top: 58px;
+      left: 170px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="f_ini"] {
+      top: 58px;
+      left: 198px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="r_ini"] {
+      top: 58px;
+      left: 226px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ini_ini"] {
+      top: 58px;
+      left: 254px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ag_ini"] {
+      top: 58px;
+      left: 282px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="des_ini"] {
+      top: 58px;
+      left: 310px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="i_ini"] {
+      top: 58px;
+      left: 338px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="v_ini"] {
+      top: 58px;
+      left: 366px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="em_ini"] {
+      top: 58px;
+      left: 394px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ha_imp"] {
+      top: 88px;
+      left: 142px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="hp_imp"] {
+      top: 88px;
+      left: 170px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="f_imp"] {
+      top: 88px;
+      left: 198px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="r_imp"] {
+      top: 88px;
+      left: 226px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ini_imp"] {
+      top: 88px;
+      left: 254px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ag_imp"] {
+      top: 88px;
+      left: 282px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="des_imp"] {
+      top: 88px;
+      left: 310px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="i_imp"] {
+      top: 88px;
+      left: 338px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="v_imp"] {
+      top: 88px;
+      left: 366px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="em_imp"] {
+      top: 88px;
+      left: 394px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ha_total"] {
+      top: 117px;
+      left: 142px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="hp_total"] {
+      top: 117px;
+      left: 170px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="f_total"] {
+      top: 117px;
+      left: 198px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="r_total"] {
+      top: 117px;
+      left: 226px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ini_total"] {
+      top: 117px;
+      left: 254px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="ag_total"] {
+      top: 117px;
+      left: 282px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="des_total"] {
+      top: 117px;
+      left: 310px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="i_total"] {
+      top: 117px;
+      left: 338px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="v_total"] {
+      top: 117px;
+      left: 366px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="em_total"] {
+      top: 117px;
+      left: 394px;
+      width: 28px;
+      height: 29px; }
+    .container-new .section-2 input[name="destiny"] {
+      left: 490px;
+      top: 35px;
+      width: 27px; }
+    .container-new .section-2 input[name="fortune"] {
+      left: 490px;
+      top: 56px;
+      width: 27px; }
+    .container-new .section-2 input[name="resilience"] {
+      left: 537px;
+      top: 56px;
+      width: 52px; }
+    .container-new .section-2 input[name="resolution"] {
+      left: 588px;
+      top: 56px;
+      width: 58px; }
+    .container-new .section-2 input[name="motivation"] {
+      left: 645px;
+      top: 56px;
+      width: 57px; }
+    .container-new .section-2 input[name="exp_actual"] {
+      left: 721px;
+      top: 56px;
+      width: 43px; }
+    .container-new .section-2 input[name="exp_spent"] {
+      left: 765px;
+      top: 56px;
+      width: 43px; }
+    .container-new .section-2 input[name="exp_total"] {
+      left: 807px;
+      top: 56px;
+      width: 43px; }
+    .container-new .section-2 input[name="movement"] {
+      top: 125px;
+      left: 530px;
+      width: 52px; }
+    .container-new .section-2 input[name="walk"] {
+      top: 125px;
+      left: 659px;
+      width: 52px; }
+    .container-new .section-2 input[name="run"] {
+      top: 125px;
+      left: 788px;
+      width: 52px; }
+  .container-new .section-3 {
+    height: 22rem; }
+  .container-new input[name="endurance"] {
+    top: 56px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="art"] {
+    top: 78px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="athletics"] {
+    top: 100px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="calm"] {
+    top: 122px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="charisma"] {
+    top: 144px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="animal_charisma"] {
+    top: 165px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="melee"] {
+    top: 187px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="close_combat"] {
+    top: 209px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="drive"] {
+    top: 231px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="to_drink_alcohol"] {
+    top: 253px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="gossip"] {
+    top: 275px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="entertain"] {
+    top: 297px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="climb"] {
+    top: 317px;
+    left: 222px;
+    width: 34px; }
+  .container-new input[name="endurance_imp"] {
     top: 56px;
     left: 255px;
-    width: 28px;
-}
-
-input[name="art_imp"] {
-  top: 78px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="athletics_imp"] {
-  top: 100px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="calm_imp"] {
-  top: 122px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="charisma_imp"] {
-  top: 144px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="animal_charisma_imp"] {
-  top: 165px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="melee_imp"] {
-  top: 187px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="close_combat_imp"] {
-  top: 209px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="drive_imp"] {
-  top: 231px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="to_drink_alcohol_imp"] {
-  top: 253px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="gossip_imp"] {
-  top: 275px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="entertain_imp"] {
-  top: 297px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="climb_imp"] {
-  top: 317px;
-  left: 255px;
-  width: 28px;
-}
-
-input[name="endurance_hab"] {
+    width: 28px; }
+  .container-new input[name="art_imp"] {
+    top: 78px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="athletics_imp"] {
+    top: 100px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="calm_imp"] {
+    top: 122px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="charisma_imp"] {
+    top: 144px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="animal_charisma_imp"] {
+    top: 165px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="melee_imp"] {
+    top: 187px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="close_combat_imp"] {
+    top: 209px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="drive_imp"] {
+    top: 231px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="to_drink_alcohol_imp"] {
+    top: 253px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="gossip_imp"] {
+    top: 275px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="entertain_imp"] {
+    top: 297px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="climb_imp"] {
+    top: 317px;
+    left: 255px;
+    width: 28px; }
+  .container-new input[name="endurance_hab"] {
     top: 56px;
     left: 282px;
-    width: 44px;
-}
-
-input[name="art_hab"] {
-  top: 78px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="athletics_hab"] {
-  top: 100px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="calm_hab"] {
-  top: 122px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="charisma_hab"] {
-  top: 144px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="animal_charisma_hab"] {
-  top: 165px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="melee_hab"] {
-  top: 187px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="close_combat_hab"] {
-  top: 209px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="drive_hab"] {
-  top: 231px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="to_drink_alcohol_hab"] {
-  top: 253px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="gossip_hab"] {
-  top: 275px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="entertain_hab"] {
-  top: 297px;
-  left: 282px;
-  width: 44px;
-}
-
-input[name="climb_hab"] {
-  top: 317px;
-  left: 282px;
-  width: 44px;
-}
-
-/**/
-
-input[name="dodge"] {
-  top: 56px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="intimidate"] {
-  top: 78px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="intuition"] {
-  top: 100px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="play"] {
-  top: 122px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="leadership"] {
-  top: 144px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="mount"] {
-  top: 165px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="orientation"] {
-  top: 187px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="perception"] {
-  top: 209px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="bargain"] {
-  top: 231px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="row"] {
-  top: 253px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="stealth"] {
-  top: 275px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="bribe"] {
-  top: 297px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="survival"] {
-  top: 317px;
-  left: 483px;
-  width: 34px;
-}
-
-input[name="dodge_imp"] {
-  top: 56px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="intimidate_imp"] {
-  top: 78px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="intuition_imp"] {
-  top: 100px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="play_imp"] {
-  top: 122px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="leadership_imp"] {
-  top: 144px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="mount_imp"] {
-  top: 165px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="orientation_imp"] {
-  top: 187px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="perception_imp"] {
-  top: 209px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="bargain_imp"] {
-  top: 231px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="row_imp"] {
-  top: 253px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="stealth_imp"] {
-  top: 275px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="bribe_imp"] {
-  top: 297px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="survival_imp"] {
-  top: 317px;
-  left: 516px;
-  width: 28px;
-}
-
-input[name="dodge_hab"] {
-  top: 56px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="intimidate_hab"] {
-  top: 78px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="intuition_hab"] {
-  top: 100px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="play_hab"] {
-  top: 122px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="leadership_hab"] {
-  top: 144px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="mount_hab"] {
-  top: 165px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="orientation_hab"] {
-  top: 187px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="perception_hab"] {
-  top: 209px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="bargain_hab"] {
-  top: 231px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="row_hab"] {
-  top: 253px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="stealth_hab"] {
-  top: 275px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="bribe_hab"] {
-  top: 297px;
-  left: 543px;
-  width: 44px;
-}
-
-input[name="survival_hab"] {
-  top: 317px;
-  left: 543px;
-  width: 44px;
-}
-
-.advanced_skills_list {
-  position: absolute;
-  top: 56px;
-  left: 598px;
-  width: 271px;
-  height: 283px;
-  overflow-y: auto;
-}
-
-.advanced_skills_list .advanced_skill {
-  height: 22px;
-}
-
-.advanced_skills_list .advanced_skill .advanced_skills_name {
-  height: 22px;
-  width: 105px;
-}
-
-.advanced_skills_list .advanced_skill .advanced_skills_characteristics {
+    width: 44px; }
+  .container-new input[name="art_hab"] {
+    top: 78px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="athletics_hab"] {
+    top: 100px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="calm_hab"] {
+    top: 122px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="charisma_hab"] {
+    top: 144px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="animal_charisma_hab"] {
+    top: 165px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="melee_hab"] {
+    top: 187px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="close_combat_hab"] {
+    top: 209px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="drive_hab"] {
+    top: 231px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="to_drink_alcohol_hab"] {
+    top: 253px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="gossip_hab"] {
+    top: 275px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="entertain_hab"] {
+    top: 297px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="climb_hab"] {
+    top: 317px;
+    left: 282px;
+    width: 44px; }
+  .container-new input[name="dodge"] {
+    top: 56px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="intimidate"] {
+    top: 78px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="intuition"] {
+    top: 100px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="play"] {
+    top: 122px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="leadership"] {
+    top: 144px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="mount"] {
+    top: 165px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="orientation"] {
+    top: 187px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="perception"] {
+    top: 209px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="bargain"] {
+    top: 231px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="row"] {
+    top: 253px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="stealth"] {
+    top: 275px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="bribe"] {
+    top: 297px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="survival"] {
+    top: 317px;
+    left: 483px;
+    width: 34px; }
+  .container-new input[name="dodge_imp"] {
+    top: 56px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="intimidate_imp"] {
+    top: 78px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="intuition_imp"] {
+    top: 100px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="play_imp"] {
+    top: 122px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="leadership_imp"] {
+    top: 144px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="mount_imp"] {
+    top: 165px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="orientation_imp"] {
+    top: 187px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="perception_imp"] {
+    top: 209px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="bargain_imp"] {
+    top: 231px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="row_imp"] {
+    top: 253px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="stealth_imp"] {
+    top: 275px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="bribe_imp"] {
+    top: 297px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="survival_imp"] {
+    top: 317px;
+    left: 516px;
+    width: 28px; }
+  .container-new input[name="dodge_hab"] {
+    top: 56px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="intimidate_hab"] {
+    top: 78px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="intuition_hab"] {
+    top: 100px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="play_hab"] {
+    top: 122px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="leadership_hab"] {
+    top: 144px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="mount_hab"] {
+    top: 165px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="orientation_hab"] {
+    top: 187px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="perception_hab"] {
+    top: 209px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="bargain_hab"] {
+    top: 231px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="row_hab"] {
+    top: 253px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="stealth_hab"] {
+    top: 275px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="bribe_hab"] {
+    top: 297px;
+    left: 543px;
+    width: 44px; }
+  .container-new input[name="survival_hab"] {
+    top: 317px;
+    left: 543px;
+    width: 44px; }
+  .container-new .advanced_skills_list {
+    position: absolute;
+    top: 56px;
+    left: 598px;
+    width: 271px;
+    height: 283px;
+    overflow-y: auto; }
+  .container-new .advanced_skills_list .advanced_skill {
+    height: 22px; }
+  .container-new .advanced_skills_list .advanced_skill .advanced_skills_name {
+    height: 22px;
+    width: 105px; }
+  .container-new .advanced_skills_list .advanced_skill .advanced_skills_characteristics {
     left: 106px;
     width: 39px;
-    height: 22px;
-}
-
-.advanced_skills_list .advanced_skill .advanced_skills_characteristics_level {
+    height: 22px; }
+  .container-new .advanced_skills_list .advanced_skill .advanced_skills_characteristics_level {
     left: 145px;
     width: 34px;
-    height: 22px;
-}
-
-.advanced_skills_list .advanced_skill .advanced_skills_imp {
+    height: 22px; }
+  .container-new .advanced_skills_list .advanced_skill .advanced_skills_imp {
     left: 179px;
     width: 27px;
-    height: 22px;
-}
-
-.advanced_skills_list .advanced_skill .advanced_skills_hab {
+    height: 22px; }
+  .container-new .advanced_skills_list .advanced_skill .advanced_skills_hab {
     left: 206px;
     width: 47px;
-    height: 22px;
-}
-
-/** Section 4 **/
-
-.section-4 {
-  height: 25rem;
-}
-
-/** Section 5 **/
-
-.section-5 {
-  height: 25rem;
-}
+    height: 22px; }
+  .container-new .section-4 {
+    height: 25rem; }
+    .container-new .section-4 .talents_list {
+      height: 284px;
+      width: 401px;
+      position: absolute;
+      top: 75px;
+      left: 63px;
+      overflow-y: auto; }
+      .container-new .section-4 .talents_list .talent {
+        height: 22px;
+        width: 384px; }
+        .container-new .section-4 .talents_list .talent .talent_name {
+          height: 22px;
+          width: 135px; }
+        .container-new .section-4 .talents_list .talent .talent_level {
+          left: 135px;
+          width: 50px; }
+        .container-new .section-4 .talents_list .talent .talent_description {
+          left: 185px;
+          width: 194px; }
+    .container-new .section-4 textarea[name="self_short_ambitions"] {
+      top: 33px;
+      left: 499px;
+      width: 358px;
+      height: 53px;
+      resize: none;
+      overflow-y: auto;
+      text-align: left; }
+    .container-new .section-4 textarea[name="self_long_ambitions"] {
+      top: 85px;
+      left: 499px;
+      width: 358px;
+      height: 53px;
+      resize: none;
+      overflow-y: auto;
+      text-align: left; }
+    .container-new .section-4 input[name="group_name"] {
+      left: 554px;
+      top: 185px;
+      width: 286px; }
+    .container-new .section-4 textarea[name="group_short_ambitions"] {
+      top: 209px;
+      left: 554px;
+      width: 286px;
+      height: 50px; }
+    .container-new .section-4 textarea[name="group_long_ambitions"] {
+      top: 260px;
+      left: 554px;
+      width: 286px;
+      height: 50px; }
+    .container-new .section-4 textarea[name="group_members"] {
+      top: 310px;
+      left: 554px;
+      width: 286px;
+      height: 42px; }
+  .container-new .section-5 {
+    height: 25rem; }

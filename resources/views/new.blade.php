@@ -48,6 +48,7 @@
     <div class="section section-2">
         <div class="buttons-left buttons-left-2">
             <div class="random_roll"><button class="btn btn-primary" disabled>Selecciona raza</button></div>
+            <div class="random_characteristics"><button class="btn btn-primary" disabled>Selecciona raza</button></div>
             <div class="roll_characteristics">
                 <div class="roll_ha"></div>
                 <div class="roll_hp"></div>
@@ -60,7 +61,6 @@
                 <div class="roll_v"></div>
                 <div class="roll_em"></div>
             </div>
-            <div class="random_characteristics"><button class="btn btn-primary" disabled>Selecciona raza</button></div>
             <div class="career_characteristics">
                 <div class="career_characteristics-1 career-1"></div>
                 <div class="career_characteristics-2 career-2"></div>
@@ -223,6 +223,19 @@
         <div class="buttons-left buttons-left-4">       
         </div>
         <div class="sheet sheet-4">
+            <div class="talents_list">
+                <div class="talent">
+                    <input type="text" class="talent_name" name="talent_name_1" disabled>
+                    <input type="text" class="talent_level" name="talent_level_1" disabled>
+                    <input type="text" class="talent_description" name="talent_description_1" disabled>
+                </div>
+            </div>
+            <textarea name="self_short_ambitions"></textarea>
+            <textarea name="self_long_ambitions"></textarea>
+            <input name="group_name"/>
+            <textarea name="group_short_ambitions"></textarea>
+            <textarea name="group_long_ambitions"></textarea>
+            <textarea name="group_members"></textarea>
         </div>
         <div class="buttons-right buttons-right-4">       
         </div>
