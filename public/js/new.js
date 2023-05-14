@@ -3,7 +3,7 @@ $(window).ready(function() {
     $('.roll_characteristics').hide();
     Page();
     Race();
-    Class();
+    Category();
     Age();
     Height();
     Hair();
@@ -27,8 +27,8 @@ function Page()
 function Race()
 {
     $('select[name="races"]').on('change', function() {
-       // $('input[name="class"]').remove();
-       // $('select[name="class"]').remove();
+       // $('input[name="category"]').remove();
+       // $('select[name="category"]').remove();
         RestartRace();
         $.ajax({
             url: 'new-swap-race',
@@ -38,12 +38,8 @@ function Race()
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(response) {
-                $.each(response.race_characteristic, function(index, race_characteristic) {
-                    $.each(response.characteristic, function(index, characteristic) {
-                        if(race_characteristic.id_characteristic == characteristic.id_characteristic) {
-                            $('input[name="' + characteristic.abbreviation.toLowerCase() + '_ini"]').val(race_characteristic.value);
-                        }
-                    });
+                $.each(response.race.characteristics, function(index, race_characteristic) {
+                    $('input[name="' + race_characteristic.abbreviation.toLowerCase() + '_ini"]').val(race_characteristic.pivot.value);
                 });
                 $('input[name="destiny"]').val(response.race.destiny);
                 $('input[name="fortune"]').val(response.race.destiny);
@@ -65,12 +61,12 @@ function Race()
     });
 }
 
-function Class()
+function Category()
 {
-    $('select[name="class"]').on('change', function() {
+    $('select[name="category"]').on('change', function() {
         $('input[name="profession"]').remove();
         $('select[name="profession"]').remove();
-        if( $('select[name="class"]').val() == 0)
+        if( $('select[name="category"]').val() == 0)
         {
             var input = $('<input>').attr({
                 type: 'text',
@@ -85,7 +81,7 @@ function Class()
             $.ajax({
                 url: 'new-swap-class',
                 type: "POST",
-                data: { id_race: $('select[name="races"]').val(), id_class: $('select[name="class"]').val() },
+                data: { id_race: $('select[name="races"]').val(), id_category: $('select[name="category"]').val() },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

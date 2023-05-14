@@ -32,7 +32,7 @@ Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'
 Route::post('/new-swap-class', [App\Http\Controllers\NewController::class, 'class'])->name('new-swap-class');
 Route::post('/new-swap-profession', [App\Http\Controllers\NewController::class, 'profession'])->name('new-swap-profession');
 Route::post('/new-random-age', [App\Http\Controllers\NewController::class, 'age'])->name('new-random-age');
-Route::post('/new-random-height', [App\Http\Controllers\NewController::class, 'age'])->name('new-random-age');
+Route::post('/new-random-height', [App\Http\Controllers\NewController::class, 'height'])->name('new-random-height');
 Route::post('/new-random-hair', [App\Http\Controllers\NewController::class, 'hair'])->name('new-random-hair');
 Route::post('/new-random-eye', [App\Http\Controllers\NewController::class, 'eye'])->name('new-random-eye');
 Route::post('/new-random-characteristic', [App\Http\Controllers\NewController::class, 'characteristic'])->name('new-random-characteristic');

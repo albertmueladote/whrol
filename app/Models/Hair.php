@@ -11,13 +11,8 @@ class Hair extends Model
     protected $table = 'hair';
     protected $primaryKey = 'id_hair';
 
-    public function get($id_hair)
+    public function races()
     {
-        return Hair::where('id_hair', $id_hair)->first();  
-    }
-
-    public function getAll()
-    {
-        return Hair::All();
+        return $this->belongsToMany(Race::class, 'race_hair', 'id_hair', 'id_race');
     }
 }

@@ -27,10 +27,10 @@
                 }
                 @endforeach
             </select>
-            <select name="class">
+            <select name="category">
                 <option value="0">- Clase -</option>
-                @foreach ($class as $c)
-                    <option value="{{$c->id_class}}">{{$c->name}}</option>
+                @foreach ($category as $c)
+                    <option value="{{$c->id_category}}">{{$c->name}}</option>
                 @endforeach
             </select>
             <input type="text" name="profession" value="Selecciona clase" disabled>
@@ -128,89 +128,89 @@
         <div class="buttons-left buttons-left-3">       
         </div>
         <div class="sheet sheet-3">
-            <input type="text" name="endurance" disabled>
-            <input type="text" name="art" disabled>
-            <input type="text" name="athletics" disabled>
-            <input type="text" name="calm" disabled>
-            <input type="text" name="charisma" disabled>
-            <input type="text" name="animal_charisma" disabled>
-            <input type="text" name="melee" disabled>
-            <input type="text" name="close_combat" disabled>
-            <input type="text" name="drive" disabled>
-            <input type="text" name="to_drink_alcohol" disabled>
-            <input type="text" name="entertain" disabled>
-            <input type="text" name="gossip" disabled>
-            <input type="text" name="climb" disabled>
-            <input type="text" name="endurance_imp" disabled>
-            <input type="text" name="art_imp" disabled>
-            <input type="text" name="athletics_imp" disabled>
-            <input type="text" name="calm_imp" disabled>
-            <input type="text" name="charisma_imp" disabled>
-            <input type="text" name="animal_charisma_imp" disabled>
-            <input type="text" name="melee_imp" disabled>
-            <input type="text" name="close_combat_imp" disabled>
-            <input type="text" name="drive_imp" disabled>
-            <input type="text" name="to_drink_alcohol_imp" disabled>
-            <input type="text" name="gossip_imp" disabled>
-            <input type="text" name="entertain_imp" disabled>
-            <input type="text" name="climb_imp" disabled>
-            <input type="text" name="endurance_hab" disabled>
-            <input type="text" name="art_hab" disabled>
-            <input type="text" name="athletics_hab" disabled>
-            <input type="text" name="calm_hab" disabled>
-            <input type="text" name="charisma_hab" disabled>
-            <input type="text" name="animal_charisma_hab" disabled>
-            <input type="text" name="melee_hab" disabled>
-            <input type="text" name="close_combat_hab" disabled>
-            <input type="text" name="drive_hab" disabled>
-            <input type="text" name="to_drink_alcohol_hab" disabled>
-            <input type="text" name="gossip_hab" disabled>
-            <input type="text" name="entertain_hab" disabled>
-            <input type="text" name="climb_hab" disabled>
-            <input type="text" name="dodge" disabled>
-            <input type="text" name="intimidate" disabled>
-            <input type="text" name="intuition" disabled>
-            <input type="text" name="play" disabled>
-            <input type="text" name="leadership" disabled>
-            <input type="text" name="mount" disabled>
-            <input type="text" name="orientation" disabled>
-            <input type="text" name="perception" disabled>
-            <input type="text" name="bargain" disabled>
-            <input type="text" name="row" disabled>
-            <input type="text" name="stealth" disabled>
-            <input type="text" name="bribe" disabled>
-            <input type="text" name="survival" disabled>
-            <input type="text" name="dodge_imp" disabled>
-            <input type="text" name="intimidate_imp" disabled>
-            <input type="text" name="intuition_imp" disabled>
-            <input type="text" name="play_imp" disabled>
-            <input type="text" name="leadership_imp" disabled>
-            <input type="text" name="mount_imp" disabled>
-            <input type="text" name="orientation_imp" disabled>
-            <input type="text" name="perception_imp" disabled>
-            <input type="text" name="bargain_imp" disabled>
-            <input type="text" name="row_imp" disabled>
-            <input type="text" name="stealth_imp" disabled>
-            <input type="text" name="bribe_imp" disabled>
-            <input type="text" name="survival_imp" disabled>
-            <input type="text" name="dodge_hab" disabled>
-            <input type="text" name="intimidate_hab" disabled>
-            <input type="text" name="intuition_hab" disabled>
-            <input type="text" name="play_hab" disabled>
-            <input type="text" name="leadership_hab" disabled>
-            <input type="text" name="mount_hab" disabled>
-            <input type="text" name="orientation_hab" disabled>
-            <input type="text" name="perception_hab" disabled>
-            <input type="text" name="bargain_hab" disabled>
-            <input type="text" name="row_hab" disabled>
-            <input type="text" name="stealth_hab" disabled>
-            <input type="text" name="bribe_hab" disabled>
-            <input type="text" name="survival_hab" disabled>
+            <input type="text" name="endurance" data-value="0" disabled>
+            <input type="text" name="art" data-value="0" disabled>
+            <input type="text" name="athletics" data-value="0" disabled>
+            <input type="text" name="calm" data-value="0" disabled>
+            <input type="text" name="charisma" data-value="0" disabled>
+            <input type="text" name="animal_charisma" data-value="0" disabled>
+            <input type="text" name="melee" data-value="0" disabled>
+            <input type="text" name="close_combat" data-value="0" disabled>
+            <input type="text" name="drive" data-value="0" disabled>
+            <input type="text" name="to_drink_alcohol" data-value="0" disabled>
+            <input type="text" name="entertain" data-value="0" disabled>
+            <input type="text" name="gossip" data-value="0" disabled>
+            <input type="text" name="climb" data-value="0" disabled>
+            <input type="text" name="endurance_imp" data-value="0" disabled>
+            <input type="text" name="art_imp" data-value="0" disabled>
+            <input type="text" name="athletics_imp" data-value="0" disabled>
+            <input type="text" name="calm_imp" data-value="0" disabled>
+            <input type="text" name="charisma_imp" data-value="0" disabled>
+            <input type="text" name="animal_charisma_imp" data-value="0" disabled>
+            <input type="text" name="melee_imp" data-value="0" disabled>
+            <input type="text" name="close_combat_imp" data-value="0" disabled>
+            <input type="text" name="drive_imp" data-value="0" disabled>
+            <input type="text" name="to_drink_alcohol_imp" data-value="0" disabled>
+            <input type="text" name="gossip_imp" data-value="0" disabled>
+            <input type="text" name="entertain_imp" data-value="0" disabled>
+            <input type="text" name="climb_imp" data-value="0" disabled>
+            <input type="text" name="endurance_hab" data-value="0" disabled>
+            <input type="text" name="art_hab" data-value="0" disabled>
+            <input type="text" name="athletics_hab" data-value="0" disabled>
+            <input type="text" name="calm_hab" data-value="0" disabled>
+            <input type="text" name="charisma_hab" data-value="0" disabled>
+            <input type="text" name="animal_charisma_hab" data-value="0" disabled>
+            <input type="text" name="melee_hab" data-value="0" disabled>
+            <input type="text" name="close_combat_hab" data-value="0" disabled>
+            <input type="text" name="drive_hab" data-value="0" disabled>
+            <input type="text" name="to_drink_alcohol_hab" data-value="0" disabled>
+            <input type="text" name="gossip_hab" data-value="0" disabled>
+            <input type="text" name="entertain_hab" data-value="0" disabled>
+            <input type="text" name="climb_hab" data-value="0" disabled>
+            <input type="text" name="dodge" data-value="0" disabled>
+            <input type="text" name="intimidate" data-value="0" disabled>
+            <input type="text" name="intuition" data-value="0" disabled>
+            <input type="text" name="play" data-value="0" disabled>
+            <input type="text" name="leadership" data-value="0" disabled>
+            <input type="text" name="mount" data-value="0" disabled>
+            <input type="text" name="orientation" data-value="0" disabled>
+            <input type="text" name="perception" data-value="0" disabled>
+            <input type="text" name="bargain" data-value="0" disabled>
+            <input type="text" name="row" data-value="0" disabled>
+            <input type="text" name="stealth" data-value="0" disabled>
+            <input type="text" name="bribe" data-value="0" disabled>
+            <input type="text" name="survival" data-value="0" disabled>
+            <input type="text" name="dodge_imp" data-value="0" disabled>
+            <input type="text" name="intimidate_imp" data-value="0" disabled>
+            <input type="text" name="intuition_imp" data-value="0" disabled>
+            <input type="text" name="play_imp" data-value="0" disabled>
+            <input type="text" name="leadership_imp" data-value="0" disabled>
+            <input type="text" name="mount_imp" data-value="0" disabled>
+            <input type="text" name="orientation_imp" data-value="0" disabled>
+            <input type="text" name="perception_imp" data-value="0" disabled>
+            <input type="text" name="bargain_imp" data-value="0" disabled>
+            <input type="text" name="row_imp" data-value="0" disabled>
+            <input type="text" name="stealth_imp" data-value="0" disabled>
+            <input type="text" name="bribe_imp" data-value="0" disabled>
+            <input type="text" name="survival_imp" data-value="0" disabled>
+            <input type="text" name="dodge_hab" data-value="0" disabled>
+            <input type="text" name="intimidate_hab" data-value="0" disabled>
+            <input type="text" name="intuition_hab" data-value="0" disabled>
+            <input type="text" name="play_hab" data-value="0" disabled>
+            <input type="text" name="leadership_hab" data-value="0" disabled>
+            <input type="text" name="mount_hab" data-value="0" disabled>
+            <input type="text" name="orientation_hab" data-value="0" disabled>
+            <input type="text" name="perception_hab" data-value="0" disabled>
+            <input type="text" name="bargain_hab" data-value="0" disabled>
+            <input type="text" name="row_hab" data-value="0" disabled>
+            <input type="text" name="stealth_hab" data-value="0" disabled>
+            <input type="text" name="bribe_hab" data-value="0" disabled>
+            <input type="text" name="survival_hab" data-value="0" disabled>
             <div class="advanced_skills_list">
                 <div class="advanced_skill">
                     <input type="text" class="advanced_skills_name" name="advanced_skills_name_1" disabled>
                     <input type="text" class="advanced_skills_characteristics" name="advanced_skills_characteristics_1" disabled>
-                    <input type="text" class="advanced_skills_characteristics_level" name="advanced_skills_characteristics_level_1" disabled>
+                    <input type="text" class="advanced_skills_characteristics_level" data-value="0" name="advanced_skills_characteristics_level_1" disabled>
                     <input type="text" class="advanced_skills_imp" name="advanced_skills_imp_1" disabled>
                     <input type="text" class="advanced_skills_hab" name="advanced_skills_hab_1" disabled>
                 </div>
@@ -226,16 +226,16 @@
             <div class="talents_list">
                 <div class="talent">
                     <input type="text" class="talent_name" name="talent_name_1" disabled>
-                    <input type="text" class="talent_level" name="talent_level_1" disabled>
+                    <input type="text" class="talent_level" data-value="0" name="talent_level_1" disabled>
                     <input type="text" class="talent_description" name="talent_description_1" disabled>
                 </div>
             </div>
             <textarea name="self_short_ambitions"></textarea>
             <textarea name="self_long_ambitions"></textarea>
-            <input name="group_name"/>
-            <textarea name="group_short_ambitions"></textarea>
-            <textarea name="group_long_ambitions"></textarea>
-            <textarea name="group_members"></textarea>
+            <input name="group_name" disabled />
+            <textarea name="group_short_ambitions" disabled></textarea>
+            <textarea name="group_long_ambitions" disabled></textarea>
+            <textarea name="group_members" disabled></textarea>
         </div>
         <div class="buttons-right buttons-right-4">       
         </div>

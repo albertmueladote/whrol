@@ -11,13 +11,8 @@ class BasicSpecialization extends Model
     protected $table = 'basic_specialization';
     protected $primaryKey = 'id_basic_specialization';
 
-    public function get($id_basic_specialization)
+    public function basicHabilities()
     {
-        return BasicSpecialization::where('id_basic_specialization', $id_basic_specialization)->get();
-    }
-
-    public function getAll()
-    {
-        return BasicSpecialization::All();
+        return $this->hasMany(BasicHability::class, 'id_basic_specialization');
     }
 }

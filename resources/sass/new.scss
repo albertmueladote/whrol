@@ -110,7 +110,7 @@
       width: 147px;
     }
 
-    select[name="class"] {
+    select[name="category"] {
       top: 141px;
       left: 695px;
       width: 143px;
@@ -120,6 +120,12 @@
       top: 164px;
       left: 135px;
       width: 323px;
+    }
+
+    input[name="estate"]{
+      top: 164px;
+      left: 525px;
+      width: 314px;
     }
 
     input[name="previous_professions"] {
@@ -162,18 +168,26 @@
   .section-2 {
     height: 10rem;
     .buttons-left-2 div{
-      height: 50%;
+      height: 30%;
       button{
-        margin-top: 21px;
+        margin-top: 10px;
       }
     }
 
     .buttons-left-2 {
-      .roll_characteristics div {
-        width: 20%;
-        display: inline-block;
-        vertical-align: top;
-        text-align: center;
+      .roll_characteristics {
+        margin-top: 10px;
+        div {
+          width: 20%;
+          height: 48%;
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+          cursor: pointer;
+          &.used {
+            background-color: #e27d7d;
+          }
+        }
       }
     }
 

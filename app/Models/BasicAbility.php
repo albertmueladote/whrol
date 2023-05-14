@@ -11,13 +11,18 @@ class BasicAbility extends Model
     protected $table = 'basic_ability';
     protected $primaryKey = 'id_basic_ability';
 
-    public function get($id_basic_ability)
+    public function careerPaths()
     {
-        return CareerPath::where('id_basic_ability', $id_basic_ability)->get();
+        return $this->belongsToMany(CareerPath::class, 'career_path_basic_ability', 'id_basic_ability', 'id_career_path');
     }
 
-    public function getAll()
+    public function races()
     {
-        return BasicAbility::All();
+        return $this->belongsToMany(Race::class, 'race_basic_ability', 'id_basic_ability', 'id_race')->withPivot('id_basic_specialization');
+    }
+
+    public function basicSpecialization()
+    {
+        return $this->belongsTo(BasicSpecialization::class, 'id_basic_specialization');
     }
 }

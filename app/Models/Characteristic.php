@@ -11,13 +11,13 @@ class Characteristic extends Model
     protected $table = 'characteristic';
     protected $primaryKey = 'id_characteristic';
 
-    public function get($id_characteristic)
+    public function careerPaths()
     {
-        return Characteristic::where('id_characteristic', $id_characteristic)->get();
+        return $this->belongsToMany(CareerPath::class, 'career_path_characteristic', 'id_characteristic', 'id_career_path');
     }
 
-    public function getAll()
+    public function races() 
     {
-        return Characteristic::All();
+        return $this->belongsToMany(Race::class, 'race_characteristic', 'id_characteristic', 'id_race');
     }
 }

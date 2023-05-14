@@ -11,23 +11,18 @@ class Profession extends Model
     protected $table = 'profession';
     protected $primaryKey = 'id_profession';
 
-    public function get($id_profession)
+    public function categories() 
     {
-        return Profession::where('id_profession', $id_profession)->first();  
+        return $this->belongsTo(Category::class, 'id_profession', 'id_category');
     }
 
-    public function getAll()
+    public function careerPaths() 
     {
-        return Profession::All();
+        return $this->hasMany(CareerPath::class, 'id_profession', 'id_profession');
     }
 
-    public function getClass($id_class)
+    public function races()
     {
-         return Profession::where('id_class', $id_class)->get(); 
-    }
-
-    public function getProfessionRaceProfession($id_race, $id_class)
-    {
-        return Profession::where('race_profession.id_race', $id_race)->where('profession.id_class', $id_class)->join('race_profession', 'race_profession.id_profession', '=', 'profession.id_profession')->get(); 
+        return $this->belongsToMany(Race::class, 'race_profession', 'id_profession', 'id_race');
     }
 }
