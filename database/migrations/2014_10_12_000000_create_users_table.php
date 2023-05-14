@@ -26,7 +26,7 @@ return new class extends Migration
                 'name' => 'Albert Muela Dote', 
                 'email' => 'albertmueladote@gmail.com', 
                 'email_verified_at' => null, 
-                'password' => '894QZXCZ2yt6dZkpuuE.GHM1cQZKaOYeAUcmaTXKAQ4mV9xcW', 
+                'password' => bcrypt('1988Akalian!'), 
                 'created_at' => date('Y-m-d H:i:s'), 
                 'updated_at' => date('Y-m-d H:i:s')
             ]
