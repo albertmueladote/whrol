@@ -11,7 +11,7 @@ class Category extends Model
     protected $table = 'category';
     protected $primaryKey = 'id_category';
 
-    public function professions() 
+    public function professions()
     {
         return $this->hasMany(Profession::class, 'id_category', 'id_category');
     }

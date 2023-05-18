@@ -16,7 +16,7 @@ class CareerPath extends Model
         return CareerPath::where('id_profession', $id_profession)->get();
     }
 
-    public function professions() 
+    public function professions()
     {
         return $this->belongsTo(Profession::class, 'id_profession', 'id_profession');
     }

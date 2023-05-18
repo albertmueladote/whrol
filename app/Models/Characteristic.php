@@ -16,7 +16,7 @@ class Characteristic extends Model
         return $this->belongsToMany(CareerPath::class, 'career_path_characteristic', 'id_characteristic', 'id_career_path');
     }
 
-    public function races() 
+    public function races()
     {
         return $this->belongsToMany(Race::class, 'race_characteristic', 'id_characteristic', 'id_race');
     }

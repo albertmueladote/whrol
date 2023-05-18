@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Race;
-use App\Models\Characteristic;
-use App\Models\Profession;
-use App\Models\Eye;
-use App\Models\Hair;
-use App\Models\Category;
-use App\Models\CareerPath;
 use App\Models\BasicAbility;
 use App\Models\BasicSpecialization;
-use App\Models\RaceProfession;
+use App\Models\CareerPath;
+use App\Models\Category;
+use App\Models\Characteristic;
+use App\Models\Eye;
+use App\Models\Hair;
+use App\Models\Profession;
+use App\Models\Race;
 
 class NewController extends Controller
 {
@@ -33,7 +32,7 @@ class NewController extends Controller
     /**
      * 
      */
-    public function class(Request $request)
+    public function class (Request $request)
     {
         $category = Category::where('id_category', $request->id_category)->firstOrFail();
         $id_race = $request->id_race;
@@ -69,7 +68,7 @@ class NewController extends Controller
     /**
      * 
      */
-    public function hair(Request $request) 
+    public function hair(Request $request)
     {
         $race = Race::find($request->id_race);
         return $race->hairs[rand(0, sizeof($race->hairs) - 1)];
@@ -78,7 +77,7 @@ class NewController extends Controller
     /**
      * 
      */
-    public function eye(Request $request) 
+    public function eye(Request $request)
     {
         $race = Race::find($request->id_race);
         return $race->eyes[rand(0, sizeof($race->eyes) - 1)];
@@ -91,9 +90,8 @@ class NewController extends Controller
     {
         $characteristics = Characteristic::All();
         $characteristic = [];
-        foreach($characteristics AS $ch)
-        {
-            $characteristic[strtolower($ch->abbreviation)] = rand(1,20);
+        foreach ($characteristics as $ch) {
+            $characteristic[strtolower($ch->abbreviation)] = rand(1, 20);
         }
         return $characteristic;
     }

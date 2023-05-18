@@ -11,12 +11,12 @@ class Profession extends Model
     protected $table = 'profession';
     protected $primaryKey = 'id_profession';
 
-    public function categories() 
+    public function categories()
     {
         return $this->belongsTo(Category::class, 'id_profession', 'id_category');
     }
 
-    public function careerPaths() 
+    public function careerPaths()
     {
         return $this->hasMany(CareerPath::class, 'id_profession', 'id_profession');
     }

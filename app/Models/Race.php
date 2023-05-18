@@ -16,7 +16,7 @@ class Race extends Model
         return $this->belongsToMany(Profession::class, 'race_profession', 'id_race', 'id_profession');
     }
 
-    public function hairs() 
+    public function hairs()
     {
         return $this->belongsToMany(Hair::class, 'race_hair', 'id_race', 'id_hair');
     }
@@ -36,7 +36,7 @@ class Race extends Model
         return $this->belongsToMany(BasicHability::class, 'race_basic_hability', 'id_race', 'id_basic_hability')->withPivot('id_basic_specialization');
     }
 
-    public function characteristics() 
+    public function characteristics()
     {
         return $this->belongsToMany(Characteristic::class, 'race_characteristic', 'id_race', 'id_characteristic')->withPivot('value');
     }
