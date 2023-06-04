@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\BasicAbility;
-use App\Models\BasicSpecialization;
-use App\Models\CareerPath;
 use App\Models\Category;
 use App\Models\Characteristic;
-use App\Models\Eye;
-use App\Models\Hair;
 use App\Models\Profession;
 use App\Models\Race;
 
@@ -18,6 +13,15 @@ class NewController extends Controller
     public function new()
     {
         return view('new')->with('race', Race::All())->with('category', Category::All());
+    }
+
+    /**
+     * 
+     */
+    public function races(Request $request)
+    {
+        $races = Race::all();
+        return array('races' => $races);
     }
 
     /**
@@ -32,7 +36,7 @@ class NewController extends Controller
     /**
      * 
      */
-    public function class (Request $request)
+    public function category(Request $request)
     {
         $category = Category::where('id_category', $request->id_category)->firstOrFail();
         $id_race = $request->id_race;

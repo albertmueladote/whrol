@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-	"prod": "NODE_ENV=production node_modules/.bin/vite build --mode production",
+        "prod": "NODE_ENV=production node_modules/.bin/vite build --mode production",
         "build": "vite build"
     },
     "devDependencies": {
@@ -10,6 +10,8 @@
         "@vitejs/plugin-vue": "^4.0.0",
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
+        "eslint": "^8.40.0",
+        "eslint-plugin-vue": "^9.13.0",
         "laravel-vite-plugin": "^0.7.2",
         "sass": "^1.56.1",
         "vite": "^4.2.2",

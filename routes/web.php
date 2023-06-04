@@ -28,8 +28,9 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 
 Route::get('/new', [App\Http\Controllers\NewController::class, 'new'])->name('new');
 
+Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'races'])->name('races');
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');
-Route::post('/new-swap-class', [App\Http\Controllers\NewController::class, 'class'])->name('new-swap-class');
+Route::post('/new-swap-class', [App\Http\Controllers\NewController::class, 'category'])->name('new-swap-class');
 Route::post('/new-swap-profession', [App\Http\Controllers\NewController::class, 'profession'])->name('new-swap-profession');
 Route::post('/new-random-age', [App\Http\Controllers\NewController::class, 'age'])->name('new-random-age');
 Route::post('/new-random-height', [App\Http\Controllers\NewController::class, 'height'])->name('new-random-height');
