@@ -35,12 +35,7 @@
           const id_race = event.target.value;
           if (id_race !== 0)
           {
-            const sectionOneLeft = this.$refs.sectionOneLeftRef;
-            // Modificar las propiedades de los botones en SectionOneLeft
-            sectionOneLeft.setButtonProperties(sectionOneLeft.$refs.ageButton, 'Nuevo texto', false);
-            sectionOneLeft.setButtonProperties(sectionOneLeft.$refs.heightButton, 'Nuevo texto', false);
-            sectionOneLeft.setButtonProperties(sectionOneLeft.$refs.hairButton, 'Nuevo texto', false);
-            sectionOneLeft.setButtonProperties(sectionOneLeft.$refs.eyesButton, 'Nuevo texto', false);
+            
           }
         },
     },
