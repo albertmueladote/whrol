@@ -28,3 +28,29 @@
 
     }
 </script>
+
+<style lang="scss">
+    .buttons-left-2 {
+        div{
+            height: 30%;
+        }
+        .roll_characteristics {
+            margin-top: 10px;
+            div {
+                width: 20%;
+                //height: 30%;
+                height: 48%;
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+                cursor: pointer;
+                button {
+                    margin-top: 10px;
+                }
+                &.used {
+                    background-color: #e27d7d;
+                }
+            }
+        }
+    }
+</style>

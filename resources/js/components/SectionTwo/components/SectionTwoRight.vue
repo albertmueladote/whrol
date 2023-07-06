@@ -17,3 +17,37 @@
     
   }
 </script>
+
+<style lang="scss">
+    .buttons-right-2 {
+        .content_buttons, .content_info{
+            display: inline-block;
+            vertical-align: top;
+            height: 100%;
+        }
+        .content_buttons {
+            width: 87%;
+            margin: initial;
+            div {
+                height: 25%;
+                margin-top: 0.5px;
+            }
+        }
+
+        .content_info{
+            width: 13%;
+            margin: initial;
+            .extra_points {
+                border: 1px solid black;
+                width: 38px;
+                width: 38px;
+                margin-top: 57px;
+                border-radius: 10px;
+                text-align: center;
+                line-height: 45px;
+                font-size: 2rem;
+                margin-left: 5px;
+            }
+        }
+    }
+</style>

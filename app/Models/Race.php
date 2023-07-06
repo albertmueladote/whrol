@@ -28,12 +28,7 @@ class Race extends Model
 
     public function basicAbilities()
     {
-        return $this->belongsToMany(Eye::class, 'race_basic_ability', 'id_race', 'id_basic_ability');
-    }
-
-    public function basicHabilities()
-    {
-        return $this->belongsToMany(BasicHability::class, 'race_basic_hability', 'id_race', 'id_basic_hability')->withPivot('id_basic_specialization');
+        return $this->belongsToMany(BasicAbility::class, 'race_basic_ability', 'id_race', 'id_basic_ability'); //->withPivot('basicSpecialization');
     }
 
     public function characteristics()

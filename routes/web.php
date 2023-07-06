@@ -28,7 +28,8 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 
 Route::get('/new', [App\Http\Controllers\NewController::class, 'new'])->name('new');
 
-Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'races'])->name('races');
+Route::post('/races', [App\Http\Controllers\NewController::class, 'races'])->name('races');
+Route::post('/categories', [App\Http\Controllers\NewController::class, 'categories'])->name('categories');
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');
 Route::post('/new-swap-class', [App\Http\Controllers\NewController::class, 'category'])->name('new-swap-class');
 Route::post('/new-swap-profession', [App\Http\Controllers\NewController::class, 'profession'])->name('new-swap-profession');

@@ -5,7 +5,6 @@
  */
 
 import './bootstrap';
-import { createApp } from 'vue';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,26 +12,16 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
+import { createApp } from 'vue'
 const app = createApp({});
+
+import { store } from "./store";
+app.use(store);
+
 /*
-import RandomAge from './components/RandomAge.vue';
-app.component('random-age', RandomAge);
-
-import Race from './components/Race.vue';
-app.component('race', Race);
-
-import Name from './components/Name.vue';
-app.component('name', Name);
-   
-import Category from './components/Category.vue';
-app.component('category', Category);
-
-import Age from './components/Age.vue';
-app.component('age', Age);
+import SectionOne from './components/SectionOne/SectionOne.vue';
+app.component('section-one', SectionOne);
 */
-
-//import SectionOne from './components/SectionOne/SectionOne.vue';
-//app.component('section-one', SectionOne);
 
 Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);

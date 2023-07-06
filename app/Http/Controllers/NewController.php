@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Characteristic;
 use App\Models\Profession;
 use App\Models\Race;
+use App\Models\BasicAbility;
 
 class NewController extends Controller
 {
@@ -27,10 +28,21 @@ class NewController extends Controller
     /**
      * 
      */
+    public function categories(Request $request)
+    {
+        $categories = Category::all();
+        return array('categories' => $categories);
+    }
+
+    /**
+     * 
+     */
     public function race(Request $request)
     {
         $race = Race::find($request->id_race);
-        return array('race' => $race, 'race_characteristic' => $race->characteristics);
+        $basic_abilities = BasicAbility::All();
+        var_dump($basic_abilities);
+        return array('race' => $race, 'race_characteristic' => $race->characteristics, 'race_hair' => $race->hairs, 'race_eyes' => $race->eyes, 'race_basic_abilities' => $race->basicAbilities, 'race_professions' => $race->professions);
     }
 
     /**
@@ -45,6 +57,9 @@ class NewController extends Controller
         })->get();
     }
 
+    /**
+     * 
+     */
     public function profession(Request $request)
     {
         $profession = Profession::with('careerPaths.characteristics')->find($request->id_profession);

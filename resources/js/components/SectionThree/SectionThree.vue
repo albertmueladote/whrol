@@ -11,3 +11,9 @@
     
   }
 </script>
+
+<style lang="scss">
+  .section-3 {
+    height: 22rem;
+  }
+</style>
