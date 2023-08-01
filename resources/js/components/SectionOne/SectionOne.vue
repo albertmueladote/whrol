@@ -1,36 +1,16 @@
 <template>
     <div class="section section-1">
-        <section-one-left
-            ref="sectionOneLeft"
-            :randomAge="randomAge"
-            :randomHeight="randomHeight"
-            :randomHair="randomHair"
-            :randomEyes="randomEyes"
-        ></section-one-left>
-        <section-one-mid
-            ref="sectionOneMid"
-            :age="age"
-            :height="height"
-            :hair="hair"
-            :eyes="eyes"
-            :raceSelected="raceSelected"
-            :categorySelected="categorySelected"
-        ></section-one-mid>
+        <section-one-left ref="sectionOneLeft"></section-one-left>
+        <section-one-mid ref="sectionOneMid"></section-one-mid>
         <section-one-right ref="sectionOneRight"></section-one-right>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            age: null,
-            height: null,
-            hair: "",
-            eyes: "",
-        };
-    },
+    data() {},
     methods: {
+        /*
         randomAge() {
             this.age = Math.floor(Math.random() * 100) + 1;
         },
@@ -45,6 +25,9 @@ export default {
             let eyes = ["negro", "azul", "verde"];
             this.eyes = eyes[Math.floor(Math.random() * 3)];
         },
+        onRaceChanged(newRace) {
+            this.selectedRace = newRace;
+        },*/
     },
 };
 </script>

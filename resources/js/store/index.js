@@ -1,19 +1,21 @@
-
 import { createStore } from 'vuex'
+import CharacterModule from './modules/Character';
 
 // Create a new store instance.
 export const store = createStore({
-  state () {
-    return {
-      
-    }
+  state: {
+
   },
   mutations: {
     
+  },
+  actions: {
+
+  },
+  getters: {
+
+  },
+  modules: {
+    Character: CharacterModule, // Asegúrate de tener el módulo Character importado y definido correctamente.
   }
 })
-
-//const app = createApp({ /* your root component */ })
-
-// Install the store instance as a plugin
-//app.use(store)

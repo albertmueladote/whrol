@@ -20,6 +20,9 @@
     
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <link rel="shortcut icon" type="image/png" href="{{ asset("img/whlogo.png") }}">
+    <link rel="shortcut icon" sizes="192x192" href="{{ asset("img/whlogo.png") }}">
 </head>
 <body>
     <div id="app">

@@ -7,16 +7,19 @@
             name="name"
             onkeydown="return /[a-z ]/i.test(event.key)"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="onNameInput"
+            :value="name"
         />
-        <select name="races" @change="raceSelected">
+        <select name="races" @change="onRaceSelected">
             <option v-for="(race, index) in races" :key="index" :value="index">
                 {{ race }}
             </option>
         </select>
         <select
             name="category"
-            @change="categorySelected"
-            :class="{ invisible: !visible }"
+            @change="onCategorySelected"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
         >
             <option
                 v-for="(category, index) in categories"
@@ -26,21 +29,162 @@
                 {{ category }}
             </option>
         </select>
-        <select name="profession" :class="{ invisible: !visible }"></select>
-        <input type="text" name="estate" disabled />
-        <input type="text" name="previous_professions" disabled />
-        <input type="text" name="status" disabled />
-        <input type="text" name="age" :value="age" disabled />
-        <input type="text" name="height" :value="height" disabled />
-        <input type="text" name="hair" :value="hair" disabled />
-        <input type="text" name="eyes" :value="eyes" disabled />
+        <select
+            name="profession"
+            @change="onProfessionSelected"
+            v-if="visibleProfession"
+            :class="{ invisible: !visibleProfession }"
+        >
+            <option
+                v-for="(profession, index) in professions"
+                :key="index"
+                :value="index"
+            >
+                {{ profession }}
+            </option>
+        </select>
+        <input
+            type="text"
+            name="estate"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="previous_professions"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="status"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="age"
+            :value="age"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="height"
+            :value="height"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="hair"
+            :value="hair"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
+        <input
+            type="text"
+            name="eyes"
+            :value="eyes"
+            v-if="visibleCategory"
+            :class="{ invisible: !visibleCategory }"
+            disabled
+        />
     </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
-    mounted() {
-        this.visible = false;
+    mounted() {},
+    methods: {
+        ...mapMutations("Character", [
+            "updateName",
+            "updateRace",
+            "updateCategory",
+            "updateProfession",
+            "updateAge",
+            "updateHeight",
+            "updateHair",
+            "updateEyes",
+        ]),
+        onRaceSelected(event) {
+            this.updateRace(event.target.value);
+            this.updateProfession("0");
+            this.updateAge("0");
+            this.updateHeight("0");
+            this.updateHair("");
+            this.updateEyes("");
+            if (this.currentRace === "0") {
+                this.visibleCategory = false;
+                this.visibleProfession = false;
+            } else {
+                if (this.currentCategory !== "0") {
+                    this.visibleProfession = true;
+                    this.selectedProfession = 0;
+                } else {
+                    this.visibleProfession = false;
+                }
+                this.visibleCategory = true;
+            }
+        },
+        onCategorySelected(event) {
+            this.updateCategory(event.target.value);
+            if (this.currentCategory === "0") {
+                this.visibleProfession = false;
+            } else {
+                this.visibleProfession = true;
+            }
+        },
+        onProfessionSelected(event) {
+            this.updateProfession(event.target.value);
+        },
+        onNameInput(event) {
+            const newName = event.target.value;
+            this.updateName(newName);
+        },
+    },
+    computed: {
+        ...mapState("Character", [
+            "name",
+            "race",
+            "category",
+            "profession",
+            "age",
+            "height",
+            "hair",
+            "eyes",
+        ]),
+        currentName() {
+            return this.name;
+        },
+        currentRace() {
+            return this.race;
+        },
+        currentCategory() {
+            return this.category;
+        },
+        currentProfession() {
+            return this.profession;
+        },
+        currentAge() {
+            return this.age;
+        },
+        currentHeight() {
+            return this.height;
+        },
+        currentHair() {
+            return this.hair;
+        },
+        currentEyes() {
+            return this.eyes;
+        },
     },
     data() {
         var races = {
@@ -62,13 +206,22 @@ export default {
             7: "Ribereños",
             8: "Rurales",
         };
+        var professions = {
+            0: "-Selecciona professión-",
+            1: "professión 1",
+            2: "professión 2",
+            3: "professión 3",
+        };
         return {
             races,
             categories,
-            visible: false,
+            professions,
+            visibleCategory: false,
+            visibleProfession: false,
         };
     },
     props: {
+        /*
         age: {
             type: Number,
             default: null,
@@ -85,9 +238,7 @@ export default {
             type: String,
             default: null,
         },
-        raceSelected: {
-            type: Function,
-        },
+        */
     },
 };
 </script>
