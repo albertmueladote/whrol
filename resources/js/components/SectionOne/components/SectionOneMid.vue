@@ -101,8 +101,16 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import {
+    getRacesFromAPI,
+    getCategoriesFromAPI,
+    getProfessionsFromAPI,
+} from "./../../../services/sectionOne.services";
 export default {
-    mounted() {},
+    mounted() {
+        this.loadRaces();
+        this.loadCategories();
+    },
     methods: {
         ...mapMutations("Character", [
             "updateName",
@@ -121,6 +129,7 @@ export default {
             this.updateHeight("0");
             this.updateHair("");
             this.updateEyes("");
+            this.loadProfessions();
             if (this.currentRace === "0") {
                 this.visibleCategory = false;
                 this.visibleProfession = false;
@@ -136,6 +145,7 @@ export default {
         },
         onCategorySelected(event) {
             this.updateCategory(event.target.value);
+            this.loadProfessions();
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -148,6 +158,51 @@ export default {
         onNameInput(event) {
             const newName = event.target.value;
             this.updateName(newName);
+        },
+        async loadRaces() {
+            const racesFromAPI = await getRacesFromAPI();
+            const racesObject = racesFromAPI.reduce((acc, race) => {
+                acc[race.id_race] = race.name;
+                return acc;
+            }, {});
+
+            this.races = {
+                0: "-Selecciona raza-",
+                ...racesObject,
+            };
+        },
+        async loadCategories() {
+            const categoriesFromAPI = await getCategoriesFromAPI();
+            const categoriesObject = categoriesFromAPI.reduce(
+                (acc, category) => {
+                    acc[category.id_category] = category.name;
+                    return acc;
+                },
+                {}
+            );
+
+            this.categories = {
+                0: "-Selecciona clase-",
+                ...categoriesObject,
+            };
+        },
+        async loadProfessions() {
+            const professionsFromAPI = await getProfessionsFromAPI(
+                this.currentRace,
+                this.currentCategory
+            );
+            const professionsObject = professionsFromAPI.reduce(
+                (acc, profession) => {
+                    acc[profession.id_profession] = profession.name;
+                    return acc;
+                },
+                {}
+            );
+
+            this.professions = {
+                0: "-Selecciona profesión-",
+                ...professionsObject,
+            };
         },
     },
     computed: {
@@ -187,31 +242,9 @@ export default {
         },
     },
     data() {
-        var races = {
-            0: "-Selecciona raza-",
-            1: "Humano",
-            2: "Enano",
-            3: "Halfing",
-            4: "Alto elfo",
-            5: "Elfo silvano",
-        };
-        var categories = {
-            0: "-Selecciona clase-",
-            1: "Académicos",
-            2: "Burgueses",
-            3: "Campesinos",
-            4: "Cortesanos",
-            5: "Guerreros",
-            6: "Pícaros",
-            7: "Ribereños",
-            8: "Rurales",
-        };
-        var professions = {
-            0: "-Selecciona professión-",
-            1: "professión 1",
-            2: "professión 2",
-            3: "professión 3",
-        };
+        var races = {};
+        var categories = {};
+        var professions = {};
         return {
             races,
             categories,
@@ -220,26 +253,7 @@ export default {
             visibleProfession: false,
         };
     },
-    props: {
-        /*
-        age: {
-            type: Number,
-            default: null,
-        },
-        height: {
-            type: Number,
-            default: null,
-        },
-        hair: {
-            type: String,
-            default: null,
-        },
-        eyes: {
-            type: String,
-            default: null,
-        },
-        */
-    },
+    props: {},
 };
 </script>
 

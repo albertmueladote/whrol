@@ -46,22 +46,12 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import {
+    getAgeFromAPI,
+    getHeightFromAPI,
+} from "./../../../services/sectionOne.services";
 export default {
-    props: {
-        /*
-        randomAge: {
-            type: Function,
-        },
-        randomHeight: {
-            type: Function,
-        },
-        randomHair: {
-            type: Function,
-        },
-        randomEyes: {
-            type: Function,
-        },*/
-    },
+    props: {},
     methods: {
         ...mapMutations("Character", [
             "updateAge",
@@ -69,11 +59,13 @@ export default {
             "updateHair",
             "updateEyes",
         ]),
-        randomAge() {
-            this.updateAge(Math.floor(Math.random() * 100) + 1);
+        async randomAge() {
+            const ageFromAPI = await getAgeFromAPI(this.currentRace);
+            this.updateAge(ageFromAPI);
         },
-        randomHeight() {
-            this.updateHeight(Math.floor(Math.random() * 210) + 150);
+        async randomHeight() {
+            const heightFromAPI = await getHeightFromAPI(this.currentRace);
+            this.updateHeight(heightFromAPI);
         },
         randomHair() {
             let hair = ["negro", "castaño", "rubio"];
@@ -85,9 +77,15 @@ export default {
         },
     },
     computed: {
-        ...mapState("Character", ["race"]),
+        ...mapState("Character", ["race", "age", "height", "hair", "eyes"]),
         visibleButtons() {
             return this.race !== "0";
+        },
+        currentRace() {
+            return this.race;
+        },
+        currentHeight() {
+            return this.height;
         },
     },
 };

@@ -37,33 +37,15 @@ class NewController extends Controller
     /**
      * 
      */
-    public function race(Request $request)
+    public function professions(Request $request)
     {
-        $race = Race::find($request->id_race);
-        $basic_abilities = BasicAbility::All();
-        var_dump($basic_abilities);
-        return array('race' => $race, 'race_characteristic' => $race->characteristics, 'race_hair' => $race->hairs, 'race_eyes' => $race->eyes, 'race_basic_abilities' => $race->basicAbilities, 'race_professions' => $race->professions);
-    }
-
-    /**
-     * 
-     */
-    public function category(Request $request)
-    {
-        $category = Category::where('id_category', $request->id_category)->firstOrFail();
-        $id_race = $request->id_race;
-        return $category->professions()->whereHas('races', function ($query) use ($id_race) {
-            $query->where('race.id_race', $id_race);
-        })->get();
-    }
-
-    /**
-     * 
-     */
-    public function profession(Request $request)
-    {
-        $profession = Profession::with('careerPaths.characteristics')->find($request->id_profession);
-        return array('profession' => $profession, 'career_path' => $profession->careerPaths, 'characteristic' => null);
+        $id_race = $request->input('id_race');
+        $id_category = $request->input('id_category');
+        return array(
+            'professions' => Profession::whereHas('races', function ($query) use ($id_race) {
+                $query->where('race.id_race', $id_race);
+            })->where('profession.id_category', $id_category)->get()
+        );
     }
 
     /**
@@ -71,7 +53,7 @@ class NewController extends Controller
      */
     public function age(Request $request)
     {
-        $race = Race::find($request->id_race);
+        $race = Race::find($request->input('id_race'));
         return rand($race->age_min, $race->age_max);
     }
 
@@ -80,7 +62,7 @@ class NewController extends Controller
      */
     public function height(Request $request)
     {
-        $race = Race::find($request->id_race);
+        $race = Race::find($request->input('id_race'));
         return rand($race->height_min, $race->height_max);
     }
 
