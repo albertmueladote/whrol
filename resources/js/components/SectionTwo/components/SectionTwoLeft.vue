@@ -1,7 +1,23 @@
 <template>
-	<div class="buttons-left buttons-left-2">
-        <div class="random_roll"><button class="btn btn-primary" disabled>Selecciona raza</button></div>
-        <div class="random_characteristics"><button class="btn btn-primary" disabled>Selecciona raza</button></div>
+    <div class="buttons-left buttons-left-2">
+        <div class="random_roll">
+            <button
+                class="btn btn-primary"
+                v-if="visibleButtons"
+                :class="{ invisible: !visibleButtons }"
+            >
+                Car. aleatorias
+            </button>
+        </div>
+        <div class="random_characteristics">
+            <button
+                class="btn btn-primary"
+                v-if="visibleButtons"
+                :class="{ invisible: !visibleButtons }"
+            >
+                Lanzar dados
+            </button>
+        </div>
         <div class="roll_characteristics">
             <div class="roll_ha"></div>
             <div class="roll_hp"></div>
@@ -24,33 +40,40 @@
 </template>
 
 <script>
-    export default {
-
-    }
+import { mapState } from "vuex";
+export default {
+    props: {},
+    methods: {},
+    computed: {
+        ...mapState("Character", ["race"]),
+        visibleButtons() {
+            return this.race !== "0";
+        },
+    },
+};
 </script>
 
 <style lang="scss">
-    .buttons-left-2 {
-        div{
-            height: 30%;
-        }
-        .roll_characteristics {
-            margin-top: 10px;
-            div {
-                width: 20%;
-                //height: 30%;
-                height: 48%;
-                display: inline-block;
-                vertical-align: top;
-                text-align: center;
-                cursor: pointer;
-                button {
-                    margin-top: 10px;
-                }
-                &.used {
-                    background-color: #e27d7d;
-                }
+.buttons-left-2 {
+    div {
+        height: 30%;
+    }
+    .roll_characteristics {
+        margin-top: 10px;
+        div {
+            width: 20%;
+            height: 48%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            cursor: pointer;
+            button {
+                margin-top: 10px;
+            }
+            &.used {
+                background-color: #e27d7d;
             }
         }
     }
+}
 </style>

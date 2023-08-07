@@ -43,59 +43,18 @@
                 {{ profession }}
             </option>
         </select>
+        <input type="text" name="estate" disabled />
+        <input type="text" name="previous_professions" disabled />
         <input
             type="text"
-            name="estate"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
+            name="career_path_status"
+            :value="career_path_status"
             disabled
         />
-        <input
-            type="text"
-            name="previous_professions"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
-        <input
-            type="text"
-            name="status"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
-        <input
-            type="text"
-            name="age"
-            :value="age"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
-        <input
-            type="text"
-            name="height"
-            :value="height"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
-        <input
-            type="text"
-            name="hair"
-            :value="hair"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
-        <input
-            type="text"
-            name="eyes"
-            :value="eyes"
-            v-if="visibleCategory"
-            :class="{ invisible: !visibleCategory }"
-            disabled
-        />
+        <input type="text" name="age" :value="age" disabled />
+        <input type="text" name="height" :value="height" disabled />
+        <input type="text" name="hair" :value="hair_text" disabled />
+        <input type="text" name="eyes" :value="eyes_text" disabled />
     </div>
 </template>
 
@@ -105,6 +64,8 @@ import {
     getRacesFromAPI,
     getCategoriesFromAPI,
     getProfessionsFromAPI,
+    getCareerPathStatusFromAPI,
+    getCharacteristicsFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -117,20 +78,24 @@ export default {
             "updateRace",
             "updateCategory",
             "updateProfession",
+            "updateCareerPathStatus",
             "updateAge",
             "updateHeight",
             "updateHair",
             "updateEyes",
+            "updateCharacteristics",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
             this.updateProfession("0");
-            this.updateAge("0");
-            this.updateHeight("0");
-            this.updateHair("");
-            this.updateEyes("");
+            this.updateCareerPathStatus("");
+            this.updateAge("");
+            this.updateHeight("");
+            this.updateHair({ id_hair: 0, name: "" });
+            this.updateEyes({ id_eye: 0, name: "" });
             this.loadProfessions();
             if (this.currentRace === "0") {
+                this.updateCategory("0");
                 this.visibleCategory = false;
                 this.visibleProfession = false;
             } else {
@@ -141,11 +106,14 @@ export default {
                     this.visibleProfession = false;
                 }
                 this.visibleCategory = true;
+                this.loadCharacteristics();
             }
         },
         onCategorySelected(event) {
             this.updateCategory(event.target.value);
+            this.updateProfession("0");
             this.loadProfessions();
+            this.updateCareerPathStatus("");
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -154,6 +122,7 @@ export default {
         },
         onProfessionSelected(event) {
             this.updateProfession(event.target.value);
+            this.loadCareerPathStatus();
         },
         onNameInput(event) {
             const newName = event.target.value;
@@ -204,6 +173,18 @@ export default {
                 ...professionsObject,
             };
         },
+        async loadCareerPathStatus() {
+            const career_path_statusFromAPI = await getCareerPathStatusFromAPI(
+                this.currentProfession
+            );
+            this.updateCareerPathStatus(career_path_statusFromAPI);
+        },
+        async loadCharacteristics() {
+            const characteristics = await getCharacteristicsFromAPI(
+                this.currentRace
+            );
+            this.updateCharacteristics(characteristics);
+        },
     },
     computed: {
         ...mapState("Character", [
@@ -211,10 +192,11 @@ export default {
             "race",
             "category",
             "profession",
+            "career_path_status",
             "age",
             "height",
-            "hair",
-            "eyes",
+            "hair_text",
+            "eyes_text",
         ]),
         currentName() {
             return this.name;
@@ -228,6 +210,9 @@ export default {
         currentProfession() {
             return this.profession;
         },
+        currentCareerPathStatus() {
+            return this.career_path_status;
+        },
         currentAge() {
             return this.age;
         },
@@ -235,10 +220,10 @@ export default {
             return this.height;
         },
         currentHair() {
-            return this.hair;
+            return this.hair_text;
         },
         currentEyes() {
-            return this.eyes;
+            return this.eyes_text;
         },
     },
     data() {
@@ -251,6 +236,7 @@ export default {
             professions,
             visibleCategory: false,
             visibleProfession: false,
+            visibleChooseEyes: false,
         };
     },
     props: {},
@@ -324,7 +310,7 @@ input[name="previous_professions"] {
     width: 454px;
 }
 
-input[name="status"] {
+input[name="career_path_status"] {
     top: 184px;
     left: 703px;
     width: 136px;

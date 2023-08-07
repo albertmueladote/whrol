@@ -10,9 +10,7 @@
 <script>
 export default {
     name: "page",
-    mounted() {
-        console.log("Component page mounted");
-    },
+    mounted() {},
 };
 </script>
 
@@ -42,6 +40,7 @@ export default {
         border: none;
         text-align: center;
         padding-top: 5px;
+        font-size: 1rem;
         :focus {
             border: none;
             outline: none;

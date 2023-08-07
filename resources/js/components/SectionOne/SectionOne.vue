@@ -9,26 +9,7 @@
 <script>
 export default {
     data() {},
-    methods: {
-        /*
-        randomAge() {
-            this.age = Math.floor(Math.random() * 100) + 1;
-        },
-        randomHeight() {
-            this.height = Math.floor(Math.random() * 210) + 150;
-        },
-        randomHair() {
-            let hair = ["negro", "castaño", "rubio"];
-            this.hair = hair[Math.floor(Math.random() * 3)];
-        },
-        randomEyes() {
-            let eyes = ["negro", "azul", "verde"];
-            this.eyes = eyes[Math.floor(Math.random() * 3)];
-        },
-        onRaceChanged(newRace) {
-            this.selectedRace = newRace;
-        },*/
-    },
+    methods: {},
 };
 </script>
 

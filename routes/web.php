@@ -33,6 +33,12 @@ Route::post('/categories', [App\Http\Controllers\NewController::class, 'categori
 Route::post('/professions', [App\Http\Controllers\NewController::class, 'professions'])->name('professions');
 Route::post('/age', [App\Http\Controllers\NewController::class, 'age'])->name('age');
 Route::post('/height', [App\Http\Controllers\NewController::class, 'height'])->name('height');
+Route::post('/hair', [App\Http\Controllers\NewController::class, 'hair'])->name('hair');
+Route::post('/eyes', [App\Http\Controllers\NewController::class, 'eyes'])->name('eyes');
+Route::post('/status', [App\Http\Controllers\NewController::class, 'status'])->name('status');
+Route::post('/choose_eyes', [App\Http\Controllers\NewController::class, 'choose_eyes'])->name('choose_eyes');
+Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'characteristics'])->name('characteristics');
+
 /*
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');
 Route::post('/new-swap-class', [App\Http\Controllers\NewController::class, 'category'])->name('new-swap-class');

@@ -62,3 +62,73 @@ export async function getHeightFromAPI(id_race) {
       return [];
     }
 }
+
+export async function getHairFromAPI(id_race) {
+  try {
+      const response = await axios.post("/hair", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el pelo:", error);
+    return [];
+  }
+}
+
+export async function getEyesFromAPI(id_race) {
+  try {
+      const response = await axios.post("/eyes", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los ojos:", error);
+    return [];
+  }
+}
+
+export async function getCareerPathStatusFromAPI(id_profession) {
+  try {
+      const response = await axios.post("/status", null, {
+      params: {
+          id_profession: id_profession
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el estatus social:", error);
+    return [];
+  }
+}
+
+export async function getChooseEyesFromAPI(id_race) {
+  try {
+      const response = await axios.post("/choose_eyes", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los colores de ojos:", error);
+    return [];
+  }
+}
+
+export async function getCharacteristicsFromAPI(id_race) {
+  try {
+      const response = await axios.post("/characteristics", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+    return [];
+  }
+}

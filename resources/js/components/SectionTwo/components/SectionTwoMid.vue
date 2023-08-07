@@ -1,332 +1,405 @@
 <template>
-	<div class="sheet sheet-2">
-        <input type="text" name="ha_ini" disabled>
-        <input type="text" name="hp_ini" disabled>
-        <input type="text" name="f_ini" disabled>
-        <input type="text" name="r_ini" disabled>
-        <input type="text" name="ini_ini" disabled>
-        <input type="text" name="ag_ini" disabled>
-        <input type="text" name="des_ini" disabled>
-        <input type="text" name="i_ini" disabled>
-        <input type="text" name="v_ini" disabled>
-        <input type="text" name="em_ini" disabled>
-        <input type="text" name="ha_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="hp_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="f_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="r_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="ini_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="ag_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="des_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="i_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="v_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="em_imp" disabled maxlength="2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-        <input type="text" name="ha_total" disabled>
-        <input type="text" name="hp_total" disabled>
-        <input type="text" name="f_total" disabled>
-        <input type="text" name="r_total" disabled>
-        <input type="text" name="ini_total" disabled>
-        <input type="text" name="ag_total" disabled>
-        <input type="text" name="des_total" disabled>
-        <input type="text" name="i_total" disabled>
-        <input type="text" name="v_total" disabled>
-        <input type="text" name="em_total" disabled>
-        <input type="text" name="em_total" disabled>
-        <input type="text" name="destiny" disabled>
-        <input type="text" name="fortune" disabled>
-        <input type="text" name="resilience" disabled>
-        <input type="text" name="resolution" disabled>
-        <input type="text" name="motivation" disabled>
-        <input type="text" name="exp_actual" disabled>
-        <input type="text" name="exp_spent" disabled>
-        <input type="text" name="exp_total" disabled>
-        <input type="text" name="movement" disabled>
-        <input type="text" name="walk" disabled>
-        <input type="text" name="run" disabled>
+    <div class="sheet sheet-2">
+        <input type="text" name="ha_ini" :value="ha_ini" disabled />
+        <input type="text" name="hp_ini" :value="hp_ini" disabled />
+        <input type="text" name="f_ini" :value="f_ini" disabled />
+        <input type="text" name="r_ini" :value="r_ini" disabled />
+        <input type="text" name="ini_ini" :value="ini_ini" disabled />
+        <input type="text" name="ag_ini" :value="ag_ini" disabled />
+        <input type="text" name="des_ini" :value="des_ini" disabled />
+        <input type="text" name="i_ini" :value="i_ini" disabled />
+        <input type="text" name="v_ini" :value="v_ini" disabled />
+        <input type="text" name="em_ini" :value="em_ini" disabled />
+        <input
+            type="text"
+            name="ha_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="hp_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="f_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="r_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="ini_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="ag_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="des_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="i_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="v_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input
+            type="text"
+            name="em_imp"
+            disabled
+            maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        />
+        <input type="text" name="ha_total" disabled />
+        <input type="text" name="hp_total" disabled />
+        <input type="text" name="f_total" disabled />
+        <input type="text" name="r_total" disabled />
+        <input type="text" name="ini_total" disabled />
+        <input type="text" name="ag_total" disabled />
+        <input type="text" name="des_total" disabled />
+        <input type="text" name="i_total" disabled />
+        <input type="text" name="v_total" disabled />
+        <input type="text" name="em_total" disabled />
+        <input type="text" name="em_total" disabled />
+        <input type="text" name="destiny" disabled />
+        <input type="text" name="fortune" disabled />
+        <input type="text" name="resilience" disabled />
+        <input type="text" name="resolution" disabled />
+        <input type="text" name="motivation" disabled />
+        <input type="text" name="exp_actual" disabled />
+        <input type="text" name="exp_spent" disabled />
+        <input type="text" name="exp_total" disabled />
+        <input type="text" name="movement" disabled />
+        <input type="text" name="walk" disabled />
+        <input type="text" name="run" disabled />
     </div>
 </template>
 
 <script>
-  export default {
-   
-  }
+import { mapState, mapMutations } from "vuex";
+export default {
+    computed: {
+        ...mapState("Character", [
+            "ha_ini",
+            "hp_ini",
+            "f_ini",
+            "r_ini",
+            "ini_ini",
+            "ag_ini",
+            "des_ini",
+            "i_ini",
+            "v_ini",
+            "em_ini",
+        ]),
+    },
+    data() {},
+};
 </script>
 
 <style lang="scss">
-  input[name="ha_ini"] {
+input[name="ha_ini"] {
     top: 58px;
     left: 142px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="hp_ini"] {
+input[name="hp_ini"] {
     top: 58px;
     left: 170px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="f_ini"] {
+input[name="f_ini"] {
     top: 58px;
     left: 198px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="r_ini"] {
+input[name="r_ini"] {
     top: 58px;
     left: 226px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ini_ini"] {
+input[name="ini_ini"] {
     top: 58px;
     left: 254px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ag_ini"] {
+input[name="ag_ini"] {
     top: 58px;
     left: 282px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="des_ini"] {
+input[name="des_ini"] {
     top: 58px;
     left: 310px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="i_ini"] {
+input[name="i_ini"] {
     top: 58px;
     left: 338px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="v_ini"] {
+input[name="v_ini"] {
     top: 58px;
     left: 366px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="em_ini"] {
+input[name="em_ini"] {
     top: 58px;
     left: 394px;
     width: 28px;
     height: 29px;
-  }
+}
 
-
-  input[name="ha_imp"] {
+input[name="ha_imp"] {
     top: 88px;
     left: 142px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="hp_imp"] {
+input[name="hp_imp"] {
     top: 88px;
     left: 170px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="f_imp"] {
+input[name="f_imp"] {
     top: 88px;
     left: 198px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="r_imp"] {
+input[name="r_imp"] {
     top: 88px;
     left: 226px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ini_imp"] {
+input[name="ini_imp"] {
     top: 88px;
     left: 254px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ag_imp"] {
+input[name="ag_imp"] {
     top: 88px;
     left: 282px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="des_imp"] {
+input[name="des_imp"] {
     top: 88px;
     left: 310px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="i_imp"] {
+input[name="i_imp"] {
     top: 88px;
     left: 338px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="v_imp"] {
+input[name="v_imp"] {
     top: 88px;
     left: 366px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="em_imp"] {
+input[name="em_imp"] {
     top: 88px;
     left: 394px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ha_total"] {
+input[name="ha_total"] {
     top: 117px;
     left: 142px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="hp_total"] {
+input[name="hp_total"] {
     top: 117px;
     left: 170px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="f_total"] {
+input[name="f_total"] {
     top: 117px;
     left: 198px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="r_total"] {
+input[name="r_total"] {
     top: 117px;
     left: 226px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ini_total"] {
+input[name="ini_total"] {
     top: 117px;
     left: 254px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="ag_total"] {
+input[name="ag_total"] {
     top: 117px;
     left: 282px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="des_total"] {
+input[name="des_total"] {
     top: 117px;
     left: 310px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="i_total"] {
+input[name="i_total"] {
     top: 117px;
     left: 338px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="v_total"] {
+input[name="v_total"] {
     top: 117px;
     left: 366px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="em_total"] {
+input[name="em_total"] {
     top: 117px;
     left: 394px;
     width: 28px;
     height: 29px;
-  }
+}
 
-  input[name="destiny"] {
+input[name="destiny"] {
     left: 490px;
     top: 35px;
     width: 27px;
-  }
+}
 
-  input[name="fortune"] {
+input[name="fortune"] {
     left: 490px;
     top: 56px;
     width: 27px;
-  }
+}
 
-  input[name="resilience"] {
+input[name="resilience"] {
     left: 537px;
     top: 56px;
     width: 52px;
-  }
+}
 
-  input[name="resolution"] {
+input[name="resolution"] {
     left: 588px;
     top: 56px;
     width: 58px;
-  }
+}
 
-  input[name="motivation"] {
+input[name="motivation"] {
     left: 645px;
     top: 56px;
     width: 57px;
-  }
+}
 
-  input[name="exp_actual"] {
+input[name="exp_actual"] {
     left: 721px;
     top: 56px;
     width: 43px;
-  }
+}
 
-  input[name="exp_spent"] {
+input[name="exp_spent"] {
     left: 765px;
     top: 56px;
     width: 43px;
-  }
+}
 
-  input[name="exp_total"] {
+input[name="exp_total"] {
     left: 807px;
     top: 56px;
     width: 43px;
-  }
+}
 
-
-  input[name="movement"] {
+input[name="movement"] {
     top: 125px;
     left: 530px;
     width: 52px;
-  }
+}
 
-  input[name="walk"] {
+input[name="walk"] {
     top: 125px;
     left: 659px;
     width: 52px;
-  }
+}
 
-  input[name="run"] {
+input[name="run"] {
     top: 125px;
     left: 788px;
     width: 52px;
-  }
+}
 </style>

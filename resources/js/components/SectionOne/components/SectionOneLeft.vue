@@ -49,6 +49,9 @@ import { mapState, mapMutations } from "vuex";
 import {
     getAgeFromAPI,
     getHeightFromAPI,
+    getHairFromAPI,
+    getEyesFromAPI,
+    getChooseEyesFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     props: {},
@@ -58,6 +61,7 @@ export default {
             "updateHeight",
             "updateHair",
             "updateEyes",
+            "updateChooseEyes",
         ]),
         async randomAge() {
             const ageFromAPI = await getAgeFromAPI(this.currentRace);
@@ -67,13 +71,17 @@ export default {
             const heightFromAPI = await getHeightFromAPI(this.currentRace);
             this.updateHeight(heightFromAPI);
         },
-        randomHair() {
-            let hair = ["negro", "castaño", "rubio"];
-            this.updateHair(hair[Math.floor(Math.random() * 3)]);
+        async randomHair() {
+            const hairFromAPI = await getHairFromAPI(this.currentRace);
+            this.updateHair(hairFromAPI);
         },
-        randomEyes() {
-            let eyes = ["negro", "azul", "verde"];
-            this.updateEyes(eyes[Math.floor(Math.random() * 3)]);
+        async randomEyes() {
+            const eyesFromAPI = await getEyesFromAPI(this.currentRace);
+            this.updateEyes(eyesFromAPI);
+            if (eyesFromAPI.id_eye == "1") {
+                const eyes = await getChooseEyesFromAPI(this.currentRace);
+                this.updateChooseEyes(eyes);
+            }
         },
     },
     computed: {
@@ -86,6 +94,9 @@ export default {
         },
         currentHeight() {
             return this.height;
+        },
+        currentHair() {
+            return this.hair;
         },
     },
 };
