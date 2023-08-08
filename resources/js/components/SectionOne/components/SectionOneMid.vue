@@ -5,7 +5,7 @@
             type="text"
             maxlength="40"
             name="name"
-            onkeydown="return /[a-z ]/i.test(event.key)"
+            onkeydown="return /[a-záéíóúüÁÉÍÓÚÜñÑ ]/i.test(event.key)"
             onblur="if (this.value == '') {this.value = '';}"
             @input="onNameInput"
             :value="name"
@@ -65,7 +65,7 @@ import {
     getCategoriesFromAPI,
     getProfessionsFromAPI,
     getCareerPathStatusFromAPI,
-    getCharacteristicsFromAPI,
+    getRaceTraitsFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -83,7 +83,8 @@ export default {
             "updateHeight",
             "updateHair",
             "updateEyes",
-            "updateCharacteristics",
+            "resetRace",
+            "updateRaceTraits",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
@@ -93,6 +94,7 @@ export default {
             this.updateHeight("");
             this.updateHair({ id_hair: 0, name: "" });
             this.updateEyes({ id_eye: 0, name: "" });
+            this.resetRace();
             this.loadProfessions();
             if (this.currentRace === "0") {
                 this.updateCategory("0");
@@ -106,7 +108,7 @@ export default {
                     this.visibleProfession = false;
                 }
                 this.visibleCategory = true;
-                this.loadCharacteristics();
+                this.loadRaceTraits();
             }
         },
         onCategorySelected(event) {
@@ -179,11 +181,9 @@ export default {
             );
             this.updateCareerPathStatus(career_path_statusFromAPI);
         },
-        async loadCharacteristics() {
-            const characteristics = await getCharacteristicsFromAPI(
-                this.currentRace
-            );
-            this.updateCharacteristics(characteristics);
+        async loadRaceTraits() {
+            const race = await getRaceTraitsFromAPI(this.currentRace);
+            this.updateRaceTraits(race);
         },
     },
     computed: {

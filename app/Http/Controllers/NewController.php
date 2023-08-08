@@ -16,7 +16,17 @@ class NewController extends Controller
 {
     public function new()
     {
-        return view('new')->with('race', Race::All())->with('category', Category::All());
+        return view('new');
+    }
+
+    /**
+     * 
+     */
+    public function race(Request $request)
+    {
+        $race = Race::find($request->input('id_race'));
+        $race->car = $this->characteristics($request);
+        return $race;
     }
 
     /**
@@ -128,6 +138,30 @@ class NewController extends Controller
     {
         $race = Race::find($request->input('id_race'));
         $characteristics = $race->characteristics;
+        return $characteristics;
+    }
+
+    /**
+     * 
+     */
+    public function random_characteristics()
+    {
+        $characteristics = Characteristic::all();
+        foreach ($characteristics as $characteristic) {
+            $characteristic->value = rand(1, 20);
+        }
+        return $characteristics;
+    }
+
+    /**
+     * 
+     */
+    public function throw_dice()
+    {
+        $characteristics = Characteristic::all();
+        foreach ($characteristics as $characteristic) {
+            $characteristic->value = rand(1, 20);
+        }
         return $characteristics;
     }
 }

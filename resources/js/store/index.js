@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import CharacterModule from './modules/Character';
+import HelperModule from './modules/Helper';
 
-// Create a new store instance.
 export const store = createStore({
   state: {
 
@@ -16,6 +16,7 @@ export const store = createStore({
 
   },
   modules: {
-    Character: CharacterModule, // Asegúrate de tener el módulo Character importado y definido correctamente.
+    Character: CharacterModule,
+    Helper: HelperModule,
   }
 })

@@ -29,6 +29,7 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 Route::get('/new', [App\Http\Controllers\NewController::class, 'new'])->name('new');
 
 Route::post('/races', [App\Http\Controllers\NewController::class, 'races'])->name('races');
+Route::post('/race', [App\Http\Controllers\NewController::class, 'race'])->name('race');
 Route::post('/categories', [App\Http\Controllers\NewController::class, 'categories'])->name('categories');
 Route::post('/professions', [App\Http\Controllers\NewController::class, 'professions'])->name('professions');
 Route::post('/age', [App\Http\Controllers\NewController::class, 'age'])->name('age');
@@ -38,6 +39,8 @@ Route::post('/eyes', [App\Http\Controllers\NewController::class, 'eyes'])->name(
 Route::post('/status', [App\Http\Controllers\NewController::class, 'status'])->name('status');
 Route::post('/choose_eyes', [App\Http\Controllers\NewController::class, 'choose_eyes'])->name('choose_eyes');
 Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'characteristics'])->name('characteristics');
+Route::post('/random_characteristics', [App\Http\Controllers\NewController::class, 'random_characteristics'])->name('random_characteristics');
+Route::post('/throw_dice', [App\Http\Controllers\NewController::class, 'throw_dice'])->name('throw_dice');
 
 /*
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');

@@ -119,9 +119,9 @@ export async function getChooseEyesFromAPI(id_race) {
   }
 }
 
-export async function getCharacteristicsFromAPI(id_race) {
+export async function getRaceTraitsFromAPI(id_race) {
   try {
-      const response = await axios.post("/characteristics", null, {
+      const response = await axios.post("/race", null, {
       params: {
           id_race: id_race
       },
@@ -131,4 +131,24 @@ export async function getCharacteristicsFromAPI(id_race) {
     console.error("Error al obtener las características:", error);
     return [];
   }
+}
+
+export async function getRandomCharFromAPI() {
+    try {
+      const response = await axios.post("/random_characteristics", null, {});
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+    return [];
+  }
+}
+
+export async function getThrowDiceFromAPI() {
+  try {
+    const response = await axios.post("/throw_dice", null, {});
+  return response.data;
+} catch (error) {
+  console.error("Error al obtener las características:", error);
+  return [];
+}
 }

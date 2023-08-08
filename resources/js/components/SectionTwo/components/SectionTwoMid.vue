@@ -1,115 +1,352 @@
 <template>
     <div class="sheet sheet-2">
-        <input type="text" name="ha_ini" :value="ha_ini" disabled />
-        <input type="text" name="hp_ini" :value="hp_ini" disabled />
-        <input type="text" name="f_ini" :value="f_ini" disabled />
-        <input type="text" name="r_ini" :value="r_ini" disabled />
-        <input type="text" name="ini_ini" :value="ini_ini" disabled />
-        <input type="text" name="ag_ini" :value="ag_ini" disabled />
-        <input type="text" name="des_ini" :value="des_ini" disabled />
-        <input type="text" name="i_ini" :value="i_ini" disabled />
-        <input type="text" name="v_ini" :value="v_ini" disabled />
-        <input type="text" name="em_ini" :value="em_ini" disabled />
+        <input
+            type="text"
+            name="ha_ini"
+            :value="ha_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="hp_ini"
+            :value="hp_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="f_ini"
+            :value="f_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="r_ini"
+            :value="r_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="ini_ini"
+            :value="ini_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="ag_ini"
+            :value="ag_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="des_ini"
+            :value="des_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="i_ini"
+            :value="i_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="v_ini"
+            :value="v_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="em_ini"
+            :value="em_ini"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
         <input
             type="text"
             name="ha_imp"
-            disabled
+            :value="ha_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal()"
         />
         <input
             type="text"
             name="hp_imp"
-            disabled
+            :value="hp_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="f_imp"
-            disabled
+            :value="f_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="r_imp"
-            disabled
+            :value="r_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="ini_imp"
-            disabled
+            :value="ini_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="ag_imp"
-            disabled
+            :value="ag_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="des_imp"
-            disabled
+            :value="des_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="i_imp"
-            disabled
+            :value="i_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
             name="v_imp"
-            disabled
+            :value="v_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
         <input
             type="text"
+            :value="em_imp"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
             name="em_imp"
-            disabled
             maxlength="2"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            onkeydown="return /[0-9]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
         />
-        <input type="text" name="ha_total" disabled />
-        <input type="text" name="hp_total" disabled />
-        <input type="text" name="f_total" disabled />
-        <input type="text" name="r_total" disabled />
-        <input type="text" name="ini_total" disabled />
-        <input type="text" name="ag_total" disabled />
-        <input type="text" name="des_total" disabled />
-        <input type="text" name="i_total" disabled />
-        <input type="text" name="v_total" disabled />
-        <input type="text" name="em_total" disabled />
-        <input type="text" name="em_total" disabled />
-        <input type="text" name="destiny" disabled />
-        <input type="text" name="fortune" disabled />
-        <input type="text" name="resilience" disabled />
-        <input type="text" name="resolution" disabled />
-        <input type="text" name="motivation" disabled />
-        <input type="text" name="exp_actual" disabled />
-        <input type="text" name="exp_spent" disabled />
-        <input type="text" name="exp_total" disabled />
-        <input type="text" name="movement" disabled />
-        <input type="text" name="walk" disabled />
-        <input type="text" name="run" disabled />
+        <input
+            type="text"
+            name="ha_total"
+            :value="ha_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="hp_total"
+            :value="hp_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="f_total"
+            :value="f_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="r_total"
+            :value="r_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="ini_total"
+            :value="ini_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="ag_total"
+            :value="ag_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="des_total"
+            :value="des_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="i_total"
+            :value="i_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="v_total"
+            :value="v_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="em_total"
+            :value="em_total"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="destiny"
+            :value="destiny"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="fortune"
+            :value="fortune"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="resilience"
+            :value="resilience"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="resolution"
+            :value="resolution"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="motivation"
+            maxlength="10"
+            v-if="visibleRace"
+            onkeydown="return /[a-záéíóúüÁÉÍÓÚÜñÑ ]/i.test(event.key)"
+            onblur="if (this.value == '') {this.value = '';}"
+            @input="onMotivationInput"
+            :class="{ invisible: !visibleRace }"
+        />
+        <input type="text" name="exp_actual" :value="exp_actual" disabled />
+        <input type="text" name="exp_spent" :value="exp_spent" disabled />
+        <input type="text" name="exp_total" :value="exp_total" disabled />
+        <input
+            type="text"
+            name="movement"
+            :value="movement"
+            v-if="visibleRace"
+            :class="{ invisible: !visibleRace }"
+            disabled
+        />
+        <input
+            type="text"
+            name="walk"
+            :value="walk"
+            v-if="visibleRace"
+            disabled
+        />
+        <input
+            type="text"
+            name="run"
+            :value="run"
+            v-if="visibleRace"
+            disabled
+        />
     </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
 export default {
+    methods: {
+        ...mapMutations("Character", ["updateMotivation", "updateTotalChar"]),
+        onMotivationInput(event) {
+            const newMotivation = event.target.value;
+            this.updateMotivation(newMotivation);
+        },
+        updateTotal(event) {
+            this.updateTotalChar();
+        },
+    },
     computed: {
         ...mapState("Character", [
+            "race",
             "ha_ini",
             "hp_ini",
             "f_ini",
@@ -120,7 +357,52 @@ export default {
             "i_ini",
             "v_ini",
             "em_ini",
+            "ha_imp",
+            "hp_imp",
+            "f_imp",
+            "r_imp",
+            "ini_imp",
+            "ag_imp",
+            "des_imp",
+            "i_imp",
+            "v_imp",
+            "em_imp",
+            "ha_total",
+            "hp_total",
+            "f_total",
+            "r_total",
+            "ini_total",
+            "ag_total",
+            "des_total",
+            "i_total",
+            "v_total",
+            "em_total",
+            "destiny",
+            "fortune",
+            "resilience",
+            "resolution",
+            "exp_actual",
+            "exp_spent",
+            "exp_total",
+            "movement",
+            "walk",
+            "run",
         ]),
+        ...mapState("Helper", [
+            "dice_1",
+            "dice_2",
+            "dice_3",
+            "dice_4",
+            "dice_5",
+            "dice_6",
+            "dice_7",
+            "dice_8",
+            "dice_9",
+            "dice_10",
+        ]),
+        visibleRace() {
+            return this.race !== "0";
+        },
     },
     data() {},
 };
