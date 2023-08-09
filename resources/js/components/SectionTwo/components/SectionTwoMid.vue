@@ -87,9 +87,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
-            @input="updateTotal()"
+            @input="updateTotal($event, 'ha')"
         />
         <input
             type="text"
@@ -98,8 +98,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'hp')"
         />
         <input
             type="text"
@@ -108,8 +109,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'f')"
         />
         <input
             type="text"
@@ -118,8 +120,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'r')"
         />
         <input
             type="text"
@@ -128,8 +131,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'ini')"
         />
         <input
             type="text"
@@ -138,8 +142,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'ag')"
         />
         <input
             type="text"
@@ -148,8 +153,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'des')"
         />
         <input
             type="text"
@@ -158,8 +164,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'i')"
         />
         <input
             type="text"
@@ -168,8 +175,9 @@
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'v')"
         />
         <input
             type="text"
@@ -178,8 +186,9 @@
             :class="{ invisible: !visibleRace }"
             name="em_imp"
             maxlength="2"
-            onkeydown="return /[0-9]/i.test(event.key)"
+            onkeydown="if (event.key === 'Tab' || event.key === 'Backspace' || /[0-9]/.test(event.key)) return true; else event.preventDefault();"
             onblur="if (this.value == '') {this.value = '';}"
+            @input="updateTotal($event, 'em')"
         />
         <input
             type="text"
@@ -335,12 +344,17 @@
 import { mapState, mapMutations } from "vuex";
 export default {
     methods: {
-        ...mapMutations("Character", ["updateMotivation", "updateTotalChar"]),
+        ...mapMutations("Character", [
+            "updateMotivation",
+            "updateChar",
+            "updateTotalChar",
+        ]),
         onMotivationInput(event) {
             const newMotivation = event.target.value;
             this.updateMotivation(newMotivation);
         },
-        updateTotal(event) {
+        updateTotal($event, char) {
+            this.updateChar({ char: char, value: $event.target.value });
             this.updateTotalChar();
         },
     },
@@ -483,70 +497,86 @@ input[name="ha_imp"] {
     top: 88px;
     left: 142px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="hp_imp"] {
     top: 88px;
     left: 170px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="f_imp"] {
     top: 88px;
     left: 198px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="r_imp"] {
     top: 88px;
     left: 226px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ini_imp"] {
     top: 88px;
     left: 254px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ag_imp"] {
     top: 88px;
     left: 282px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="des_imp"] {
     top: 88px;
     left: 310px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="i_imp"] {
     top: 88px;
     left: 338px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="v_imp"] {
     top: 88px;
     left: 366px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="em_imp"] {
     top: 88px;
     left: 394px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
+}
+
+input.imp_1 {
+    background-color: green;
+}
+
+input.imp_2 {
+    background-color: #664937ed;
+}
+
+input.imp_3 {
+    background-color: #e5efef;
+}
+
+input.imp_4 {
+    background-color: #ffe201;
 }
 
 input[name="ha_total"] {

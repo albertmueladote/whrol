@@ -106,17 +106,12 @@ class NewController extends Controller
     /**
      * 
      */
-    public function status(Request $request)
+    public function profession(Request $request)
     {
-        $id_profession = $request->input('id_profession');
-        $career_path_level = $request->input('career_path_level');
-        if (is_null($career_path_level)) {
-            $career_path_level = 1;
-        }
-        $career_path = CareerPath::whereHas('professions', function ($query) use ($id_profession) {
-            $query->where('profession.id_profession', $id_profession);
-        })->get();
-        return $career_path[$career_path_level - 1]['status_range'] . ' ' . $career_path[$career_path_level - 1]['status_level'];
+
+        $result['status'] = $this->status($request);
+        $result['characteristics'] = $this->career_path_characteristics($request);
+        return $result;
     }
 
     /**
@@ -139,6 +134,34 @@ class NewController extends Controller
         $race = Race::find($request->input('id_race'));
         $characteristics = $race->characteristics;
         return $characteristics;
+    }
+
+    /**
+     * 
+     */
+    public function status(Request $request)
+    {
+        $id_profession = $request->input('id_profession');
+        $career_path_level = $request->input('career_path_level');
+        if (is_null($career_path_level)) {
+            $career_path_level = 1;
+        }
+        $career_path = CareerPath::whereHas('professions', function ($query) use ($id_profession) {
+            $query->where('profession.id_profession', $id_profession);
+        })->get();
+        return $career_path[$career_path_level - 1]['status_range'] . ' ' . $career_path[$career_path_level - 1]['status_level'];
+    }
+
+    /**
+     * 
+     */
+    public function career_path_characteristics(Request $request)
+    {
+        $id_profession = $request->input('id_profession');
+        $careerPaths = CareerPath::where('id_profession', $id_profession)
+            ->with('characteristics')
+            ->get();
+        return $careerPaths;
     }
 
     /**

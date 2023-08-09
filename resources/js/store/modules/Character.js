@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', ha_ini: '', hp_ini: '', f_ini: '', r_ini: '', ini_ini: '', ag_ini: '', des_ini: '', i_ini: '', v_ini: '', em_ini: '', ha_imp: '', hp_imp: '', f_imp: '', r_imp: '', ini_imp: '', ag_imp: '', des_imp: '', i_imp: '', v_imp: '', em_imp: '', ha_total: '', hp_total: '', f_total: '', r_total: '', ini_total: '', ag_total: '', des_total: '', i_total: '', v_total: '', em_total: '', destiny: '', fortune: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: ''};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', ha_ini: '', hp_ini: '', f_ini: '', r_ini: '', ini_ini: '', ag_ini: '', des_ini: '', i_ini: '', v_ini: '', em_ini: '', ha_imp: '', hp_imp: '', f_imp: '', r_imp: '', ini_imp: '', ag_imp: '', des_imp: '', i_imp: '', v_imp: '', em_imp: '', ha_total: '', hp_total: '', f_total: '', r_total: '', ini_total: '', ag_total: '', des_total: '', i_total: '', v_total: '', em_total: '', total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: ''};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -42,8 +42,10 @@ const mutations = {
             state[item.abbreviation.toLowerCase() + '_ini'] = item.pivot.value;
         })
         mutations.updateTotalChar(state);
+        state.total_destiny = newRaceTraits.destiny;
         state.destiny = newRaceTraits.destiny;
         state.fortune = newRaceTraits.destiny;
+        state.total_resilience = newRaceTraits.resilience;
         state.resilience = newRaceTraits.resilience;
         state.resolution = newRaceTraits.resilience;
         state.extra = newRaceTraits.extra;
@@ -77,17 +79,92 @@ const mutations = {
         });
         mutations.updateTotalChar(state);
     },
+    updateChar(state, newChar) {
+        state[newChar.char.toLowerCase() + '_imp'] = newChar.value;
+    },
     updateTotalChar(state) {
-        state.ha_total = state.ha_ini + state.ha_imp;
-        state.hp_total = state.hp_ini + state.hp_imp;
-        state.f_total = state.f_ini + state.f_imp;
-        state.r_total = state.r_ini + state.r_imp;
-        state.ini_total = state.ini_ini + state.ini_imp;
-        state.ag_total = state.ag_ini + state.ag_imp;
-        state.des_total = state.des_ini + state.des_imp;
-        state.i_total = state.i_ini + state.i_imp;
-        state.v_total = state.v_ini + state.v_imp;
-        state.em_total = state.em_ini + state.em_imp;
+        var value = state.ha_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.ha_total = state.ha_ini + parseInt(value);
+        var value = state.hp_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.hp_total = state.hp_ini + parseInt(value);
+        var value = state.f_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.f_total = state.f_ini + parseInt(value);
+        var value = state.r_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.r_total = state.r_ini + parseInt(value);
+        var value = state.ini_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.ini_total = state.ini_ini + parseInt(value);
+        var value = state.ag_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.ag_total = state.ag_ini + parseInt(value);
+        var value = state.des_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.des_total = state.des_ini + parseInt(value);
+        var value = state.i_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.i_total = state.i_ini + parseInt(value);
+        var value = state.v_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.v_total = state.v_ini + parseInt(value);
+        var value = state.em_imp;
+        if(value == '') {
+            value = 0;
+        }
+        state.em_total = state.em_ini + parseInt(value);
+    },
+    updateDestinyUp(state){
+        if(state.extra > 0)
+        {
+            state.destiny++;
+            state.fortune++;
+            state.extra--;
+        }   
+    },
+    updateDestinyDown(state){
+        if(state.destiny > state.total_destiny)
+        {
+            state.destiny--;
+            state.fortune--;
+            state.extra++;
+        }   
+    },
+    updateResilienceUp(state){
+        if(state.extra > 0)
+        {
+            state.resilience++;
+            state.resolution++;
+            state.extra--;
+        }   
+    },
+    updateResilienceDown(state){
+        if(state.resilience > state.total_resilience)
+        {
+            state.resilience--;
+            state.resolution--;
+            state.extra++;
+        }   
     },
 };  
 

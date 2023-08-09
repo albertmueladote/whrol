@@ -64,7 +64,7 @@ import {
     getRacesFromAPI,
     getCategoriesFromAPI,
     getProfessionsFromAPI,
-    getCareerPathStatusFromAPI,
+    getProfessionFromAPI,
     getRaceTraitsFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
@@ -124,7 +124,7 @@ export default {
         },
         onProfessionSelected(event) {
             this.updateProfession(event.target.value);
-            this.loadCareerPathStatus();
+            this.loadProfession();
         },
         onNameInput(event) {
             const newName = event.target.value;
@@ -175,11 +175,26 @@ export default {
                 ...professionsObject,
             };
         },
-        async loadCareerPathStatus() {
-            const career_path_statusFromAPI = await getCareerPathStatusFromAPI(
+        async loadProfession() {
+            const career_path_statusFromAPI = await getProfessionFromAPI(
                 this.currentProfession
             );
-            this.updateCareerPathStatus(career_path_statusFromAPI);
+            this.updateCareerPathStatus(career_path_statusFromAPI.status);
+            var cont = 1;
+            career_path_statusFromAPI.characteristics.forEach(
+                (career_path, career_path_index) => {
+                    career_path.characteristics.forEach(
+                        (characteristic, characteristic_index) => {
+                            document
+                                .querySelector(
+                                    `input[name="${characteristic.abbreviation.toLowerCase()}_imp"]`
+                                )
+                                .classList.add("imp_" + cont);
+                        }
+                    );
+                    cont++;
+                }
+            );
         },
         async loadRaceTraits() {
             const race = await getRaceTraitsFromAPI(this.currentRace);

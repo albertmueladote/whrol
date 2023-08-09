@@ -25,34 +25,34 @@
             v-if="visibleButtons"
             :class="{ invisible: !visibleButtons }"
         >
-            <div class="dice dice_1" @click="takeDice('dice_1', dice_1)">
+            <div class="dice dice_1" @click="takeDice('dice_1')">
                 {{ dice_1 }}
             </div>
-            <div class="dice dice_2" @click="takeDice('dice_2', dice_2)">
+            <div class="dice dice_2" @click="takeDice('dice_2')">
                 {{ dice_2 }}
             </div>
-            <div class="dice dice_3" @click="takeDice('dice_3', dice_3)">
+            <div class="dice dice_3" @click="takeDice('dice_3')">
                 {{ dice_3 }}
             </div>
-            <div class="dice dice_4" @click="takeDice('dice_4', dice_4)">
+            <div class="dice dice_4" @click="takeDice('dice_4')">
                 {{ dice_4 }}
             </div>
-            <div class="dice dice_5" @click="takeDice('dice_5', dice_5)">
+            <div class="dice dice_5" @click="takeDice('dice_5')">
                 {{ dice_5 }}
             </div>
-            <div class="dice dice_6" @click="takeDice('dice_6', dice_6)">
+            <div class="dice dice_6" @click="takeDice('dice_6')">
                 {{ dice_6 }}
             </div>
-            <div class="dice dice_7" @click="takeDice('dice_7', dice_7)">
+            <div class="dice dice_7" @click="takeDice('dice_7')">
                 {{ dice_7 }}
             </div>
-            <div class="dice dice_8" @click="takeDice('dice_8', dice_8)">
+            <div class="dice dice_8" @click="takeDice('dice_8')">
                 {{ dice_8 }}
             </div>
-            <div class="dice dice_9" @click="takeDice('dice_9', dice_9)">
+            <div class="dice dice_9" @click="takeDice('dice_9')">
                 {{ dice_9 }}
             </div>
-            <div class="dice dice_10" @click="takeDice('dice_10', dice_10)">
+            <div class="dice dice_10" @click="takeDice('dice_10')">
                 {{ dice_10 }}
             </div>
         </div>
@@ -88,7 +88,7 @@ export default {
                 element.classList.remove("taked");
             });
         },
-        takeDice(divClass, value) {
+        takeDice(divClass) {
             document.querySelector(`.${divClass}`).classList.add("taked");
         },
     },

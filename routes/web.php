@@ -36,7 +36,7 @@ Route::post('/age', [App\Http\Controllers\NewController::class, 'age'])->name('a
 Route::post('/height', [App\Http\Controllers\NewController::class, 'height'])->name('height');
 Route::post('/hair', [App\Http\Controllers\NewController::class, 'hair'])->name('hair');
 Route::post('/eyes', [App\Http\Controllers\NewController::class, 'eyes'])->name('eyes');
-Route::post('/status', [App\Http\Controllers\NewController::class, 'status'])->name('status');
+Route::post('/profession', [App\Http\Controllers\NewController::class, 'profession'])->name('profession');
 Route::post('/choose_eyes', [App\Http\Controllers\NewController::class, 'choose_eyes'])->name('choose_eyes');
 Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'characteristics'])->name('characteristics');
 Route::post('/random_characteristics', [App\Http\Controllers\NewController::class, 'random_characteristics'])->name('random_characteristics');

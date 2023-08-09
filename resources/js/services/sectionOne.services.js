@@ -91,9 +91,9 @@ export async function getEyesFromAPI(id_race) {
   }
 }
 
-export async function getCareerPathStatusFromAPI(id_profession) {
+export async function getProfessionFromAPI(id_profession) {
   try {
-      const response = await axios.post("/status", null, {
+      const response = await axios.post("/profession", null, {
       params: {
           id_profession: id_profession
       },
