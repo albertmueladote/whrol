@@ -41,6 +41,9 @@ Route::post('/choose_eyes', [App\Http\Controllers\NewController::class, 'choose_
 Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'characteristics'])->name('characteristics');
 Route::post('/random_characteristics', [App\Http\Controllers\NewController::class, 'random_characteristics'])->name('random_characteristics');
 Route::post('/throw_dice', [App\Http\Controllers\NewController::class, 'throw_dice'])->name('throw_dice');
+Route::post('/race_basic_abilities', [App\Http\Controllers\NewController::class, 'race_basic_abilities'])->name('race_basic_abilities');
+Route::post('/career_path_basic_abilities', [App\Http\Controllers\NewController::class, 'career_path_basic_abilities'])->name('career_path_basic_abilities');
+
 
 /*
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');

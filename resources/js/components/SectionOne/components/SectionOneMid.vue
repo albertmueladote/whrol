@@ -66,6 +66,9 @@ import {
     getProfessionsFromAPI,
     getProfessionFromAPI,
     getRaceTraitsFromAPI,
+    getRaceBasicAbilitiesFromAPI,
+    getCareerPathBasicAbilitiesFromAPI,
+    getRandomCharFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -85,6 +88,11 @@ export default {
             "updateEyes",
             "resetRace",
             "updateRaceTraits",
+            "updateRaceBasicAbilities",
+            "resetRaceBasicAbilities",
+            "updateCareerPathBasicAbilities",
+            "resetCareerPathBasicAbilities",
+            "updateRandomChar",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
@@ -95,6 +103,8 @@ export default {
             this.updateHair({ id_hair: 0, name: "" });
             this.updateEyes({ id_eye: 0, name: "" });
             this.resetRace();
+            this.resetRaceBasicAbilities();
+            this.resetCareerPathBasicAbilities();
             this.loadProfessions();
             if (this.currentRace === "0") {
                 this.updateCategory("0");
@@ -104,18 +114,24 @@ export default {
                 if (this.currentCategory !== "0") {
                     this.visibleProfession = true;
                     this.selectedProfession = 0;
+                    if (this.currentProfession !== "0") {
+                        this.loadCareerPathBasicAbilities();
+                    }
                 } else {
                     this.visibleProfession = false;
                 }
                 this.visibleCategory = true;
+                this.loadRaceBasicAbilities();
                 this.loadRaceTraits();
             }
+            //this.loadRamdomChars();
         },
         onCategorySelected(event) {
             this.updateCategory(event.target.value);
             this.updateProfession("0");
             this.loadProfessions();
             this.updateCareerPathStatus("");
+            this.resetCareerPathBasicAbilities();
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -125,6 +141,8 @@ export default {
         onProfessionSelected(event) {
             this.updateProfession(event.target.value);
             this.loadProfession();
+            this.resetCareerPathBasicAbilities();
+            this.loadCareerPathBasicAbilities();
         },
         onNameInput(event) {
             const newName = event.target.value;
@@ -196,9 +214,26 @@ export default {
                 }
             );
         },
+        async loadRamdomChars() {
+            const randomChars = await getRandomCharFromAPI();
+            this.updateRandomChar(randomChars);
+        },
         async loadRaceTraits() {
             const race = await getRaceTraitsFromAPI(this.currentRace);
             this.updateRaceTraits(race);
+        },
+        async loadRaceBasicAbilities() {
+            const race_basic_abilities = await getRaceBasicAbilitiesFromAPI(
+                this.currentRace
+            );
+            this.updateRaceBasicAbilities(race_basic_abilities);
+        },
+        async loadCareerPathBasicAbilities() {
+            const career_path_basic_abilities =
+                await getCareerPathBasicAbilitiesFromAPI(
+                    this.currentProfession
+                );
+            this.updateCareerPathBasicAbilities(career_path_basic_abilities);
         },
     },
     computed: {

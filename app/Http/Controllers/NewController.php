@@ -187,4 +187,30 @@ class NewController extends Controller
         }
         return $characteristics;
     }
+
+    /**
+     * 
+     */
+    public function race_basic_abilities(request $request)
+    {
+        $id_race = $request->input('id_race');
+        $basic_abilities = BasicAbility::whereHas('races', function ($query) use ($id_race) {
+            $query->where('race.id_race', $id_race);
+        })->get();
+        return $basic_abilities;
+    }
+
+    /**
+     * 
+     */
+    public function career_path_basic_abilities(request $request)
+    {
+        $id_profession = $request->input('id_profession');
+        $career_path = CareerPath::where('id_profession', $id_profession)->where('level', 1)->first();
+        $id_career_path = $career_path->id_career_path;
+        $basic_abilities = BasicAbility::whereHas('careerPaths', function ($query) use ($id_career_path) {
+            $query->where('career_path.id_career_path', $id_career_path);
+        })->get();
+        return $basic_abilities;
+    }
 }

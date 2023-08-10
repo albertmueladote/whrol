@@ -134,8 +134,8 @@ export async function getRaceTraitsFromAPI(id_race) {
 }
 
 export async function getRandomCharFromAPI() {
-    try {
-      const response = await axios.post("/random_characteristics", null, {});
+  try {
+    const response = await axios.post("/random_characteristics", null, {});
     return response.data;
   } catch (error) {
     console.error("Error al obtener las características:", error);
@@ -146,9 +146,37 @@ export async function getRandomCharFromAPI() {
 export async function getThrowDiceFromAPI() {
   try {
     const response = await axios.post("/throw_dice", null, {});
-  return response.data;
-} catch (error) {
-  console.error("Error al obtener las características:", error);
-  return [];
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las características:", error);
+    return [];
+  }
 }
+
+export async function getRaceBasicAbilitiesFromAPI(id_race) {
+  try {
+    const response = await axios.post("/race_basic_abilities", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las habilidades básicas raciales:", error);
+    return [];
+  }
+}
+
+export async function getCareerPathBasicAbilitiesFromAPI(id_profession) {
+  try {
+    const response = await axios.post("/career_path_basic_abilities", null, {
+      params: {
+          id_profession: id_profession
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las habilidades básicas de profesión:", error);
+    return [];
+  }
 }

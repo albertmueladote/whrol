@@ -427,140 +427,140 @@ input[name="ha_ini"] {
     top: 58px;
     left: 142px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="hp_ini"] {
     top: 58px;
     left: 170px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="f_ini"] {
     top: 58px;
     left: 198px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="r_ini"] {
     top: 58px;
     left: 226px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ini_ini"] {
     top: 58px;
     left: 254px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ag_ini"] {
     top: 58px;
     left: 282px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="des_ini"] {
     top: 58px;
     left: 310px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="i_ini"] {
     top: 58px;
     left: 338px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="v_ini"] {
     top: 58px;
     left: 366px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="em_ini"] {
     top: 58px;
     left: 394px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ha_imp"] {
     top: 88px;
-    left: 142px;
-    width: 28px;
-    height: 29px !important;
+    left: 143px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="hp_imp"] {
     top: 88px;
-    left: 170px;
-    width: 28px;
-    height: 29px !important;
+    left: 171px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="f_imp"] {
     top: 88px;
-    left: 198px;
-    width: 28px;
-    height: 29px !important;
+    left: 199px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="r_imp"] {
     top: 88px;
-    left: 226px;
-    width: 28px;
-    height: 29px !important;
+    left: 227px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="ini_imp"] {
     top: 88px;
-    left: 254px;
-    width: 28px;
-    height: 29px !important;
+    left: 255px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="ag_imp"] {
     top: 88px;
-    left: 282px;
-    width: 28px;
-    height: 29px !important;
+    left: 283px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="des_imp"] {
     top: 88px;
-    left: 310px;
-    width: 28px;
-    height: 29px !important;
+    left: 311px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="i_imp"] {
     top: 88px;
-    left: 338px;
-    width: 28px;
-    height: 29px !important;
+    left: 339px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="v_imp"] {
     top: 88px;
-    left: 366px;
-    width: 28px;
-    height: 29px !important;
+    left: 367px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input[name="em_imp"] {
     top: 88px;
-    left: 394px;
-    width: 28px;
-    height: 29px !important;
+    left: 395px;
+    width: 26px;
+    height: 28px !important;
 }
 
 input.imp_1 {
@@ -583,70 +583,70 @@ input[name="ha_total"] {
     top: 117px;
     left: 142px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="hp_total"] {
     top: 117px;
     left: 170px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="f_total"] {
     top: 117px;
     left: 198px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="r_total"] {
     top: 117px;
     left: 226px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ini_total"] {
     top: 117px;
     left: 254px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="ag_total"] {
     top: 117px;
     left: 282px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="des_total"] {
     top: 117px;
     left: 310px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="i_total"] {
     top: 117px;
     left: 338px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="v_total"] {
     top: 117px;
     left: 366px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="em_total"] {
     top: 117px;
     left: 394px;
     width: 28px;
-    height: 29px;
+    height: 29px !important;
 }
 
 input[name="destiny"] {

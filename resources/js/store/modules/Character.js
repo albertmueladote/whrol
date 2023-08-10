@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', ha_ini: '', hp_ini: '', f_ini: '', r_ini: '', ini_ini: '', ag_ini: '', des_ini: '', i_ini: '', v_ini: '', em_ini: '', ha_imp: '', hp_imp: '', f_imp: '', r_imp: '', ini_imp: '', ag_imp: '', des_imp: '', i_imp: '', v_imp: '', em_imp: '', ha_total: '', hp_total: '', f_total: '', r_total: '', ini_total: '', ag_total: '', des_total: '', i_total: '', v_total: '', em_total: '', total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: ''};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', ha_ini: '', hp_ini: '', f_ini: '', r_ini: '', ini_ini: '', ag_ini: '', des_ini: '', i_ini: '', v_ini: '', em_ini: '', ha_imp: '', hp_imp: '', f_imp: '', r_imp: '', ini_imp: '', ag_imp: '', des_imp: '', i_imp: '', v_imp: '', em_imp: '', ha_total: '', hp_total: '', f_total: '', r_total: '', ini_total: '', ag_total: '', des_total: '', i_total: '', v_total: '', em_total: '', total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -77,7 +77,6 @@ const mutations = {
         newRandomChar.forEach((item, index) => {
             state[item.abbreviation.toLowerCase() + '_imp'] = item.value;
         });
-        mutations.updateTotalChar(state);
     },
     updateChar(state, newChar) {
         state[newChar.char.toLowerCase() + '_imp'] = newChar.value;
@@ -165,6 +164,30 @@ const mutations = {
             state.resolution--;
             state.extra++;
         }   
+    },
+    updateRaceBasicAbilities(state, newAbilities){
+        newAbilities.forEach((item, index) => {
+            if (state.race_basic_abilities.hasOwnProperty(item.name)) {
+                state.race_basic_abilities[item.name] += 1;
+            } else {
+                state.race_basic_abilities[item.name] = 1;
+            }
+        });
+    },
+    resetRaceBasicAbilities(state) {
+        state.race_basic_abilities = {};
+    },
+    updateCareerPathBasicAbilities(state, newAbilities){
+        newAbilities.forEach((item, index) => {
+            if (state.career_path_basic_abilities.hasOwnProperty(item.name)) {
+                state.career_path_basic_abilities[item.name] += 1;
+            } else {
+                state.career_path_basic_abilities[item.name] = 1;
+            }
+        });
+    },
+    resetCareerPathBasicAbilities(state) {
+        state.career_path_basic_abilities = {};
     },
 };  
 

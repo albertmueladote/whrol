@@ -74,11 +74,12 @@ import {
 export default {
     props: {},
     methods: {
-        ...mapMutations("Character", ["updateRandomChar"]),
+        ...mapMutations("Character", ["updateRandomChar", "updateTotalChar"]),
         ...mapMutations("Helper", ["updateThrowDice"]),
         async randomChar() {
             const randomCharFromAPI = await getRandomCharFromAPI();
             this.updateRandomChar(randomCharFromAPI);
+            this.updateTotalChar();
         },
         async throwDice() {
             const throwDiceFromAPI = await getThrowDiceFromAPI();
