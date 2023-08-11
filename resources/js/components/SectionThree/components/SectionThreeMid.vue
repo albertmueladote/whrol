@@ -121,7 +121,7 @@
                 (race_basic_abilities.art || '') +
                 (career_path_basic_abilities.art || '')
             "
-            isabled
+            disabled
         />
         <input
             type="text"
