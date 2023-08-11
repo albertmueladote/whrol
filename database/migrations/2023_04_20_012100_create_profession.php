@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -24,56 +23,56 @@ return new class extends Migration
                 'id_profession' => 1,
                 'id_category' => 1,
                 'name' => 'Abogado',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 2,
                 'id_category' => 1,
                 'name' => 'Boticario',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 3,
                 'id_category' => 1,
                 'name' => 'Erudito',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 4,
                 'id_category' => 1,
                 'name' => 'Físico',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 5,
                 'id_category' => 1,
                 'name' => 'Hechicero',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 6,
                 'id_category' => 1,
                 'name' => 'Ingeniero',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 7,
                 'id_category' => 1,
                 'name' => 'Monja',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
                 'id_profession' => 8,
                 'id_category' => 1,
                 'name' => 'Sacerdote',
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -282,7 +281,7 @@ return new class extends Migration
             [
                 'id_profession' => 38,
                 'id_category' => 5,
-                'name' => 'Retire',
+                'name' => 'Reitre',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -413,59 +412,59 @@ return new class extends Migration
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 57, 
-                'id_category' => 8, 
-                'name' => 'Animador', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 57,
+                'id_category' => 8,
+                'name' => 'Animador',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 58, 
-                'id_category' => 8, 
-                'name' => 'Cazador de brujas', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 58,
+                'id_category' => 8,
+                'name' => 'Cazador de brujas',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 59, 
-                'id_category' => 8, 
-                'name' => 'Cazarrecompensas', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 59,
+                'id_category' => 8,
+                'name' => 'Cazarrecompensas',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 60, 
-                'id_category' => 8, 
-                'name' => 'Cochero', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 60,
+                'id_category' => 8,
+                'name' => 'Cochero',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 61, 
-                'id_category' => 8, 
-                'name' => 'Flagelante', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 61,
+                'id_category' => 8,
+                'name' => 'Flagelante',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 62, 
-                'id_category' => 8, 
-                'name' => 'Guarda de caminos', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 62,
+                'id_category' => 8,
+                'name' => 'Guarda de caminos',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 63, 
-                'id_category' => 8, 
-                'name' => 'Mensajero', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 63,
+                'id_category' => 8,
+                'name' => 'Mensajero',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_profession' => 64, 
-                'id_category' => 8, 
-                'name' => 'Vendedor ambulante', 
-                'created_at' => date('Y-m-d H:i:s'), 
+                'id_profession' => 64,
+                'id_category' => 8,
+                'name' => 'Vendedor ambulante',
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]
         ]);

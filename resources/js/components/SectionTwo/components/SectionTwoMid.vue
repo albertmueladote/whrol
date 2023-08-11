@@ -3,7 +3,7 @@
         <input
             type="text"
             name="ha_ini"
-            :value="ha_ini"
+            :value="characteristics_ini.ha"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -11,7 +11,7 @@
         <input
             type="text"
             name="hp_ini"
-            :value="hp_ini"
+            :value="characteristics_ini.hp"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -19,7 +19,7 @@
         <input
             type="text"
             name="f_ini"
-            :value="f_ini"
+            :value="characteristics_ini.f"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -27,7 +27,7 @@
         <input
             type="text"
             name="r_ini"
-            :value="r_ini"
+            :value="characteristics_ini.r"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -35,7 +35,7 @@
         <input
             type="text"
             name="ini_ini"
-            :value="ini_ini"
+            :value="characteristics_ini.ini"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -43,7 +43,7 @@
         <input
             type="text"
             name="ag_ini"
-            :value="ag_ini"
+            :value="characteristics_ini.ag"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -51,7 +51,7 @@
         <input
             type="text"
             name="des_ini"
-            :value="des_ini"
+            :value="characteristics_ini.des"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -59,7 +59,7 @@
         <input
             type="text"
             name="i_ini"
-            :value="i_ini"
+            :value="characteristics_ini.i"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -67,7 +67,7 @@
         <input
             type="text"
             name="v_ini"
-            :value="v_ini"
+            :value="characteristics_ini.v"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -75,7 +75,7 @@
         <input
             type="text"
             name="em_ini"
-            :value="em_ini"
+            :value="characteristics_ini.em"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -83,7 +83,7 @@
         <input
             type="text"
             name="ha_imp"
-            :value="ha_imp"
+            :value="characteristics_imp.ha"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -94,7 +94,7 @@
         <input
             type="text"
             name="hp_imp"
-            :value="hp_imp"
+            :value="characteristics_imp.hp"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -105,7 +105,7 @@
         <input
             type="text"
             name="f_imp"
-            :value="f_imp"
+            :value="characteristics_imp.f"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -116,7 +116,7 @@
         <input
             type="text"
             name="r_imp"
-            :value="r_imp"
+            :value="characteristics_imp.r"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -127,7 +127,7 @@
         <input
             type="text"
             name="ini_imp"
-            :value="ini_imp"
+            :value="characteristics_imp.ini"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -138,7 +138,7 @@
         <input
             type="text"
             name="ag_imp"
-            :value="ag_imp"
+            :value="characteristics_imp.ag"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -149,7 +149,7 @@
         <input
             type="text"
             name="des_imp"
-            :value="des_imp"
+            :value="characteristics_imp.des"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -160,7 +160,7 @@
         <input
             type="text"
             name="i_imp"
-            :value="i_imp"
+            :value="characteristics_imp.i"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -171,7 +171,7 @@
         <input
             type="text"
             name="v_imp"
-            :value="v_imp"
+            :value="characteristics_imp.v"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             maxlength="2"
@@ -181,7 +181,7 @@
         />
         <input
             type="text"
-            :value="em_imp"
+            :value="characteristics_imp.em"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             name="em_imp"
@@ -193,7 +193,7 @@
         <input
             type="text"
             name="ha_total"
-            :value="ha_total"
+            :value="characteristics_total.ha"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -201,7 +201,7 @@
         <input
             type="text"
             name="hp_total"
-            :value="hp_total"
+            :value="characteristics_total.hp"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -209,7 +209,7 @@
         <input
             type="text"
             name="f_total"
-            :value="f_total"
+            :value="characteristics_total.f"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -217,7 +217,7 @@
         <input
             type="text"
             name="r_total"
-            :value="r_total"
+            :value="characteristics_total.r"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -225,7 +225,7 @@
         <input
             type="text"
             name="ini_total"
-            :value="ini_total"
+            :value="characteristics_total.ini"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -233,7 +233,7 @@
         <input
             type="text"
             name="ag_total"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -241,7 +241,7 @@
         <input
             type="text"
             name="des_total"
-            :value="des_total"
+            :value="characteristics_total.des"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -249,7 +249,7 @@
         <input
             type="text"
             name="i_total"
-            :value="i_total"
+            :value="characteristics_total.i"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -257,7 +257,7 @@
         <input
             type="text"
             name="v_total"
-            :value="v_total"
+            :value="characteristics_total.v"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -265,7 +265,7 @@
         <input
             type="text"
             name="em_total"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleRace"
             :class="{ invisible: !visibleRace }"
             disabled
@@ -361,36 +361,9 @@ export default {
     computed: {
         ...mapState("Character", [
             "race",
-            "ha_ini",
-            "hp_ini",
-            "f_ini",
-            "r_ini",
-            "ini_ini",
-            "ag_ini",
-            "des_ini",
-            "i_ini",
-            "v_ini",
-            "em_ini",
-            "ha_imp",
-            "hp_imp",
-            "f_imp",
-            "r_imp",
-            "ini_imp",
-            "ag_imp",
-            "des_imp",
-            "i_imp",
-            "v_imp",
-            "em_imp",
-            "ha_total",
-            "hp_total",
-            "f_total",
-            "r_total",
-            "ini_total",
-            "ag_total",
-            "des_total",
-            "i_total",
-            "v_total",
-            "em_total",
+            "characteristics_ini",
+            "characteristics_imp",
+            "characteristics_total",
             "destiny",
             "fortune",
             "resilience",

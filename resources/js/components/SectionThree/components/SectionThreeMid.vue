@@ -3,7 +3,7 @@
         <input
             type="text"
             name="endurance"
-            :value="r_total"
+            :value="characteristics_total.r"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -11,7 +11,7 @@
         <input
             type="text"
             name="art"
-            :value="des_total"
+            :value="characteristics_total.des"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -19,7 +19,7 @@
         <input
             type="text"
             name="athletics"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -27,7 +27,7 @@
         <input
             type="text"
             name="calm"
-            :value="v_total"
+            :value="characteristics_total.v"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -35,7 +35,7 @@
         <input
             type="text"
             name="charisma"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -43,7 +43,7 @@
         <input
             type="text"
             name="animal_charisma"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -51,7 +51,7 @@
         <input
             type="text"
             name="melee"
-            :value="ha_total"
+            :value="characteristics_total.ha"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -59,7 +59,7 @@
         <input
             type="text"
             name="close_combat"
-            :value="ha_total"
+            :value="characteristics_total.ha"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -67,7 +67,7 @@
         <input
             type="text"
             name="drive"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -75,7 +75,7 @@
         <input
             type="text"
             name="to_drink_alcohol"
-            :value="r_total"
+            :value="characteristics_total.r"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -83,7 +83,7 @@
         <input
             type="text"
             name="gossip"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -91,7 +91,7 @@
         <input
             type="text"
             name="entertain"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -100,7 +100,7 @@
         <input
             type="text"
             name="climb"
-            :value="f_total"
+            :value="characteristics_total.f"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -222,23 +222,88 @@
             "
             disabled
         />
-        <input type="text" name="endurance_hab" disabled />
-        <input type="text" name="art_hab" disabled />
-        <input type="text" name="athletics_hab" disabled />
-        <input type="text" name="calm_hab" disabled />
-        <input type="text" name="charisma_hab" disabled />
-        <input type="text" name="animal_charisma_hab" disabled />
-        <input type="text" name="melee_hab" disabled />
-        <input type="text" name="close_combat_hab" disabled />
-        <input type="text" name="drive_hab" disabled />
-        <input type="text" name="to_drink_alcohol_hab" disabled />
-        <input type="text" name="gossip_hab" disabled />
-        <input type="text" name="entertain_hab" disabled />
-        <input type="text" name="climb_hab" disabled />
+        <input
+            type="text"
+            name="endurance_hab"
+            :value="basic_specializations.list.endurance"
+            disabled
+        />
+        <input
+            type="text"
+            name="art_hab"
+            :value="basic_specializations.list.art"
+            disabled
+        />
+        <input
+            type="text"
+            name="athletics_hab"
+            :value="basic_specializations.list.athletics"
+            disabled
+        />
+        <input
+            type="text"
+            name="calm_hab"
+            :value="basic_specializations.list.calm"
+            disabled
+        />
+        <input
+            type="text"
+            name="charisma_hab"
+            :value="basic_specializations.list.charisma"
+            disabled
+        />
+        <input
+            type="text"
+            name="animal_charisma_hab"
+            :value="basic_specializations.list.animal_charisma"
+            disabled
+        />
+        <input
+            type="text"
+            name="melee_hab"
+            :value="basic_specializations.list.melee"
+            disabled
+        />
+        <input
+            type="text"
+            name="close_combat_hab"
+            :value="basic_specializations.list.close_combat"
+            disabled
+        />
+        <input
+            type="text"
+            name="drive_hab"
+            :value="basic_specializations.list.drive"
+            disabled
+        />
+        <input
+            type="text"
+            name="to_drink_alcohol_hab"
+            :value="basic_specializations.list.to_drink_alcohol"
+            disabled
+        />
+        <input
+            type="text"
+            name="gossip_hab"
+            :value="basic_specializations.list.gossip"
+            disabled
+        />
+        <input
+            type="text"
+            name="entertain_hab"
+            :value="basic_specializations.list.entertain"
+            disabled
+        />
+        <input
+            type="text"
+            name="climb_hab"
+            :value="basic_specializations.list.climb"
+            disabled
+        />
         <input
             type="text"
             name="dodge"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -246,7 +311,7 @@
         <input
             type="text"
             name="intimidate"
-            :value="f_total"
+            :value="characteristics_total.f"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -254,7 +319,7 @@
         <input
             type="text"
             name="intuition"
-            :value="ini_total"
+            :value="characteristics_total.ini"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -262,7 +327,7 @@
         <input
             type="text"
             name="play"
-            :value="i_total"
+            :value="characteristics_total.i"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -270,7 +335,7 @@
         <input
             type="text"
             name="leadership"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -278,7 +343,7 @@
         <input
             type="text"
             name="mount"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -286,7 +351,7 @@
         <input
             type="text"
             name="orientation"
-            :value="ini_total"
+            :value="characteristics_total.ini"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -294,7 +359,7 @@
         <input
             type="text"
             name="perception"
-            :value="ini_total"
+            :value="characteristics_total.ini"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -302,7 +367,7 @@
         <input
             type="text"
             name="bargain"
-            :value="em_total"
+            :value="characteristics_total.em"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -310,7 +375,7 @@
         <input
             type="text"
             name="row"
-            :value="f_total"
+            :value="characteristics_total.f"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -318,7 +383,7 @@
         <input
             type="text"
             name="stealth"
-            :value="ag_total"
+            :value="characteristics_total.ag"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -326,7 +391,7 @@
         <input
             type="text"
             name="bribe"
-            :value="em_total"
+            :value="characteristics_total.em"
             ata-value="0"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
@@ -335,7 +400,7 @@
         <input
             type="text"
             name="survival"
-            :value="ini_total"
+            :value="characteristics_total.ini"
             v-if="visibleCharacteristics"
             :class="{ invisible: !visibleCharacteristics }"
             disabled
@@ -457,19 +522,84 @@
             "
             disabled
         />
-        <input type="text" name="dodge_hab" disabled />
-        <input type="text" name="intimidate_hab" disabled />
-        <input type="text" name="intuition_hab" disabled />
-        <input type="text" name="play_hab" disabled />
-        <input type="text" name="leadership_hab" disabled />
-        <input type="text" name="mount_hab" disabled />
-        <input type="text" name="orientation_hab" disabled />
-        <input type="text" name="perception_hab" disabled />
-        <input type="text" name="bargain_hab" disabled />
-        <input type="text" name="row_hab" disabled />
-        <input type="text" name="stealth_hab" disabled />
-        <input type="text" name="bribe_hab" disabled />
-        <input type="text" name="survival_hab" disabled />
+        <input
+            type="text"
+            name="dodge_hab"
+            :value="basic_specializations.list.doddge"
+            disabled
+        />
+        <input
+            type="text"
+            name="intimidate_hab"
+            :value="basic_specializations.list.intimidate"
+            disabled
+        />
+        <input
+            type="text"
+            name="intuition_hab"
+            :value="basic_specializations.list.intuition"
+            disabled
+        />
+        <input
+            type="text"
+            name="play_hab"
+            :value="basic_specializations.list.play"
+            disabled
+        />
+        <input
+            type="text"
+            name="leadership_hab"
+            :value="basic_specializations.list.leadership"
+            disabled
+        />
+        <input
+            type="text"
+            name="mount_hab"
+            :value="basic_specializations.list.mount"
+            disabled
+        />
+        <input
+            type="text"
+            name="orientation_hab"
+            :value="basic_specializations.list.orientation"
+            disabled
+        />
+        <input
+            type="text"
+            name="perception_hab"
+            :value="basic_specializations.list.perception"
+            disabled
+        />
+        <input
+            type="text"
+            name="bargain_hab"
+            :value="basic_specializations.list.bargain"
+            disabled
+        />
+        <input
+            type="text"
+            name="row_hab"
+            :value="basic_specializations.list.row"
+            disabled
+        />
+        <input
+            type="text"
+            name="stealth_hab"
+            :value="basic_specializations.list.stealth"
+            disabled
+        />
+        <input
+            type="text"
+            name="bribe_hab"
+            :value="basic_specializations.list.bribe"
+            disabled
+        />
+        <input
+            type="text"
+            name="survival_hab"
+            :value="basic_specializations.list.survival"
+            disabled
+        />
         <div class="advanced_skills_list">
             <div class="advanced_skill">
                 <input
@@ -513,21 +643,23 @@ export default {
     computed: {
         ...mapState("Character", [
             "race",
-            "ha_total",
-            "hp_total",
-            "f_total",
-            "r_total",
-            "ini_total",
-            "ag_total",
-            "des_total",
-            "i_total",
-            "v_total",
-            "em_total",
+            "characteristics_total",
             "race_basic_abilities",
             "career_path_basic_abilities",
+            "basic_specializations",
+            "characteristics_total",
         ]),
         visibleCharacteristics() {
             return this.race !== "0";
+        },
+        specializationsCareerpath() {
+            return this.basic_specializations.career_path;
+        },
+        specializationsRace() {
+            return this.basic_specializations.race;
+        },
+        characteristicsTotal() {
+            return this.characteristics_total;
         },
     },
 };

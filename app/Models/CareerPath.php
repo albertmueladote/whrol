@@ -30,4 +30,9 @@ class CareerPath extends Model
     {
         return $this->belongsToMany(Characteristic::class, 'career_path_characteristic', 'id_career_path', 'id_characteristic');
     }
+
+    public function basicSpecialization()
+    {
+        return $this->belongsToMany(BasicSpecialization::class, 'career_path_basic_specialization', 'id_career_path', 'id_basic_specialization');
+    }
 }

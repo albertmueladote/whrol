@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', ha_ini: '', hp_ini: '', f_ini: '', r_ini: '', ini_ini: '', ag_ini: '', des_ini: '', i_ini: '', v_ini: '', em_ini: '', ha_imp: '', hp_imp: '', f_imp: '', r_imp: '', ini_imp: '', ag_imp: '', des_imp: '', i_imp: '', v_imp: '', em_imp: '', ha_total: '', hp_total: '', f_total: '', r_total: '', ini_total: '', ag_total: '', des_total: '', i_total: '', v_total: '', em_total: '', total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {race: {}, career_path: {}, list: {}}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -39,7 +39,7 @@ const mutations = {
     },
     updateRaceTraits(state, newRaceTraits) {
         newRaceTraits.car.forEach((item, index) => {
-            state[item.abbreviation.toLowerCase() + '_ini'] = item.pivot.value;
+            state.characteristics_ini[item.abbreviation.toLowerCase()] = item.pivot.value;
         })
         mutations.updateTotalChar(state);
         state.total_destiny = newRaceTraits.destiny;
@@ -53,85 +53,45 @@ const mutations = {
         state.walk = state.movement * 2;
         state.run = state.walk * 2;
     },
-    resetRace() {
-        state.ha_ini = '0';
-        state.hp_ini = '0';
-        state.f_ini = '0';
-        state.r_ini = '0';
-        state.ini_ini = '0';
-        state.ag_ini = '0';
-        state.des_ini = '0';
-        state.i_ini = '0';
-        state.v_ini = '0';
-        state.em_ini = '0';
-        state.destiny = '0';
-        state.fortune = '0';
-        state.resilience = '0';
-        state.resolution = '0';
-        state.extra = '0';
-        state.movement = '0';
-        state.walk = '0';
-        state.run = '0';
+    resetRaceTraits(state)
+    {
+        state.characteristics_ini = {};
+        state.characteristics_imp = {};
+        state.characteristics_total = {};
+        state.total_destiny = '';
+        state.destiny = '';
+        state.fortune = '';
+        state.total_resilience = '';
+        state.resilience = '';
+        state.resolution = '';
+        state.extra = '';
+        state.movement = '';
+        state.walk = '';
+        state.run = '';
     },
     updateRandomChar(state, newRandomChar) {
         newRandomChar.forEach((item, index) => {
-            state[item.abbreviation.toLowerCase() + '_imp'] = item.value;
+            state.characteristics_imp[item.abbreviation.toLowerCase()] = parseInt(item.value);
         });
+        mutations.updateTotalChar(state);
     },
     updateChar(state, newChar) {
-        state[newChar.char.toLowerCase() + '_imp'] = newChar.value;
+        state.characteristics_imp[newChar.char.toLowerCase()] = newChar.value;
+        mutations.updateTotalChar(state);
     },
     updateTotalChar(state) {
-        var value = state.ha_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.ha_total = state.ha_ini + parseInt(value);
-        var value = state.hp_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.hp_total = state.hp_ini + parseInt(value);
-        var value = state.f_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.f_total = state.f_ini + parseInt(value);
-        var value = state.r_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.r_total = state.r_ini + parseInt(value);
-        var value = state.ini_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.ini_total = state.ini_ini + parseInt(value);
-        var value = state.ag_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.ag_total = state.ag_ini + parseInt(value);
-        var value = state.des_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.des_total = state.des_ini + parseInt(value);
-        var value = state.i_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.i_total = state.i_ini + parseInt(value);
-        var value = state.v_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.v_total = state.v_ini + parseInt(value);
-        var value = state.em_imp;
-        if(value == '') {
-            value = 0;
-        }
-        state.em_total = state.em_ini + parseInt(value);
+        for (const index in state.characteristics_ini) {
+            var value_imp = 0;
+            if (state.characteristics_imp.hasOwnProperty(index)) {
+                if(state.characteristics_imp[index] == '')
+                {
+                    value_imp = 0;
+                } else {
+                    value_imp = state.characteristics_imp[index];
+                }
+            }
+            state.characteristics_total[index] = state.characteristics_ini[index] + parseInt(value_imp);
+        };
     },
     updateDestinyUp(state){
         if(state.extra > 0)
@@ -188,6 +148,66 @@ const mutations = {
     },
     resetCareerPathBasicAbilities(state) {
         state.career_path_basic_abilities = {};
+    },
+    updateCareerPathBasicSpecializations(state, newBasicSpecializations) {
+        for (const key in newBasicSpecializations) {
+            if (newBasicSpecializations.hasOwnProperty(key)) {
+                const item = newBasicSpecializations[key];
+                if (!state.basic_specializations.career_path.hasOwnProperty(key)) {
+                    state.basic_specializations.career_path[key] = {};
+                }
+                if (!state.basic_specializations.career_path[key].hasOwnProperty(item.name)) {
+                    state.basic_specializations.career_path[key][item.name] = item;
+                }
+            }
+        }
+        mutations.basicSpecializationsList(state);
+    },
+    resetCareerPathBasicSpecializations(state) {
+        state.basic_specializations.career_path = {};
+        mutations.basicSpecializationsList(state);
+    },
+    updateRaceBasicSpecializations(state, newBasicSpecializations) {
+        for (const key in newBasicSpecializations) {
+            if (newBasicSpecializations.hasOwnProperty(key)) {
+                const item = newBasicSpecializations[key];
+                if (!state.basic_specializations.race.hasOwnProperty(key)) {
+                    state.basic_specializations.race[key] = {};
+                }
+                if (!state.basic_specializations.race[key].hasOwnProperty(item.name)) {
+                    state.basic_specializations.race[key][item.name] = item;
+                }
+            }
+        }
+        mutations.basicSpecializationsList(state);
+    },
+    resetRaceBasicSpecializations(state) {
+        state.basic_specializations.race = {};
+        mutations.basicSpecializationsList(state);
+    },
+    basicSpecializationsList(state) {
+        state.basic_specializations.list = {};
+        var career_path_string;
+        var race_string;
+        for (const key in state.basic_specializations.career_path) {
+            career_path_string = '';
+            for (const index in state.basic_specializations.career_path[key]) {
+                career_path_string = career_path_string + index + ' ';
+            }
+            state.basic_specializations.list[key] = career_path_string;
+        }
+        for (const key in state.basic_specializations.race) {
+            race_string = '';
+            for (const index in state.basic_specializations.race[key]) {
+                race_string = race_string + index + ' ';
+            }
+            if(state.basic_specializations.list.hasOwnProperty(key))
+            {
+                state.basic_specializations.list[key] = state.basic_specializations.list[key] + race_string;
+            } else {
+                state.basic_specializations.list[key] = race_string;
+            }
+        }
     },
 };  
 

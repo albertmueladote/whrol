@@ -86,13 +86,17 @@ export default {
             "updateHeight",
             "updateHair",
             "updateEyes",
-            "resetRace",
             "updateRaceTraits",
             "updateRaceBasicAbilities",
             "resetRaceBasicAbilities",
             "updateCareerPathBasicAbilities",
             "resetCareerPathBasicAbilities",
             "updateRandomChar",
+            "resetRaceTraits",
+            "updateCareerPathBasicSpecializations",
+            "resetCareerPathBasicSpecializations",
+            "updateRaceBasicSpecializations",
+            "resetRaceBasicSpecializations",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
@@ -102,10 +106,12 @@ export default {
             this.updateHeight("");
             this.updateHair({ id_hair: 0, name: "" });
             this.updateEyes({ id_eye: 0, name: "" });
-            this.resetRace();
             this.resetRaceBasicAbilities();
             this.resetCareerPathBasicAbilities();
+            this.resetCareerPathBasicSpecializations();
+            this.resetRaceBasicSpecializations();
             this.loadProfessions();
+            this.resetRaceTraits();
             if (this.currentRace === "0") {
                 this.updateCategory("0");
                 this.visibleCategory = false;
@@ -124,7 +130,6 @@ export default {
                 this.loadRaceBasicAbilities();
                 this.loadRaceTraits();
             }
-            //this.loadRamdomChars();
         },
         onCategorySelected(event) {
             this.updateCategory(event.target.value);
@@ -132,6 +137,7 @@ export default {
             this.loadProfessions();
             this.updateCareerPathStatus("");
             this.resetCareerPathBasicAbilities();
+            this.resetCareerPathBasicSpecializations();
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -142,6 +148,7 @@ export default {
             this.updateProfession(event.target.value);
             this.loadProfession();
             this.resetCareerPathBasicAbilities();
+            this.resetCareerPathBasicSpecializations();
             this.loadCareerPathBasicAbilities();
         },
         onNameInput(event) {
@@ -199,6 +206,10 @@ export default {
             );
             this.updateCareerPathStatus(career_path_statusFromAPI.status);
             var cont = 1;
+            const inputs = document.querySelectorAll("input");
+            inputs.forEach((input) => {
+                input.classList.remove("imp_1", "imp_2", "imp_3", "imp_4");
+            });
             career_path_statusFromAPI.characteristics.forEach(
                 (career_path, career_path_index) => {
                     career_path.characteristics.forEach(
@@ -226,14 +237,22 @@ export default {
             const race_basic_abilities = await getRaceBasicAbilitiesFromAPI(
                 this.currentRace
             );
-            this.updateRaceBasicAbilities(race_basic_abilities);
+            this.updateRaceBasicAbilities(race_basic_abilities.basic_abilities);
+            this.updateRaceBasicSpecializations(
+                race_basic_abilities.basic_specializations
+            );
         },
         async loadCareerPathBasicAbilities() {
             const career_path_basic_abilities =
                 await getCareerPathBasicAbilitiesFromAPI(
                     this.currentProfession
                 );
-            this.updateCareerPathBasicAbilities(career_path_basic_abilities);
+            this.updateCareerPathBasicAbilities(
+                career_path_basic_abilities.basic_abilities
+            );
+            this.updateCareerPathBasicSpecializations(
+                career_path_basic_abilities.basic_specializations
+            );
         },
     },
     computed: {

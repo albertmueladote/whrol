@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BasicSpecialization;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Characteristic;
@@ -193,11 +194,25 @@ class NewController extends Controller
      */
     public function race_basic_abilities(request $request)
     {
+        $result = array();
         $id_race = $request->input('id_race');
         $basic_abilities = BasicAbility::whereHas('races', function ($query) use ($id_race) {
             $query->where('race.id_race', $id_race);
         })->get();
-        return $basic_abilities;
+        $ids = $basic_abilities->pluck('id_basic_ability')->toArray();
+        $race_basic_specializations = BasicSpecialization::whereIn('id_basic_ability', $ids)->get();
+        foreach ($race_basic_specializations as $rbs) {
+            foreach ($basic_abilities as $ba) {
+                if ($rbs->id_basic_ability == $ba->id_basic_ability) {
+                    $result['basic_specializations'][$ba->name] = $rbs;
+                }
+            }
+        }
+        /*echo "<pre>";
+        var_dump($result['basic_specializations']);
+        echo "</pre>";*/
+        $result['basic_abilities'] = $basic_abilities;
+        return $result;
     }
 
     /**
@@ -205,12 +220,24 @@ class NewController extends Controller
      */
     public function career_path_basic_abilities(request $request)
     {
+        $result = array();
         $id_profession = $request->input('id_profession');
         $career_path = CareerPath::where('id_profession', $id_profession)->where('level', 1)->first();
         $id_career_path = $career_path->id_career_path;
         $basic_abilities = BasicAbility::whereHas('careerPaths', function ($query) use ($id_career_path) {
             $query->where('career_path.id_career_path', $id_career_path);
         })->get();
-        return $basic_abilities;
+        $career_path_basic_specializations = BasicSpecialization::whereHas('careerPath', function ($query) use ($id_career_path) {
+            $query->where('career_path.id_career_path', $id_career_path);
+        })->get();
+        foreach ($career_path_basic_specializations as $cpbs) {
+            foreach ($basic_abilities as $index => $ba) {
+                if ($cpbs->id_basic_ability == $ba->id_basic_ability) {
+                    $result['basic_specializations'][$ba->name] = $cpbs;
+                }
+            }
+        }
+        $result['basic_abilities'] = $basic_abilities;
+        return $result;
     }
 }
