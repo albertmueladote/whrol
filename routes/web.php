@@ -28,6 +28,9 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 
 Route::get('/new', [App\Http\Controllers\NewController::class, 'new'])->name('new');
 
+Route::get('/test', [App\Http\Controllers\TestController::class, 'test'])->name('test');
+Route::get('/create', [App\Http\Controllers\TestController::class, 'create'])->name('create');
+
 Route::post('/races', [App\Http\Controllers\NewController::class, 'races'])->name('races');
 Route::post('/race', [App\Http\Controllers\NewController::class, 'race'])->name('race');
 Route::post('/categories', [App\Http\Controllers\NewController::class, 'categories'])->name('categories');
@@ -42,7 +45,9 @@ Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'cha
 Route::post('/random_characteristics', [App\Http\Controllers\NewController::class, 'random_characteristics'])->name('random_characteristics');
 Route::post('/throw_dice', [App\Http\Controllers\NewController::class, 'throw_dice'])->name('throw_dice');
 Route::post('/race_basic_abilities', [App\Http\Controllers\NewController::class, 'race_basic_abilities'])->name('race_basic_abilities');
+Route::post('/race_advanced_abilities', [App\Http\Controllers\NewController::class, 'race_advanced_abilities'])->name('race_advanced_abilities');
 Route::post('/career_path_basic_abilities', [App\Http\Controllers\NewController::class, 'career_path_basic_abilities'])->name('career_path_basic_abilities');
+
 
 
 /*

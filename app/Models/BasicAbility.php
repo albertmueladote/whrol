@@ -10,7 +10,6 @@ class BasicAbility extends Model
     use HasFactory;
     protected $table = 'basic_ability';
     protected $primaryKey = 'id_basic_ability';
-    protected $specializations = [];
     public function careerPaths()
     {
         return $this->belongsToMany(CareerPath::class, 'career_path_basic_ability', 'id_basic_ability', 'id_career_path');
@@ -24,15 +23,5 @@ class BasicAbility extends Model
     public function basicSpecialization()
     {
         return $this->belongsTo(BasicSpecialization::class, 'id_basic_specialization');
-    }
-
-    public function getSpecializations()
-    {
-        return $this->specializations;
-    }
-
-    public function setSpecialization($id, $value)
-    {
-        $this->specializations[$id] = $value;
     }
 }

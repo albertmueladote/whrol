@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BasicSpecialization;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Characteristic;
@@ -12,6 +11,9 @@ use App\Models\Hair;
 use App\Models\Eye;
 use App\Models\CareerPath;
 use App\Models\BasicAbility;
+use App\Models\AdvancedAbility;
+use App\Models\BasicSpecialization;
+use App\Models\AdvancedSpecialization;
 
 class NewController extends Controller
 {
@@ -109,7 +111,6 @@ class NewController extends Controller
      */
     public function profession(Request $request)
     {
-
         $result['status'] = $this->status($request);
         $result['characteristics'] = $this->career_path_characteristics($request);
         return $result;
@@ -143,6 +144,9 @@ class NewController extends Controller
     public function status(Request $request)
     {
         $id_profession = $request->input('id_profession');
+        if ($id_profession == 0) {
+            return false;
+        }
         $career_path_level = $request->input('career_path_level');
         if (is_null($career_path_level)) {
             $career_path_level = 1;
@@ -199,19 +203,53 @@ class NewController extends Controller
         $basic_abilities = BasicAbility::whereHas('races', function ($query) use ($id_race) {
             $query->where('race.id_race', $id_race);
         })->get();
-        $ids = $basic_abilities->pluck('id_basic_ability')->toArray();
-        $race_basic_specializations = BasicSpecialization::whereIn('id_basic_ability', $ids)->get();
+        $ids_basic_abilities = $basic_abilities->pluck('id_basic_ability')->toArray();
+        $race_basic_specializations = BasicSpecialization::whereHas('raceBasicAbilities', function ($query) use ($id_race, $ids_basic_abilities) {
+            $query->where('race_basic_specialization.id_race', $id_race)
+                ->whereIn('race_basic_specialization.id_basic_ability', $ids_basic_abilities);
+        })
+            ->get();
         foreach ($race_basic_specializations as $rbs) {
             foreach ($basic_abilities as $ba) {
                 if ($rbs->id_basic_ability == $ba->id_basic_ability) {
-                    $result['basic_specializations'][$ba->name] = $rbs;
+                    if (!isset($result['basic_specializations'][$ba->name])) {
+                        $result['basic_specializations'][$ba->name] = array();
+                    }
+                    array_push($result['basic_specializations'][$ba->name], $rbs);
                 }
             }
         }
-        /*echo "<pre>";
-        var_dump($result['basic_specializations']);
-        echo "</pre>";*/
         $result['basic_abilities'] = $basic_abilities;
+        return $result;
+    }
+
+    /**
+     * 
+     */
+    public function race_advanced_abilities(request $request)
+    {
+        $result = array();
+        $id_race = $request->input('id_race');
+        $advanced_abilities = AdvancedAbility::whereHas('races', function ($query) use ($id_race) {
+            $query->where('race.id_race', $id_race);
+        })->with('characteristic')->get();
+        $ids_advanced_abilities = $advanced_abilities->pluck('id_advanced_ability')->toArray();
+        $race_advanced_specializations = AdvancedSpecialization::whereHas('raceAdvancedAbilities', function ($query) use ($id_race, $ids_advanced_abilities) {
+            $query->where('race_advanced_specialization.id_race', $id_race)
+                ->whereIn('race_advanced_specialization.id_advanced_ability', $ids_advanced_abilities);
+        })
+            ->get();
+        foreach ($race_advanced_specializations as $ras) {
+            foreach ($advanced_abilities as $ba) {
+                if ($ras->id_advanced_ability == $ba->id_advanced_ability) {
+                    if (!isset($result['advanced_specializations'][$ba->name])) {
+                        $result['advanced_specializations'][$ba->name] = array();
+                    }
+                    array_push($result['advanced_specializations'][$ba->name], $ras);
+                }
+            }
+        }
+        $result['advanced_abilities'] = $advanced_abilities;
         return $result;
     }
 
@@ -222,6 +260,9 @@ class NewController extends Controller
     {
         $result = array();
         $id_profession = $request->input('id_profession');
+        if ($id_profession == 0) {
+            return false;
+        }
         $career_path = CareerPath::where('id_profession', $id_profession)->where('level', 1)->first();
         $id_career_path = $career_path->id_career_path;
         $basic_abilities = BasicAbility::whereHas('careerPaths', function ($query) use ($id_career_path) {
@@ -233,7 +274,10 @@ class NewController extends Controller
         foreach ($career_path_basic_specializations as $cpbs) {
             foreach ($basic_abilities as $index => $ba) {
                 if ($cpbs->id_basic_ability == $ba->id_basic_ability) {
-                    $result['basic_specializations'][$ba->name] = $cpbs;
+                    if (!isset($result['basic_specializations'][$ba->name])) {
+                        $result['basic_specializations'][$ba->name] = array();
+                    }
+                    array_push($result['basic_specializations'][$ba->name], $cpbs);
                 }
             }
         }

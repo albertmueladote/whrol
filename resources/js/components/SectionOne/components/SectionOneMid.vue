@@ -69,6 +69,7 @@ import {
     getRaceBasicAbilitiesFromAPI,
     getCareerPathBasicAbilitiesFromAPI,
     getRandomCharFromAPI,
+    getRaceAdvancedAbilitiesFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -97,6 +98,10 @@ export default {
             "resetCareerPathBasicSpecializations",
             "updateRaceBasicSpecializations",
             "resetRaceBasicSpecializations",
+            "updateRaceAdvancedAbilities",
+            "resetRaceAdvancedAbilities",
+            "updateRaceAdvancedSpecializations",
+            "resetRaceAdvancedSpecializations",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
@@ -108,8 +113,10 @@ export default {
             this.updateEyes({ id_eye: 0, name: "" });
             this.resetRaceBasicAbilities();
             this.resetCareerPathBasicAbilities();
+            this.resetRaceAdvancedAbilities();
             this.resetCareerPathBasicSpecializations();
             this.resetRaceBasicSpecializations();
+            this.resetRaceAdvancedSpecializations();
             this.loadProfessions();
             this.resetRaceTraits();
             if (this.currentRace === "0") {
@@ -128,6 +135,7 @@ export default {
                 }
                 this.visibleCategory = true;
                 this.loadRaceBasicAbilities();
+                this.loadRaceAdvancedAbilities();
                 this.loadRaceTraits();
             }
         },
@@ -149,7 +157,9 @@ export default {
             this.loadProfession();
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
-            this.loadCareerPathBasicAbilities();
+            if (this.currentProfession !== "0") {
+                this.loadCareerPathBasicAbilities();
+            }
         },
         onNameInput(event) {
             const newName = event.target.value;
@@ -240,6 +250,16 @@ export default {
             this.updateRaceBasicAbilities(race_basic_abilities.basic_abilities);
             this.updateRaceBasicSpecializations(
                 race_basic_abilities.basic_specializations
+            );
+        },
+        async loadRaceAdvancedAbilities() {
+            const race_advanced_abilities =
+                await getRaceAdvancedAbilitiesFromAPI(this.currentRace);
+            this.updateRaceAdvancedAbilities(
+                race_advanced_abilities.advanced_abilities
+            );
+            this.updateRaceAdvancedSpecializations(
+                race_advanced_abilities.advanced_specializations
             );
         },
         async loadCareerPathBasicAbilities() {

@@ -20,4 +20,9 @@ class Characteristic extends Model
     {
         return $this->belongsToMany(Race::class, 'race_characteristic', 'id_characteristic', 'id_race')->withPivot('value');
     }
+
+    public function advancedAbilities()
+    {
+        return $this->belongsToMany(AdvancedAbility::class);
+    }
 }

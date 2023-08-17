@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {race: {}, career_path: {}, list: {}}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, race_advanced_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -137,6 +137,21 @@ const mutations = {
     resetRaceBasicAbilities(state) {
         state.race_basic_abilities = {};
     },
+    updateRaceAdvancedAbilities(state, newAbilities){
+        newAbilities.forEach((item, index) => {
+            if (state.race_advanced_abilities.hasOwnProperty(item.name)) {
+                state.race_advanced_abilities[item.name]['level'] += 1;
+            } else {
+                state.race_advanced_abilities[item.name] = {};
+                state.race_advanced_abilities[item.name]['characteristic_name'] = item.characteristic.abbreviation.toLowerCase();
+                state.race_advanced_abilities[item.name]['characteristic_label'] = item.characteristic.abbreviation;
+                state.race_advanced_abilities[item.name]['level'] = 1;
+            }
+        });
+    },
+    resetRaceAdvancedAbilities(state) {
+        state.race_advanced_abilities = {};
+    },
     updateCareerPathBasicAbilities(state, newAbilities){
         newAbilities.forEach((item, index) => {
             if (state.career_path_basic_abilities.hasOwnProperty(item.name)) {
@@ -151,17 +166,17 @@ const mutations = {
     },
     updateCareerPathBasicSpecializations(state, newBasicSpecializations) {
         for (const key in newBasicSpecializations) {
-            if (newBasicSpecializations.hasOwnProperty(key)) {
-                const item = newBasicSpecializations[key];
-                if (!state.basic_specializations.career_path.hasOwnProperty(key)) {
-                    state.basic_specializations.career_path[key] = {};
-                }
-                if (!state.basic_specializations.career_path[key].hasOwnProperty(item.name)) {
-                    state.basic_specializations.career_path[key][item.name] = item;
+            const items = newBasicSpecializations[key];
+            if (!state.basic_specializations.career_path.hasOwnProperty(key)) {
+                state.basic_specializations.career_path[key] = {};
+            }
+            for (const cont in items) {
+                if (!state.basic_specializations.career_path[key].hasOwnProperty(items[cont].name)) {
+                    state.basic_specializations.career_path[key][items[cont].id_basic_specialization] = items[cont].name;
                 }
             }
-        }
-        mutations.basicSpecializationsList(state);
+         }
+         mutations.basicSpecializationsList(state);
     },
     resetCareerPathBasicSpecializations(state) {
         state.basic_specializations.career_path = {};
@@ -169,13 +184,13 @@ const mutations = {
     },
     updateRaceBasicSpecializations(state, newBasicSpecializations) {
         for (const key in newBasicSpecializations) {
-            if (newBasicSpecializations.hasOwnProperty(key)) {
-                const item = newBasicSpecializations[key];
-                if (!state.basic_specializations.race.hasOwnProperty(key)) {
-                    state.basic_specializations.race[key] = {};
-                }
-                if (!state.basic_specializations.race[key].hasOwnProperty(item.name)) {
-                    state.basic_specializations.race[key][item.name] = item;
+            const items = newBasicSpecializations[key];
+            if (!state.basic_specializations.race.hasOwnProperty(key)) {
+                state.basic_specializations.race[key] = {};
+            }
+            for (const cont in items) {
+                if (!state.basic_specializations.race[key].hasOwnProperty(items[cont].name)) {
+                    state.basic_specializations.race[key][items[cont].id_basic_specialization] = items[cont].name;
                 }
             }
         }
@@ -185,27 +200,75 @@ const mutations = {
         state.basic_specializations.race = {};
         mutations.basicSpecializationsList(state);
     },
+    updateRaceAdvancedSpecializations(state, newAdvancedSpecializations) {
+        for (const key in newAdvancedSpecializations) {
+            var new_key = key.normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/\s+/g, "_");
+            const items = newAdvancedSpecializations[key];
+            if (!state.advanced_specializations.race.hasOwnProperty(new_key)) {
+                state.advanced_specializations.race[new_key] = {};
+            }
+            for (const cont in items) {
+                if (!state.advanced_specializations.race[new_key].hasOwnProperty(items[cont].name)) {
+                    state.advanced_specializations.race[new_key][items[cont].id_basic_specialization] = items[cont].name;
+                }
+            }
+        }
+        mutations.advancedSpecializationsList(state);
+    },
+    resetRaceAdvancedSpecializations(state) {
+        state.advanced_specializations.race = {};
+        mutations.advancedSpecializationsList(state);
+    },
     basicSpecializationsList(state) {
         state.basic_specializations.list = {};
-        var career_path_string;
-        var race_string;
         for (const key in state.basic_specializations.career_path) {
-            career_path_string = '';
             for (const index in state.basic_specializations.career_path[key]) {
-                career_path_string = career_path_string + index + ' ';
+                if(!state.basic_specializations.list.hasOwnProperty(key)) {
+                    state.basic_specializations.list[key] = {};
+                }
+                if(!state.basic_specializations.list[key].hasOwnProperty(state.basic_specializations.career_path[key][index])) {
+                    state.basic_specializations.list[key][state.basic_specializations.career_path[key][index]] = 0;
+                }
+                state.basic_specializations.list[key][state.basic_specializations.career_path[key][index]]++;
             }
-            state.basic_specializations.list[key] = career_path_string;
         }
         for (const key in state.basic_specializations.race) {
-            race_string = '';
             for (const index in state.basic_specializations.race[key]) {
-                race_string = race_string + index + ' ';
+                if(!state.basic_specializations.list.hasOwnProperty(key)) {
+                    state.basic_specializations.list[key] = {};
+                }
+                if(!state.basic_specializations.list[key].hasOwnProperty(state.basic_specializations.race[key][index])) {
+                    state.basic_specializations.list[key][state.basic_specializations.race[key][index]] = 0;
+                }
+                state.basic_specializations.list[key][state.basic_specializations.race[key][index]]++;
             }
-            if(state.basic_specializations.list.hasOwnProperty(key))
-            {
-                state.basic_specializations.list[key] = state.basic_specializations.list[key] + race_string;
-            } else {
-                state.basic_specializations.list[key] = race_string;
+        }
+    },
+    advancedSpecializationsList(state) {
+        state.advanced_specializations.list = {};
+        for (const key in state.advanced_specializations.career_path) {
+            for (const index in state.advanced_specializations.career_path[key]) {
+                if(!state.advanced_specializations.list.hasOwnProperty(key)) {
+                    state.advanced_specializations.list[key] = {};
+                }
+                if(!state.advanced_specializations.list[key].hasOwnProperty(state.advanced_specializations.career_path[key][index])) {
+                    state.advanced_specializations.list[key][state.advanced_specializations.career_path[key][index]] = 0;
+                }
+                state.advanced_specializations.list[key][state.advanced_specializations.career_path[key][index]]++;
+            }
+        }
+        for (const key in state.advanced_specializations.race) {
+            for (const index in state.advanced_specializations.race[key]) {
+                if(!state.advanced_specializations.list.hasOwnProperty(key)) {
+                    state.advanced_specializations.list[key] = {};
+                }
+                if(!state.advanced_specializations.list[key].hasOwnProperty(state.advanced_specializations.race[key][index])) {
+                    state.advanced_specializations.list[key][state.advanced_specializations.race[key][index]] = 0;
+                }
+                state.advanced_specializations.list[key][state.advanced_specializations.race[key][index]]++;
             }
         }
     },

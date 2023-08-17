@@ -31,6 +31,11 @@ class Race extends Model
         return $this->belongsToMany(BasicAbility::class, 'race_basic_ability', 'id_race', 'id_basic_ability'); //->withPivot('basicSpecialization');
     }
 
+    public function advancedAbilities()
+    {
+        return $this->belongsToMany(AdvancedAbility::class, 'race_advanced_abilities', 'id_race', 'id_advanced_ability');
+    }
+
     public function characteristics()
     {
         return $this->belongsToMany(Characteristic::class, 'race_characteristic', 'id_race', 'id_characteristic')->withPivot('value');

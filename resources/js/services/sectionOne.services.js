@@ -167,6 +167,20 @@ export async function getRaceBasicAbilitiesFromAPI(id_race) {
   }
 }
 
+export async function getRaceAdvancedAbilitiesFromAPI(id_race) {
+  try {
+    const response = await axios.post("/race_advanced_abilities", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las habilidades avanzadas raciales:", error);
+    return [];
+  }
+}
+
 export async function getCareerPathBasicAbilitiesFromAPI(id_profession) {
   try {
     const response = await axios.post("/career_path_basic_abilities", null, {

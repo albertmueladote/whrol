@@ -222,84 +222,126 @@
             "
             disabled
         />
-        <input
-            type="text"
-            name="endurance_hab"
-            :value="basic_specializations.list.endurance"
-            disabled
-        />
-        <input
-            type="text"
-            name="art_hab"
-            :value="basic_specializations.list.art"
-            disabled
-        />
-        <input
-            type="text"
-            name="athletics_hab"
-            :value="basic_specializations.list.athletics"
-            disabled
-        />
-        <input
-            type="text"
-            name="calm_hab"
-            :value="basic_specializations.list.calm"
-            disabled
-        />
-        <input
-            type="text"
-            name="charisma_hab"
-            :value="basic_specializations.list.charisma"
-            disabled
-        />
-        <input
-            type="text"
-            name="animal_charisma_hab"
-            :value="basic_specializations.list.animal_charisma"
-            disabled
-        />
-        <input
-            type="text"
-            name="melee_hab"
-            :value="basic_specializations.list.melee"
-            disabled
-        />
-        <input
-            type="text"
-            name="close_combat_hab"
-            :value="basic_specializations.list.close_combat"
-            disabled
-        />
-        <input
-            type="text"
-            name="drive_hab"
-            :value="basic_specializations.list.drive"
-            disabled
-        />
-        <input
-            type="text"
-            name="to_drink_alcohol_hab"
-            :value="basic_specializations.list.to_drink_alcohol"
-            disabled
-        />
-        <input
-            type="text"
-            name="gossip_hab"
-            :value="basic_specializations.list.gossip"
-            disabled
-        />
-        <input
-            type="text"
-            name="entertain_hab"
-            :value="basic_specializations.list.entertain"
-            disabled
-        />
-        <input
-            type="text"
-            name="climb_hab"
-            :value="basic_specializations.list.climb"
-            disabled
-        />
+        <select name="endurance_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.endurance"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="art_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.art"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="athletics_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.athletics"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="calm_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.calm"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="charisma_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.charisma"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="animal_charisma_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list
+                    .animal_charisma"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="melee_hab" @change="updateInputValue">
+            <option
+                v-for="(value, index) in basic_specializations.list.melee"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="close_combat_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list
+                    .close_combat"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="drive_hab">
+            <option
+                v-for="(value, index) in basic_specializations.drive"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="to_drink_alcohol_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list
+                    .to_drink_alcohol"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="gossip_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.gossip"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="entertain_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.entertain"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="climb_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.climb"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
         <input
             type="text"
             name="dodge"
@@ -522,116 +564,191 @@
             "
             disabled
         />
-        <input
-            type="text"
-            name="dodge_hab"
-            :value="basic_specializations.list.doddge"
-            disabled
-        />
-        <input
-            type="text"
-            name="intimidate_hab"
-            :value="basic_specializations.list.intimidate"
-            disabled
-        />
-        <input
-            type="text"
-            name="intuition_hab"
-            :value="basic_specializations.list.intuition"
-            disabled
-        />
-        <input
-            type="text"
-            name="play_hab"
-            :value="basic_specializations.list.play"
-            disabled
-        />
-        <input
-            type="text"
-            name="leadership_hab"
-            :value="basic_specializations.list.leadership"
-            disabled
-        />
-        <input
-            type="text"
-            name="mount_hab"
-            :value="basic_specializations.list.mount"
-            disabled
-        />
-        <input
-            type="text"
-            name="orientation_hab"
-            :value="basic_specializations.list.orientation"
-            disabled
-        />
-        <input
-            type="text"
-            name="perception_hab"
-            :value="basic_specializations.list.perception"
-            disabled
-        />
-        <input
-            type="text"
-            name="bargain_hab"
-            :value="basic_specializations.list.bargain"
-            disabled
-        />
-        <input
-            type="text"
-            name="row_hab"
-            :value="basic_specializations.list.row"
-            disabled
-        />
-        <input
-            type="text"
-            name="stealth_hab"
-            :value="basic_specializations.list.stealth"
-            disabled
-        />
-        <input
-            type="text"
-            name="bribe_hab"
-            :value="basic_specializations.list.bribe"
-            disabled
-        />
-        <input
-            type="text"
-            name="survival_hab"
-            :value="basic_specializations.list.survival"
-            disabled
-        />
-        <div class="advanced_skills_list">
-            <div class="advanced_skill">
+        <select name="dodge_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.dodge"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="intimidate_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.intimidate"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="intuition_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.intuition"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="play_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.play"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="leadership_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.leadership"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="mount_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.mount"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="orientation_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.orientation"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="perception_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.perception"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="bargain_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.bargain"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="row_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.row"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="stealth_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.stealth"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="bribe_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.bribe"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <select name="survival_hab">
+            <option
+                v-for="(value, index) in basic_specializations.list.survival"
+                :key="index"
+                :value="value"
+            >
+                {{ index }}
+            </option>
+        </select>
+        <div class="advanced_characteristics_list">
+            <div
+                class="advanced_characteristic"
+                v-for="(advanced_ability, index) in race_advanced_abilities"
+                :key="index"
+            >
                 <input
                     type="text"
-                    class="advanced_skills_name"
-                    name="advanced_skills_name_1"
+                    class="advanced_characteristics_name"
+                    :name="
+                        'advanced_characteristics_name_' + transformIndex(index)
+                    "
+                    :value="index"
                     disabled
                 />
                 <input
                     type="text"
-                    class="advanced_skills_characteristics"
-                    name="advanced_skills_characteristics_1"
+                    class="advanced_characteristics_characteristics"
+                    :name="
+                        'advanced_characteristics_characteristics_' +
+                        transformIndex(index)
+                    "
+                    :value="advanced_ability.characteristic_label"
                     disabled
                 />
                 <input
                     type="text"
-                    class="advanced_skills_characteristics_level"
-                    name="advanced_skills_characteristics_level_1"
+                    class="advanced_characteristics_characteristics_level"
+                    :name="
+                        'advanced_characteristics_characteristics_level_' +
+                        transformIndex(index)
+                    "
+                    :value="
+                        characteristics_total[
+                            advanced_ability.characteristic_name
+                        ]
+                    "
                     disabled
                 />
                 <input
                     type="text"
-                    class="advanced_skills_imp"
-                    name="advanced_skills_imp_1"
+                    class="advanced_characteristics_imp"
+                    :name="
+                        'advanced_characteristics_' +
+                        transformIndex(index) +
+                        '_imp'
+                    "
+                    :value="advanced_ability.level"
                     disabled
                 />
-                <input
-                    type="text"
-                    class="advanced_skills_hab"
-                    name="advanced_skills_hab_1"
-                    disabled
-                />
+                <select
+                    class="advanced_characteristics_hab"
+                    :name="
+                        'advanced_characteristics_' +
+                        transformIndex(index) +
+                        '_hab'
+                    "
+                >
+                    <option
+                        v-for="(value, index) in advanced_specializations.list[
+                            transformIndex(index)
+                        ]"
+                        :key="index"
+                        :value="value"
+                    >
+                        {{ index }}
+                    </option>
+                </select>
             </div>
         </div>
     </div>
@@ -639,28 +756,96 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import { ref, onMounted, onUnmounted, getCurrentInstance } from "vue";
 export default {
+    methods: {
+        transformIndex(index) {
+            const newKey = index
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase()
+                .replace(/\s+/g, "_");
+
+            return newKey;
+        },
+        updateInputValue(event) {
+            const input = event.target.name.replace(/_hab$/, "");
+            document.querySelector(`[name="${input}_imp"]`).value =
+                event.target.value;
+        },
+        checkDropdowns() {
+            const dropdowns = this.$el.querySelectorAll("select");
+
+            dropdowns.forEach((dropdown) => {
+                if (dropdown.options.length > 0) {
+                    const selectedOption =
+                        dropdown.options[dropdown.selectedIndex];
+                    this.updateInputValueInCheck(
+                        dropdown.name,
+                        selectedOption.value
+                    );
+                }
+            });
+        },
+        updateInputValueInCheck(name, value) {
+            const input = name.replace(/_hab$/, "");
+            document.querySelector(`[name="${input}_imp"]`).value = value;
+        },
+    },
     computed: {
-        ...mapState("Character", [
-            "race",
-            "characteristics_total",
-            "race_basic_abilities",
-            "career_path_basic_abilities",
-            "basic_specializations",
-            "characteristics_total",
-        ]),
+        ...mapState(
+            "Character",
+            [
+                "race",
+                "profession",
+                "characteristics_total",
+                "race_basic_abilities",
+                "career_path_basic_abilities",
+                "basic_specializations",
+                "characteristics_total",
+                "race_advanced_abilities",
+                "advanced_specializations",
+                "getAdvancedSpecializations",
+            ],
+            {
+                basicSpecializationsList: (state) =>
+                    state.Character.basic_specializations.list,
+            }
+        ),
         visibleCharacteristics() {
             return this.race !== "0";
         },
         specializationsCareerpath() {
             return this.basic_specializations.career_path;
         },
-        specializationsRace() {
-            return this.basic_specializations.race;
-        },
         characteristicsTotal() {
             return this.characteristics_total;
         },
+    },
+    watch: {},
+    setup() {
+        const instance = getCurrentInstance(); // Obtén la instancia del componente
+
+        // Registra el evento en el hook onMounted
+        onMounted(() => {
+            instance.emits["basicSpecializationsListUpdated"](); // Emite el evento
+            instance.ctx.$on(
+                "basicSpecializationsListUpdated",
+                this.checkDropdowns
+            ); // Escucha el evento
+        });
+
+        // Desregistra el evento en el hook onUnmounted
+        onUnmounted(() => {
+            instance.ctx.$off(
+                "basicSpecializationsListUpdated",
+                this.checkDropdowns
+            ); // Deja de escuchar el evento
+        });
+
+        return {
+            // Variables y funciones que expones
+        };
     },
 };
 </script>
@@ -822,82 +1007,82 @@ input[name="climb_imp"] {
     width: 28px;
 }
 
-input[name="endurance_hab"] {
+select[name="endurance_hab"] {
     top: 56px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="art_hab"] {
+select[name="art_hab"] {
     top: 78px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="athletics_hab"] {
+select[name="athletics_hab"] {
     top: 100px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="calm_hab"] {
+select[name="calm_hab"] {
     top: 122px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="charisma_hab"] {
+select[name="charisma_hab"] {
     top: 144px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="animal_charisma_hab"] {
+select[name="animal_charisma_hab"] {
     top: 165px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="melee_hab"] {
+select[name="melee_hab"] {
     top: 187px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="close_combat_hab"] {
+select[name="close_combat_hab"] {
     top: 209px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="drive_hab"] {
+select[name="drive_hab"] {
     top: 231px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="to_drink_alcohol_hab"] {
+select[name="to_drink_alcohol_hab"] {
     top: 253px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="gossip_hab"] {
+select[name="gossip_hab"] {
     top: 275px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="entertain_hab"] {
+select[name="entertain_hab"] {
     top: 297px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="climb_hab"] {
+select[name="climb_hab"] {
     top: 317px;
     left: 282px;
-    width: 44px;
+    width: 57px;
 }
 
 input[name="dodge"] {
@@ -1056,123 +1241,129 @@ input[name="survival_imp"] {
     width: 28px;
 }
 
-input[name="dodge_hab"] {
+select[name="dodge_hab"] {
     top: 56px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="intimidate_hab"] {
+select[name="intimidate_hab"] {
     top: 78px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="intuition_hab"] {
+select[name="intuition_hab"] {
     top: 100px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="play_hab"] {
+select[name="play_hab"] {
     top: 122px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="leadership_hab"] {
+select[name="leadership_hab"] {
     top: 144px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="mount_hab"] {
+select[name="mount_hab"] {
     top: 165px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="orientation_hab"] {
+select[name="orientation_hab"] {
     top: 187px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="perception_hab"] {
+select[name="perception_hab"] {
     top: 209px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="bargain_hab"] {
+select[name="bargain_hab"] {
     top: 231px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="row_hab"] {
+select[name="row_hab"] {
     top: 253px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="stealth_hab"] {
+select[name="stealth_hab"] {
     top: 275px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="bribe_hab"] {
+select[name="bribe_hab"] {
     top: 297px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-input[name="survival_hab"] {
+select[name="survival_hab"] {
     top: 317px;
     left: 543px;
-    width: 44px;
+    width: 57px;
 }
 
-.advanced_skills_list {
+.advanced_characteristics_list {
     position: absolute;
     top: 56px;
     left: 598px;
-    width: 271px;
+    width: 244px;
     height: 283px;
-    overflow-y: auto;
 }
 
-.advanced_skills_list .advanced_skill {
+.advanced_characteristics_list .advanced_characteristic {
     height: 22px;
+    border-bottom: 1px solid black;
 }
 
-.advanced_skills_list .advanced_skill .advanced_skills_name {
+.advanced_characteristics_list
+    .advanced_characteristic
+    .advanced_characteristics_name {
     height: 22px;
     width: 105px;
 }
 
-.advanced_skills_list .advanced_skill .advanced_skills_characteristics {
+.advanced_characteristics_list .advanced_characteristics_characteristics {
     left: 106px;
     width: 39px;
     height: 22px;
 }
 
-.advanced_skills_list .advanced_skill .advanced_skills_characteristics_level {
+.advanced_characteristics_list .advanced_characteristics_characteristics_level {
     left: 145px;
     width: 34px;
     height: 22px;
 }
 
-.advanced_skills_list .advanced_skill .advanced_skills_imp {
+.advanced_characteristics_list
+    .advanced_characteristic
+    .advanced_characteristics_imp {
     left: 179px;
     width: 27px;
     height: 22px;
 }
 
-.advanced_skills_list .advanced_skill .advanced_skills_hab {
+.advanced_characteristics_list
+    .advanced_characteristic
+    .advanced_characteristics_hab {
     left: 206px;
-    width: 47px;
+    width: 63px;
     height: 22px;
 }
 </style>

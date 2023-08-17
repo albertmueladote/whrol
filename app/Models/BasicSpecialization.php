@@ -20,4 +20,10 @@ class BasicSpecialization extends Model
     {
         return $this->belongsToMany(CareerPath::class, 'career_path_basic_specialization', 'id_basic_specialization', 'id_career_path');
     }
+
+    public function raceBasicAbilities()
+    {
+        return $this->belongsToMany(Race::class, 'race_basic_specialization', 'id_basic_specialization', 'id_race')
+            ->withPivot('id_basic_ability');
+    }
 }

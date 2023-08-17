@@ -73,6 +73,20 @@ return new class extends Migration
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
+                'id_career_path' => 17,
+                'id_basic_ability' => 10,
+                'id_basic_specialization' => 24,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id_career_path' => 17,
+                'id_basic_ability' => 10,
+                'id_basic_specialization' => 25,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
                 'id_career_path' => 19,
                 'id_basic_ability' => 18,
                 'id_basic_specialization' => 32,
