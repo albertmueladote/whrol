@@ -284,4 +284,39 @@ class NewController extends Controller
         $result['basic_abilities'] = $basic_abilities;
         return $result;
     }
+
+    /**
+     * 
+     */
+    public function career_path_advanced_abilities(request $request)
+    {
+        $result = array();
+        $id_profession = $request->input('id_profession');
+        if ($id_profession == 0) {
+            return false;
+        }
+        $career_path = CareerPath::where('id_profession', $id_profession)->where('level', 1)->first();
+        $id_career_path = $career_path->id_career_path;
+        $advanced_abilities = AdvancedAbility::whereHas('careerPaths', function ($query) use ($id_career_path) {
+            $query->where('career_path.id_career_path', $id_career_path);
+        })->with('characteristic')->get();
+        /*$ids_advanced_abilities = $advanced_abilities->pluck('id_advanced_ability')->toArray();
+        $race_advanced_specializations = AdvancedSpecialization::whereHas('raceAdvancedAbilities', function ($query) use ($id_race, $ids_advanced_abilities) {
+            $query->where('race_advanced_specialization.id_race', $id_race)
+                ->whereIn('race_advanced_specialization.id_advanced_ability', $ids_advanced_abilities);
+        })
+            ->get();
+        foreach ($race_advanced_specializations as $ras) {
+            foreach ($advanced_abilities as $ba) {
+                if ($ras->id_advanced_ability == $ba->id_advanced_ability) {
+                    if (!isset($result['advanced_specializations'][$ba->name])) {
+                        $result['advanced_specializations'][$ba->name] = array();
+                    }
+                    array_push($result['advanced_specializations'][$ba->name], $ras);
+                }
+            }
+        }*/
+        $result['advanced_abilities'] = $advanced_abilities;
+        return $result;
+    }
 }

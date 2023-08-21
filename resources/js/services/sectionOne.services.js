@@ -194,3 +194,17 @@ export async function getCareerPathBasicAbilitiesFromAPI(id_profession) {
     return [];
   }
 }
+
+export async function getCareerPathAdvancedAbilitiesFromAPI(id_profession) {
+  try {
+    const response = await axios.post("/career_path_advanced_abilities", null, {
+      params: {
+        id_profession: id_profession
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las habilidades avanzadas de profesión:", error);
+    return [];
+  }
+}

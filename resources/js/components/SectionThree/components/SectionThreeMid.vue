@@ -823,30 +823,6 @@ export default {
         },
     },
     watch: {},
-    setup() {
-        const instance = getCurrentInstance(); // Obtén la instancia del componente
-
-        // Registra el evento en el hook onMounted
-        onMounted(() => {
-            instance.emits["basicSpecializationsListUpdated"](); // Emite el evento
-            instance.ctx.$on(
-                "basicSpecializationsListUpdated",
-                this.checkDropdowns
-            ); // Escucha el evento
-        });
-
-        // Desregistra el evento en el hook onUnmounted
-        onUnmounted(() => {
-            instance.ctx.$off(
-                "basicSpecializationsListUpdated",
-                this.checkDropdowns
-            ); // Deja de escuchar el evento
-        });
-
-        return {
-            // Variables y funciones que expones
-        };
-    },
 };
 </script>
 

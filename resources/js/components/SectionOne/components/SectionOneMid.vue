@@ -70,6 +70,7 @@ import {
     getCareerPathBasicAbilitiesFromAPI,
     getRandomCharFromAPI,
     getRaceAdvancedAbilitiesFromAPI,
+    getCareerPathAdvancedAbilitiesFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -91,6 +92,7 @@ export default {
             "updateRaceBasicAbilities",
             "resetRaceBasicAbilities",
             "updateCareerPathBasicAbilities",
+            "updateCareerPathAdvancedAbilities",
             "resetCareerPathBasicAbilities",
             "updateRandomChar",
             "resetRaceTraits",
@@ -129,6 +131,7 @@ export default {
                     this.selectedProfession = 0;
                     if (this.currentProfession !== "0") {
                         this.loadCareerPathBasicAbilities();
+                        this.loadCareerPathAdvancedAbilities();
                     }
                 } else {
                     this.visibleProfession = false;
@@ -159,6 +162,7 @@ export default {
             this.resetCareerPathBasicSpecializations();
             if (this.currentProfession !== "0") {
                 this.loadCareerPathBasicAbilities();
+                this.loadCareerPathAdvancedAbilities();
             }
         },
         onNameInput(event) {
@@ -273,6 +277,18 @@ export default {
             this.updateCareerPathBasicSpecializations(
                 career_path_basic_abilities.basic_specializations
             );
+        },
+        async loadCareerPathAdvancedAbilities() {
+            const career_path_advanced_abilities =
+                await getCareerPathAdvancedAbilitiesFromAPI(
+                    this.currentProfession
+                );
+            this.updateCareerPathAdvancedAbilities(
+                career_path_advanced_abilities.advanced_abilities
+            );
+            //this.updateCareerPathBasicSpecializations(
+            //    career_path_advanced_abilities.advanced_specializations
+            //);
         },
     },
     computed: {

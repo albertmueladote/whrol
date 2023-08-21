@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, race_advanced_abilities: {}, career_path_basic_abilities: {}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', race_basic_abilities: {}, race_advanced_abilities: {}, career_path_basic_abilities: {}, career_path_advanced_abilities: {}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -164,6 +164,21 @@ const mutations = {
     resetCareerPathBasicAbilities(state) {
         state.career_path_basic_abilities = {};
     },
+    updateCareerPathAdvancedAbilities(state, newAbilities){
+        newAbilities.forEach((item, index) => {
+            if (state.race_advanced_abilities.hasOwnProperty(item.name)) {
+                state.race_advanced_abilities[item.name]['level'] += 1;
+            } else {
+                state.race_advanced_abilities[item.name] = {};
+                state.race_advanced_abilities[item.name]['characteristic_name'] = item.characteristic.abbreviation.toLowerCase();
+                state.race_advanced_abilities[item.name]['characteristic_label'] = item.characteristic.abbreviation;
+                state.race_advanced_abilities[item.name]['level'] = 1;
+            }
+        });
+    },
+    resetCareerPathAdvancedAbilities(state) {
+        state.career_path_advanced_abilities = {};
+    },
     updateCareerPathBasicSpecializations(state, newBasicSpecializations) {
         for (const key in newBasicSpecializations) {
             const items = newBasicSpecializations[key];
@@ -181,6 +196,24 @@ const mutations = {
     resetCareerPathBasicSpecializations(state) {
         state.basic_specializations.career_path = {};
         mutations.basicSpecializationsList(state);
+    },
+    updateCareerPathAdvancedSpecializations(state, newAdvancedSpecializations) {
+        for (const key in newAdvancedSpecializations) {
+            const items = newAdvancedSpecializations[key];
+            if (!state.advanced_specializations.career_path.hasOwnProperty(key)) {
+                state.advanced_specializations.career_path[key] = {};
+            }
+            for (const cont in items) {
+                if (!state.advanced_specializations.career_path[key].hasOwnProperty(items[cont].name)) {
+                    state.advanced_specializations.career_path[key][items[cont].id_advanced_specialization] = items[cont].name;
+                }
+            }
+         }
+         mutations.advancedSpecializationsList(state);
+    },
+    resetCareerPathAdvancedSpecializations(state) {
+        state.advanced_specializations.career_path = {};
+        mutations.advancedSpecializationsList(state);
     },
     updateRaceBasicSpecializations(state, newBasicSpecializations) {
         for (const key in newBasicSpecializations) {

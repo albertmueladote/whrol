@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -30,7 +29,7 @@ return new class extends Migration
                 'name' => 'Alumno de abogacía',
                 'status_range' => 'Bronce',
                 'status_level' => 4,
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -40,7 +39,7 @@ return new class extends Migration
                 'name' => 'Abogado',
                 'status_range' => 'Plata',
                 'status_level' => 3,
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -50,7 +49,7 @@ return new class extends Migration
                 'name' => 'Jurista',
                 'status_range' => 'Oro',
                 'status_level' => 1,
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -60,7 +59,7 @@ return new class extends Migration
                 'name' => 'Juez',
                 'status_range' => 'Oro',
                 'status_level' => 2,
-                'created_at' => date('Y-m-d H:i:s'), 
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
@@ -1217,7 +1216,7 @@ return new class extends Migration
                 'id_career_path' => 120,
                 'id_profession' => 30,
                 'level' => 4,
-                'name' => 'Gibernador',
+                'name' => 'Gobernador',
                 'status_range' => 'Oro',
                 'status_level' => 3,
                 'created_at' => date('Y-m-d H:i:s'),
