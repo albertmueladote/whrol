@@ -26,4 +26,10 @@ class AdvancedSpecialization extends Model
         return $this->belongsToMany(Race::class, 'race_advanced_specialization', 'id_advanced_specialization', 'id_race')
             ->withPivot('id_advanced_ability');
     }
+
+    public function careerPathAdvancedAbilities()
+    {
+        return $this->belongsToMany(CareerPath::class, 'career_path_advanced_specialization', 'id_advanced_specialization', 'id_career_path')
+            ->withPivot('id_advanced_ability');
+    }
 }

@@ -35,4 +35,14 @@ class CareerPath extends Model
     {
         return $this->belongsToMany(BasicSpecialization::class, 'career_path_basic_specialization', 'id_career_path', 'id_basic_specialization');
     }
+
+    public function advancedAbilities()
+    {
+        return $this->belongsToMany(AdvancedAbility::class, 'career_path_advanced_ability', 'id_career_path', 'id_advanced_ability');
+    }
+
+    public function advancedSpecialization()
+    {
+        return $this->belongsToMany(AdvancedSpecialization::class, 'career_path_advanced_specialization', 'id_career_path', 'id_advanced_specialization');
+    }
 }

@@ -49,6 +49,9 @@ Route::post('/race_advanced_abilities', [App\Http\Controllers\NewController::cla
 Route::post('/career_path_basic_abilities', [App\Http\Controllers\NewController::class, 'career_path_basic_abilities'])->name('career_path_basic_abilities');
 Route::post('/career_path_advanced_abilities', [App\Http\Controllers\NewController::class, 'career_path_advanced_abilities'])->name('career_path_advanced_abilities');
 
+Route::get('/token', function () {
+    return csrf_token();
+});
 
 /*
 Route::post('/new-swap-race', [App\Http\Controllers\NewController::class, 'race'])->name('new-swap-race');

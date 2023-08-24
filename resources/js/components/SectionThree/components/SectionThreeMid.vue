@@ -109,8 +109,8 @@
             type="text"
             name="endurance_imp"
             :value="
-                (race_basic_abilities.endurance || '') +
-                (career_path_basic_abilities.endurance || '')
+                (basic_abilities.race.endurance || '') +
+                (basic_abilities.career_path.endurance || '')
             "
             disabled
         />
@@ -118,8 +118,8 @@
             type="text"
             name="art_imp"
             :value="
-                (race_basic_abilities.art || '') +
-                (career_path_basic_abilities.art || '')
+                (basic_abilities.race.art || '') +
+                (basic_abilities.career_path.art || '')
             "
             disabled
         />
@@ -127,8 +127,8 @@
             type="text"
             name="athletics_imp"
             :value="
-                (race_basic_abilities.athletics || '') +
-                (career_path_basic_abilities.athletics || '')
+                (basic_abilities.race.athletics || '') +
+                (basic_abilities.career_path.athletics || '')
             "
             disabled
         />
@@ -136,8 +136,8 @@
             type="text"
             name="calm_imp"
             :value="
-                (race_basic_abilities.calm || '') +
-                (career_path_basic_abilities.calm || '')
+                (basic_abilities.race.calm || '') +
+                (basic_abilities.career_path.calm || '')
             "
             disabled
         />
@@ -145,8 +145,8 @@
             type="text"
             name="charisma_imp"
             :value="
-                (race_basic_abilities.charisma || '') +
-                (career_path_basic_abilities.charisma || '')
+                (basic_abilities.race.charisma || '') +
+                (basic_abilities.career_path.charisma || '')
             "
             disabled
         />
@@ -154,8 +154,8 @@
             type="text"
             name="animal_charisma_imp"
             :value="
-                (race_basic_abilities.animal_charisma || '') +
-                (career_path_basic_abilities.animal_charisma || '')
+                (basic_abilities.race.animal_charisma || '') +
+                (basic_abilities.career_path.animal_charisma || '')
             "
             disabled
         />
@@ -163,8 +163,8 @@
             type="text"
             name="melee_imp"
             :value="
-                (race_basic_abilities.melee || '') +
-                (career_path_basic_abilities.melee || '')
+                (basic_abilities.race.melee || '') +
+                (basic_abilities.career_path.melee || '')
             "
             disabled
         />
@@ -172,8 +172,8 @@
             type="text"
             name="close_combat_imp"
             :value="
-                (race_basic_abilities.close_combat || '') +
-                (career_path_basic_abilities.close_combat || '')
+                (basic_abilities.race.close_combat || '') +
+                (basic_abilities.career_path.close_combat || '')
             "
             disabled
         />
@@ -181,8 +181,8 @@
             type="text"
             name="drive_imp"
             :value="
-                (race_basic_abilities.drive || '') +
-                (career_path_basic_abilities.drive || '')
+                (basic_abilities.race.drive || '') +
+                (basic_abilities.career_path.drive || '')
             "
             disabled
         />
@@ -190,8 +190,8 @@
             type="text"
             name="to_drink_alcohol_imp"
             :value="
-                (race_basic_abilities.to_drink_alcohol || '') +
-                (career_path_basic_abilities.to_drink_alcohol || '')
+                (basic_abilities.race.to_drink_alcohol || '') +
+                (basic_abilities.career_path.to_drink_alcohol || '')
             "
             disabled
         />
@@ -199,8 +199,8 @@
             type="text"
             name="gossip_imp"
             :value="
-                (race_basic_abilities.gossip || '') +
-                (career_path_basic_abilities.gossip || '')
+                (basic_abilities.race.gossip || '') +
+                (basic_abilities.career_path.gossip || '')
             "
             disabled
         />
@@ -208,8 +208,8 @@
             type="text"
             name="entertain_imp"
             :value="
-                (race_basic_abilities.entertain || '') +
-                (career_path_basic_abilities.entertain || '')
+                (basic_abilities.race.entertain || '') +
+                (basic_abilities.career_path.entertain || '')
             "
             disabled
         />
@@ -217,8 +217,8 @@
             type="text"
             name="climb_imp"
             :value="
-                (race_basic_abilities.climb || '') +
-                (career_path_basic_abilities.climb || '')
+                (basic_abilities.race.climb || '') +
+                (basic_abilities.career_path.climb || '')
             "
             disabled
         />
@@ -451,8 +451,8 @@
             type="text"
             name="dodge_imp"
             :value="
-                (race_basic_abilities.dodge || '') +
-                (career_path_basic_abilities.dodge || '')
+                (basic_abilities.race.dodge || '') +
+                (basic_abilities.career_path.dodge || '')
             "
             disabled
         />
@@ -460,8 +460,8 @@
             type="text"
             name="intimidate_imp"
             :value="
-                (race_basic_abilities.intimidate || '') +
-                (career_path_basic_abilities.intimidate || '')
+                (basic_abilities.race.intimidate || '') +
+                (basic_abilities.career_path.intimidate || '')
             "
             disabled
         />
@@ -469,8 +469,8 @@
             type="text"
             name="intuition_imp"
             :value="
-                (race_basic_abilities.intuition || '') +
-                (career_path_basic_abilities.intuition || '')
+                (basic_abilities.race.intuition || '') +
+                (basic_abilities.career_path.intuition || '')
             "
             disabled
         />
@@ -478,8 +478,8 @@
             type="text"
             name="play_imp"
             :value="
-                (race_basic_abilities.play || '') +
-                (career_path_basic_abilities.play || '')
+                (basic_abilities.race.play || '') +
+                (basic_abilities.career_path.play || '')
             "
             disabled
         />
@@ -487,8 +487,8 @@
             type="text"
             name="leadership_imp"
             :value="
-                (race_basic_abilities.leadership || '') +
-                (career_path_basic_abilities.leadership || '')
+                (basic_abilities.race.leadership || '') +
+                (basic_abilities.career_path.leadership || '')
             "
             disabled
         />
@@ -496,8 +496,8 @@
             type="text"
             name="mount_imp"
             :value="
-                (race_basic_abilities.mount || '') +
-                (career_path_basic_abilities.mount || '')
+                (basic_abilities.race.mount || '') +
+                (basic_abilities.career_path.mount || '')
             "
             disabled
         />
@@ -505,8 +505,8 @@
             type="text"
             name="orientation_imp"
             :value="
-                (race_basic_abilities.orientation || '') +
-                (career_path_basic_abilities.orientation || '')
+                (basic_abilities.race.orientation || '') +
+                (basic_abilities.career_path.orientation || '')
             "
             disabled
         />
@@ -514,8 +514,8 @@
             type="text"
             name="perception_imp"
             :value="
-                (race_basic_abilities.perception || '') +
-                (career_path_basic_abilities.perception || '')
+                (basic_abilities.race.perception || '') +
+                (basic_abilities.career_path.perception || '')
             "
             disabled
         />
@@ -523,8 +523,8 @@
             type="text"
             name="bargain_imp"
             :value="
-                (race_basic_abilities.bargain || '') +
-                (career_path_basic_abilities.bargain || '')
+                (basic_abilities.race.bargain || '') +
+                (basic_abilities.career_path.bargain || '')
             "
             disabled
         />
@@ -532,8 +532,8 @@
             type="text"
             name="row_imp"
             :value="
-                (race_basic_abilities.row || '') +
-                (career_path_basic_abilities.row || '')
+                (basic_abilities.race.row || '') +
+                (basic_abilities.career_path.row || '')
             "
             disabled
         />
@@ -541,8 +541,8 @@
             type="text"
             name="stealth_imp"
             :value="
-                (race_basic_abilities.stealth || '') +
-                (career_path_basic_abilities.stealth || '')
+                (basic_abilities.race.stealth || '') +
+                (basic_abilities.career_path.stealth || '')
             "
             disabled
         />
@@ -550,8 +550,8 @@
             type="text"
             name="bribe_imp"
             :value="
-                (race_basic_abilities.bribe || '') +
-                (career_path_basic_abilities.bribe || '')
+                (basic_abilities.race.bribe || '') +
+                (basic_abilities.career_path.bribe || '')
             "
             disabled
         />
@@ -559,8 +559,8 @@
             type="text"
             name="survival_imp"
             :value="
-                (race_basic_abilities.survival || '') +
-                (career_path_basic_abilities.survival || '')
+                (basic_abilities.race.survival || '') +
+                (basic_abilities.career_path.survival || '')
             "
             disabled
         />
@@ -684,7 +684,7 @@
         <div class="advanced_characteristics_list">
             <div
                 class="advanced_characteristic"
-                v-for="(advanced_ability, index) in race_advanced_abilities"
+                v-for="(advanced_ability, index) in advanced_abilities.list"
                 :key="index"
             >
                 <input
@@ -698,19 +698,16 @@
                 />
                 <input
                     type="text"
-                    class="advanced_characteristics_characteristics"
-                    :name="
-                        'advanced_characteristics_characteristics_' +
-                        transformIndex(index)
-                    "
+                    class="advanced_characteristics"
+                    :name="'advanced_characteristics_' + transformIndex(index)"
                     :value="advanced_ability.characteristic_label"
                     disabled
                 />
                 <input
                     type="text"
-                    class="advanced_characteristics_characteristics_level"
+                    class="advanced_characteristics_level"
                     :name="
-                        'advanced_characteristics_characteristics_level_' +
+                        'advanced_characteristics_level_' +
                         transformIndex(index)
                     "
                     :value="
@@ -731,6 +728,7 @@
                     :value="advanced_ability.level"
                     disabled
                 />
+                <div class="length">{{ arrayLength(index) }}</div>
                 <select
                     class="advanced_characteristics_hab"
                     :name="
@@ -756,7 +754,6 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { ref, onMounted, onUnmounted, getCurrentInstance } from "vue";
 export default {
     methods: {
         transformIndex(index) {
@@ -791,6 +788,11 @@ export default {
             const input = name.replace(/_hab$/, "");
             document.querySelector(`[name="${input}_imp"]`).value = value;
         },
+        arrayLength(index) {
+            const transformedIndex = this.transformIndex(index);
+            const obj = this.advanced_specializations.list[transformedIndex];
+            return obj ? "(" + Object.keys(obj).length + ")" : "";
+        },
     },
     computed: {
         ...mapState(
@@ -799,11 +801,10 @@ export default {
                 "race",
                 "profession",
                 "characteristics_total",
-                "race_basic_abilities",
-                "career_path_basic_abilities",
+                "basic_abilities",
                 "basic_specializations",
                 "characteristics_total",
-                "race_advanced_abilities",
+                "advanced_abilities",
                 "advanced_specializations",
                 "getAdvancedSpecializations",
             ],
@@ -1299,8 +1300,10 @@ select[name="survival_hab"] {
     position: absolute;
     top: 56px;
     left: 598px;
-    width: 244px;
+    width: 270px;
     height: 283px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .advanced_characteristics_list .advanced_characteristic {
@@ -1315,13 +1318,13 @@ select[name="survival_hab"] {
     width: 105px;
 }
 
-.advanced_characteristics_list .advanced_characteristics_characteristics {
+.advanced_characteristics_list .advanced_characteristics {
     left: 106px;
     width: 39px;
     height: 22px;
 }
 
-.advanced_characteristics_list .advanced_characteristics_characteristics_level {
+.advanced_characteristics_list .advanced_characteristics_level {
     left: 145px;
     width: 34px;
     height: 22px;
@@ -1338,8 +1341,20 @@ select[name="survival_hab"] {
 .advanced_characteristics_list
     .advanced_characteristic
     .advanced_characteristics_hab {
-    left: 206px;
-    width: 63px;
+    left: 222px;
+    width: 46px;
     height: 22px;
+}
+
+select:not(:has(option[value]:not([value=""]))) {
+    display: none;
+}
+
+.length {
+    position: absolute;
+    left: 208px;
+    top: 10p;
+    height: 22px;
+    font-size: 1rem;
 }
 </style>

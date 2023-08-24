@@ -94,6 +94,7 @@ export default {
             "updateCareerPathBasicAbilities",
             "updateCareerPathAdvancedAbilities",
             "resetCareerPathBasicAbilities",
+            "resetCareerPathAdvancedAbilities",
             "updateRandomChar",
             "resetRaceTraits",
             "updateCareerPathBasicSpecializations",
@@ -103,7 +104,9 @@ export default {
             "updateRaceAdvancedAbilities",
             "resetRaceAdvancedAbilities",
             "updateRaceAdvancedSpecializations",
+            "updateCareerPathAdvancedSpecializations",
             "resetRaceAdvancedSpecializations",
+            "resetCareerPathAdvancedSpecializations",
         ]),
         onRaceSelected(event) {
             this.updateRace(event.target.value);
@@ -116,9 +119,10 @@ export default {
             this.resetRaceBasicAbilities();
             this.resetCareerPathBasicAbilities();
             this.resetRaceAdvancedAbilities();
-            this.resetCareerPathBasicSpecializations();
             this.resetRaceBasicSpecializations();
+            this.resetCareerPathAdvancedAbilities();
             this.resetRaceAdvancedSpecializations();
+            this.resetCareerPathBasicSpecializations();
             this.loadProfessions();
             this.resetRaceTraits();
             if (this.currentRace === "0") {
@@ -149,6 +153,7 @@ export default {
             this.updateCareerPathStatus("");
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
+            this.resetCareerPathAdvancedAbilities();
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -160,6 +165,8 @@ export default {
             this.loadProfession();
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
+            this.resetCareerPathAdvancedSpecializations();
+            this.resetCareerPathAdvancedAbilities();
             if (this.currentProfession !== "0") {
                 this.loadCareerPathBasicAbilities();
                 this.loadCareerPathAdvancedAbilities();
@@ -256,16 +263,6 @@ export default {
                 race_basic_abilities.basic_specializations
             );
         },
-        async loadRaceAdvancedAbilities() {
-            const race_advanced_abilities =
-                await getRaceAdvancedAbilitiesFromAPI(this.currentRace);
-            this.updateRaceAdvancedAbilities(
-                race_advanced_abilities.advanced_abilities
-            );
-            this.updateRaceAdvancedSpecializations(
-                race_advanced_abilities.advanced_specializations
-            );
-        },
         async loadCareerPathBasicAbilities() {
             const career_path_basic_abilities =
                 await getCareerPathBasicAbilitiesFromAPI(
@@ -278,6 +275,16 @@ export default {
                 career_path_basic_abilities.basic_specializations
             );
         },
+        async loadRaceAdvancedAbilities() {
+            const race_advanced_abilities =
+                await getRaceAdvancedAbilitiesFromAPI(this.currentRace);
+            this.updateRaceAdvancedAbilities(
+                race_advanced_abilities.advanced_abilities
+            );
+            this.updateRaceAdvancedSpecializations(
+                race_advanced_abilities.advanced_specializations
+            );
+        },
         async loadCareerPathAdvancedAbilities() {
             const career_path_advanced_abilities =
                 await getCareerPathAdvancedAbilitiesFromAPI(
@@ -286,9 +293,9 @@ export default {
             this.updateCareerPathAdvancedAbilities(
                 career_path_advanced_abilities.advanced_abilities
             );
-            //this.updateCareerPathBasicSpecializations(
-            //    career_path_advanced_abilities.advanced_specializations
-            //);
+            this.updateCareerPathAdvancedSpecializations(
+                career_path_advanced_abilities.advanced_specializations
+            );
         },
     },
     computed: {

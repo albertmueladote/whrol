@@ -240,12 +240,12 @@ class NewController extends Controller
         })
             ->get();
         foreach ($race_advanced_specializations as $ras) {
-            foreach ($advanced_abilities as $ba) {
-                if ($ras->id_advanced_ability == $ba->id_advanced_ability) {
-                    if (!isset($result['advanced_specializations'][$ba->name])) {
-                        $result['advanced_specializations'][$ba->name] = array();
+            foreach ($advanced_abilities as $aa) {
+                if ($ras->id_advanced_ability == $aa->id_advanced_ability) {
+                    if (!isset($result['advanced_specializations'][$aa->name])) {
+                        $result['advanced_specializations'][$aa->name] = array();
                     }
-                    array_push($result['advanced_specializations'][$ba->name], $ras);
+                    array_push($result['advanced_specializations'][$aa->name], $ras);
                 }
             }
         }
@@ -300,23 +300,23 @@ class NewController extends Controller
         $advanced_abilities = AdvancedAbility::whereHas('careerPaths', function ($query) use ($id_career_path) {
             $query->where('career_path.id_career_path', $id_career_path);
         })->with('characteristic')->get();
-        /*$ids_advanced_abilities = $advanced_abilities->pluck('id_advanced_ability')->toArray();
-        $race_advanced_specializations = AdvancedSpecialization::whereHas('raceAdvancedAbilities', function ($query) use ($id_race, $ids_advanced_abilities) {
-            $query->where('race_advanced_specialization.id_race', $id_race)
-                ->whereIn('race_advanced_specialization.id_advanced_ability', $ids_advanced_abilities);
-        })
-            ->get();
-        foreach ($race_advanced_specializations as $ras) {
-            foreach ($advanced_abilities as $ba) {
-                if ($ras->id_advanced_ability == $ba->id_advanced_ability) {
-                    if (!isset($result['advanced_specializations'][$ba->name])) {
-                        $result['advanced_specializations'][$ba->name] = array();
+        $ids_advanced_abilities = $advanced_abilities->pluck('id_advanced_ability')->toArray();
+        $career_path_advanced_specializations = AdvancedSpecialization::whereHas('careerPathAdvancedAbilities', function ($query) use ($id_career_path, $ids_advanced_abilities) {
+            $query->where('career_path_advanced_specialization.id_career_path', $id_career_path)
+                ->whereIn('career_path_advanced_specialization.id_advanced_ability', $ids_advanced_abilities);
+        })->get();
+        foreach ($career_path_advanced_specializations as $cpas) {
+            foreach ($advanced_abilities as $aa) {
+                if ($cpas->id_advanced_ability == $aa->id_advanced_ability) {
+                    if (!isset($result['advanced_specializations'][$aa->name])) {
+                        $result['advanced_specializations'][$aa->name] = array();
                     }
-                    array_push($result['advanced_specializations'][$ba->name], $ras);
+                    array_push($result['advanced_specializations'][$aa->name], $cpas);
                 }
             }
-        }*/
+        }
         $result['advanced_abilities'] = $advanced_abilities;
+
         return $result;
     }
 }

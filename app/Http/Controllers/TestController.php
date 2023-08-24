@@ -34,8 +34,14 @@ class TestController extends Controller
 
     public function Create()
     {
-        $career_path = CareerPath::all();
-        $advanced_abilities = AdvancedAbility::all();
-        return view('create')->with('career_path', $career_path)->with('advanced_abilities', $advanced_abilities);
+        //Relacionar career_path y advanced_ability
+        //$career_path = CareerPath::all();
+        //$advanced_abilities = AdvancedAbility::all();
+        //return view('create')->with('career_path', $career_path)->with('advanced_abilities', $advanced_abilities);
+
+        $careerPaths = CareerPath::with('advancedAbilities')->get();
+        $advancedSpecializations = AdvancedSpecialization::all();
+
+        return view('create')->with('careerPathAdvancedAbilities', $careerPaths)->with('advancedSpecializations', $advancedSpecializations);
     }
 }
