@@ -34,116 +34,116 @@ return new class extends Migration {
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 5,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 8,
+                'id_basic_ability' => 14,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 11,
+                'id_basic_ability' => 3,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 12,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 14,
+                'id_basic_ability' => 5,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 15,
+                'id_basic_ability' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 22,
+                'id_basic_ability' => 23,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 23,
+                'id_basic_ability' => 4,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 24,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 25,
+                'id_basic_ability' => 5,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 29,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 30,
+                'id_basic_ability' => 15,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 33,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 34,
+                'id_basic_ability' => 4,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 39,
+                'id_basic_ability' => 13,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 40,
+                'id_basic_ability' => 10,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 42,
+                'id_basic_ability' => 15,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 44,
+                'id_basic_ability' => 5,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => ,
-                'id_basic_ability' => ,
+                'id_talent' => 50,
+                'id_basic_ability' => 4,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],

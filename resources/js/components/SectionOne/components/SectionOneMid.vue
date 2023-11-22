@@ -1,6 +1,6 @@
 <template>
     <div class="sheet sheet-1">
-        <div class="next"></div>
+        <div class="next" @click="nextPage"></div>
         <input
             type="text"
             maxlength="40"
@@ -107,7 +107,13 @@ export default {
             "updateCareerPathAdvancedSpecializations",
             "resetRaceAdvancedSpecializations",
             "resetCareerPathAdvancedSpecializations",
+            "resetWealth",
+            "randomWealth",
         ]),
+        nextPage() {
+            $(".page-1").hide();
+            $(".page-2").show();
+        },
         onRaceSelected(event) {
             this.updateRace(event.target.value);
             this.updateProfession("0");
@@ -125,6 +131,7 @@ export default {
             this.resetCareerPathBasicSpecializations();
             this.loadProfessions();
             this.resetRaceTraits();
+            this.resetWealth();
             if (this.currentRace === "0") {
                 this.updateCategory("0");
                 this.visibleCategory = false;
@@ -154,6 +161,7 @@ export default {
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
             this.resetCareerPathAdvancedAbilities();
+            this.resetWealth();
             if (this.currentCategory === "0") {
                 this.visibleProfession = false;
             } else {
@@ -167,6 +175,7 @@ export default {
             this.resetCareerPathBasicSpecializations();
             this.resetCareerPathAdvancedSpecializations();
             this.resetCareerPathAdvancedAbilities();
+            this.resetWealth();
             if (this.currentProfession !== "0") {
                 this.loadCareerPathBasicAbilities();
                 this.loadCareerPathAdvancedAbilities();
@@ -226,6 +235,7 @@ export default {
                 this.currentProfession
             );
             this.updateCareerPathStatus(career_path_statusFromAPI.status);
+            this.randomWealth();
             var cont = 1;
             const inputs = document.querySelectorAll("input");
             inputs.forEach((input) => {

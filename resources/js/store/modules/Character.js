@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -92,6 +92,8 @@ const mutations = {
             }
             state.characteristics_total[index] = state.characteristics_ini[index] + parseInt(value_imp);
         };
+        mutations.updateWounds(state);
+        mutations.updateLoad(state);
     },
     updateDestinyUp(state){
         if(state.extra > 0)
@@ -359,6 +361,51 @@ const mutations = {
             }
         }
     },
+    updateWounds(state) {
+        state.wounds.bf = Math.floor((state.characteristics_total.f % 100) / 10);
+        state.wounds.br = Math.floor((state.characteristics_total.r % 100) / 10);
+        state.wounds.bv = Math.floor((state.characteristics_total.v % 100) / 10);
+        if(state.race == 0) {
+            state.wounds.wounds = 0;
+        } else if( state.race == 3) {
+            state.wounds.wounds = (state.wounds.br * 2) + state.wounds.bv;
+        } else {
+            state.wounds.wounds = state.wounds.bf + (state.wounds.br * 2) + state.wounds.bv;
+        }
+        if(state.wounds.robust > 0) {
+            state.wounds.wounds = state.wounds.wounds + (state.wounds.br * state.wounds.robust);
+        }
+    },
+    updateLoad(state) {
+        state.load.weapons = 0;
+        state.load.armors = 0;
+        state.load.items = 0;
+        state.load.max_load = Math.floor((state.characteristics_total.f % 100) / 10) + Math.floor((state.characteristics_total.r % 100) / 10);
+        state.load.total = state.load.max_load - state.load.weapons - state.load.armors - state.load.items;
+    },
+    resetWealth() {
+        state.wealth.penny = 0;
+        state.wealth.shilling = 0;
+        state.wealth.crown = 0;
+    },
+    randomWealth(state) {
+        const career_path_status = state.career_path_status.split(' ');
+        const status = career_path_status[0];
+        const level = career_path_status[1];
+        switch (status) {
+            case 'Bronce':
+                state.wealth.penny = Math.floor(Math.random() * ((level*10*2) - (level * 2) + 1)) + (level * 2);
+                break;
+            case 'Plata':
+                state.wealth.shilling = Math.floor(Math.random() * ((level*10) - level + 1)) + level;
+                break;
+            case 'Oro':
+                state.wealth.crown = level;
+                break;
+            default:
+                break;
+        }
+    }
 };  
  
 export default {
