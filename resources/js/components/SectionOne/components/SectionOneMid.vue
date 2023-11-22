@@ -51,10 +51,10 @@
             :value="career_path_status"
             disabled
         />
-        <input type="text" name="age" :value="age" disabled />
-        <input type="text" name="height" :value="height" disabled />
-        <input type="text" name="hair" :value="hair_text" disabled />
-        <input type="text" name="eyes" :value="eyes_text" disabled />
+        <input type="text" name="age" :value="age.age" disabled />
+        <input type="text" name="height" :value="height.height" disabled />
+        <input type="text" name="hair" :value="hair.hair" disabled />
+        <input type="text" name="eyes" :value="eyes.eyes" disabled />
     </div>
 </template>
 
@@ -62,6 +62,10 @@
 import { mapState, mapMutations } from "vuex";
 import {
     getRacesFromAPI,
+    getChooseEyesFromAPI,
+    getChooseHairsFromAPI,
+    getChooseHeightsFromAPI,
+    getChooseAgesFromAPI,
     getCategoriesFromAPI,
     getProfessionsFromAPI,
     getProfessionFromAPI,
@@ -88,6 +92,10 @@ export default {
             "updateHeight",
             "updateHair",
             "updateEyes",
+            "updateChooseEyes",
+            "updateChooseHairs",
+            "updateChooseHeights",
+            "updateChooseAges",
             "updateRaceTraits",
             "updateRaceBasicAbilities",
             "resetRaceBasicAbilities",
@@ -117,11 +125,11 @@ export default {
         onRaceSelected(event) {
             this.updateRace(event.target.value);
             this.updateProfession("0");
-            this.updateCareerPathStatus("");
-            this.updateAge("");
-            this.updateHeight("");
-            this.updateHair({ id_hair: 0, name: "" });
-            this.updateEyes({ id_eye: 0, name: "" });
+            this.updateCareerPathStatus("0");
+            this.updateAge({ id_age: 0, age: 0 });
+            this.updateHeight({ id_height: 0, height: "" });
+            this.updateHair({ id_hair: 0, hair: "" });
+            this.updateEyes({ id_eyes: 0, eyes: "" });
             this.resetRaceBasicAbilities();
             this.resetCareerPathBasicAbilities();
             this.resetRaceAdvancedAbilities();
@@ -151,7 +159,27 @@ export default {
                 this.loadRaceBasicAbilities();
                 this.loadRaceAdvancedAbilities();
                 this.loadRaceTraits();
+                this.eyesChoose();
+                this.hairsChoose();
+                this.heightsChoose();
+                this.agesChoose();
             }
+        },
+        async eyesChoose() {
+            const eyes = await getChooseEyesFromAPI(this.currentRace);
+            this.updateChooseEyes(eyes);
+        },
+        async hairsChoose() {
+            const hairs = await getChooseHairsFromAPI(this.currentRace);
+            this.updateChooseHairs(hairs);
+        },
+        async heightsChoose() {
+            const hairs = await getChooseHeightsFromAPI(this.currentRace);
+            this.updateChooseHeights(hairs);
+        },
+        async agesChoose() {
+            const ages = await getChooseAgesFromAPI(this.currentRace);
+            this.updateChooseAges(ages);
         },
         onCategorySelected(event) {
             this.updateCategory(event.target.value);
@@ -317,8 +345,8 @@ export default {
             "career_path_status",
             "age",
             "height",
-            "hair_text",
-            "eyes_text",
+            "hair",
+            "eyes",
         ]),
         currentName() {
             return this.name;

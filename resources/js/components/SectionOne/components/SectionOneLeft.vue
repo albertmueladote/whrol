@@ -51,7 +51,6 @@ import {
     getHeightFromAPI,
     getHairFromAPI,
     getEyesFromAPI,
-    getChooseEyesFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     props: {},
@@ -78,10 +77,6 @@ export default {
         async randomEyes() {
             const eyesFromAPI = await getEyesFromAPI(this.currentRace);
             this.updateEyes(eyesFromAPI);
-            if (eyesFromAPI.id_eye == "1") {
-                const eyes = await getChooseEyesFromAPI(this.currentRace);
-                this.updateChooseEyes(eyes);
-            }
         },
     },
     computed: {

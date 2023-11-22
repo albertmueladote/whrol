@@ -131,6 +131,48 @@ class NewController extends Controller
     /**
      * 
      */
+    public function choose_hairs(Request $request)
+    {
+        $id_race = $request->input('id_race');
+        $hairs = Hair::whereHas('races', function ($query) use ($id_race) {
+            $query->where('race.id_race', $id_race);
+        })->get();
+        return $hairs;
+    }
+
+    /**
+     * 
+     */
+    public function choose_heights(Request $request)
+    {
+        $race = Race::find($request->input('id_race'));
+        $min = $race->height_min;
+        $max = $race->height_max;
+        $heights = array();
+        for ($x = $min; $x <= $max; $x++) {
+            $heights[] = $x;
+        }
+        return $heights;
+    }
+
+    /**
+     * 
+     */
+    public function choose_ages(Request $request)
+    {
+        $race = Race::find($request->input('id_race'));
+        $min = $race->age_min;
+        $max = $race->age_max;
+        $ages = array();
+        for ($x = $min; $x <= $max; $x++) {
+            $ages[] = $x;
+        }
+        return $ages;
+    }
+
+    /**
+     * 
+     */
     public function characteristics(Request $request)
     {
         $race = Race::find($request->input('id_race'));

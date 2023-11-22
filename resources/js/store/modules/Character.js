@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: '', height: '', hair: '', hair_text: '', eyes: '', eyes_text: '', choose_eyes: '', characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: {}, height: {}, hair: {}, eyes: {}, choose_eyes: {}, choose_hairs: {}, choose_heights: {}, choose_ages: {}, characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -18,21 +18,52 @@ const mutations = {
         state.career_path_status = newCareerPathStatus;
     },
     updateAge(state, newAge) {
-        state.age = newAge;
+        if(newAge.id_age == 0){
+            state.age.id_age = 0;
+            state.age.age = '';
+        } else {
+            state.age.id_age = newAge;
+            state.age.age = newAge;
+        }
     },
     updateHeight(state, newHeight) {
-        state.height = newHeight;
+        if(newHeight.id_height == 0){
+            state.height.id_height = 0;
+            state.height.height = '';
+        } else {
+            state.height.id_height = newHeight;
+            state.height.height = newHeight;
+        }
     },
     updateHair(state, newHair) {
-        state.hair = newHair.id_hair;
-        state.hair_text = newHair.name;
+        if(newHair.id_hair == 0) {
+            state.hair.id_hair = 0;
+            state.hair.hair = '';
+        } else {
+            state.hair.id_hair = newHair.id_hair;
+            state.hair.hair = newHair.name;
+        }
     },
     updateEyes(state, newEyes) {
-        state.eyes = newEyes.id_eye;
-        state.eyes_text = newEyes.name;
+        if(newEyes.id_eyes == 0) {
+            state.eyes.id_eyes = 0;
+            state.eyes.eyes = '';
+        } else {
+            state.eyes.id_eyes = newEyes.id_eye;
+            state.eyes.eyes = newEyes.name;
+        }
     },
     updateChooseEyes(state, newEyes) {
         state.choose_eyes = newEyes;
+    },
+    updateChooseHairs(state, newHairs) {
+        state.choose_hairs = newHairs;
+    },
+    updateChooseHeights(state, newHeights) {
+        state.choose_heights = newHeights;
+    },
+    updateChooseAges(state, newAges) {
+        state.choose_ages = newAges;
     },
     updateMotivation(state, newMotivation) {
         state.motivation = newMotivation;

@@ -119,6 +119,48 @@ export async function getChooseEyesFromAPI(id_race) {
   }
 }
 
+export async function getChooseHairsFromAPI(id_race) {
+  try {
+      const response = await axios.post("/choose_hairs", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los colores de pelos:", error);
+    return [];
+  }
+}
+
+export async function getChooseHeightsFromAPI(id_race) {
+  try {
+      const response = await axios.post("/choose_heights", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las alturas:", error);
+    return [];
+  }
+}
+
+export async function getChooseAgesFromAPI(id_race) {
+  try {
+      const response = await axios.post("/choose_ages", null, {
+      params: {
+          id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las edades:", error);
+    return [];
+  }
+}
+
 export async function getRaceTraitsFromAPI(id_race) {
   try {
       const response = await axios.post("/race", null, {

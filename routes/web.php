@@ -41,6 +41,9 @@ Route::post('/hair', [App\Http\Controllers\NewController::class, 'hair'])->name(
 Route::post('/eyes', [App\Http\Controllers\NewController::class, 'eyes'])->name('eyes');
 Route::post('/profession', [App\Http\Controllers\NewController::class, 'profession'])->name('profession');
 Route::post('/choose_eyes', [App\Http\Controllers\NewController::class, 'choose_eyes'])->name('choose_eyes');
+Route::post('/choose_hairs', [App\Http\Controllers\NewController::class, 'choose_hairs'])->name('choose_hairs');
+Route::post('/choose_heights', [App\Http\Controllers\NewController::class, 'choose_heights'])->name('choose_heights');
+Route::post('/choose_ages', [App\Http\Controllers\NewController::class, 'choose_ages'])->name('choose_ages');
 Route::post('/characteristics', [App\Http\Controllers\NewController::class, 'characteristics'])->name('characteristics');
 Route::post('/random_characteristics', [App\Http\Controllers\NewController::class, 'random_characteristics'])->name('random_characteristics');
 Route::post('/throw_dice', [App\Http\Controllers\NewController::class, 'throw_dice'])->name('throw_dice');
