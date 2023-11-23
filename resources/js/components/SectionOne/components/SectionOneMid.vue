@@ -1,5 +1,6 @@
 <template>
     <div class="sheet sheet-1">
+        <section-one-faqs></section-one-faqs>
         <div class="next" @click="nextPage"></div>
         <input
             type="text"
@@ -92,10 +93,6 @@ export default {
             "updateHeight",
             "updateHair",
             "updateEyes",
-            "updateChooseEyes",
-            "updateChooseHairs",
-            "updateChooseHeights",
-            "updateChooseAges",
             "updateRaceTraits",
             "updateRaceBasicAbilities",
             "resetRaceBasicAbilities",
@@ -117,6 +114,12 @@ export default {
             "resetCareerPathAdvancedSpecializations",
             "resetWealth",
             "randomWealth",
+        ]),
+        ...mapMutations("Helper", [
+            "updateChooseEyes",
+            "updateChooseHairs",
+            "updateChooseHeights",
+            "updateChooseAges",
         ]),
         nextPage() {
             $(".page-1").hide();

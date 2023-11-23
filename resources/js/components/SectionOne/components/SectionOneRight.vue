@@ -89,13 +89,9 @@ export default {
         },
     },
     computed: {
-        ...mapState("Character", [
-            "age",
-            "height",
-            "hair",
-            "eyes",
+        ...mapState("Character", ["age", "height", "hair", "eyes", "race"]),
+        ...mapState("Helper", [
             "choose_eyes",
-            "race",
             "choose_hairs",
             "choose_heights",
             "choose_ages",

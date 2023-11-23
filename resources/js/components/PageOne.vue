@@ -1,10 +1,6 @@
 <template>
     <div class="container-new page page-1">
-        <section-one
-            ref="sectionOne"
-            :raceSelected="raceSelected"
-            :categorySelected="categorySelected"
-        ></section-one>
+        <section-one></section-one>
         <section-two></section-two>
         <section-three></section-three>
         <section-four></section-four>

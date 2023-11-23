@@ -1,9 +1,6 @@
 <template>
-    <page-one
-        ref="page-one"
-        :raceSelected="raceSelected"
-        :categorySelected="categorySelected"
-    ></page-one>
+    <settings></settings>
+    <page-one></page-one>
     <page-two></page-two>
 </template>
 
@@ -28,6 +25,33 @@ export default {
     background-repeat: no-repeat;
     background-position: center top;
     height: 90vh;
+
+    &.settings {
+        height: auto;
+        margin-bottom: 10px;
+        button {
+            margin-left: 5px;
+            width: 10%;
+        }
+    }
+
+    .faqs {
+        font-size: 1.1rem;
+        background-color: #f7f7f7;
+        opacity: 0.8;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        display: none;
+        color: transparent;
+        transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out;
+        padding: 0 10px;
+        &:hover {
+            opacity: 1;
+            color: initial;
+        }
+    }
 
     .section {
         width: 100%;

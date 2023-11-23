@@ -1,5 +1,6 @@
 <template>
     <div class="sheet sheet-3">
+        <section-three-faqs></section-three-faqs>
         <input
             type="text"
             name="endurance"
@@ -754,7 +755,9 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import SectionThree from "../SectionThree.vue";
 export default {
+    components: { SectionThree },
     methods: {
         transformIndex(index) {
             const newKey = index

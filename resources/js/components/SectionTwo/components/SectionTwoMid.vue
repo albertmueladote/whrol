@@ -1,5 +1,6 @@
 <template>
     <div class="sheet sheet-2">
+        <section-two-faqs></section-two-faqs>
         <input
             type="text"
             name="ha_ini"
