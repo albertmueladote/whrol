@@ -1,6 +1,6 @@
 <template>
     <div class="faqs">
-        <div class="block-1">
+        <div class="block block-1">
             <h3>Habilidades básicas y avanzadas</h3>
             Estas son las habilidades o acciones que sabe hacer tu personaje.<br />
             Cada raza y profesión tienen una serie de habilidades básicas y
@@ -26,6 +26,10 @@
             especializaciones Pintar y Cantar. En ese caso, las mejoras no
             estarán asociadas a Arte, si no que cada especialización tendrá sus
             propias mejoras.
+            <hr />
+            Durante la partida podrás subir estas habilidades, pero solo
+            aquellas en las que tengas al menos un punto. (Aunque hay formas de
+            aprender nuevas habilidades)
         </div>
     </div>
 </template>
@@ -37,7 +41,6 @@
         display: inline-block;
         vertical-align: top;
         height: 100%;
-        overflow-y: auto;
     }
 }
 </style>

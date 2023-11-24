@@ -1,5 +1,6 @@
 <template>
     <div class="sheet sheet-5">
+        <section-five-faqs></section-five-faqs>
         <div class="next" @click="previousPage"></div>
         <div class="armors">
             <div class="armor" v-for="(armor, index) in armors" :key="index">
@@ -215,6 +216,7 @@ export default {
             "wounds",
             "race",
             "profession",
+            "armors",
         ]),
         visibleRace() {
             return this.race !== "0";

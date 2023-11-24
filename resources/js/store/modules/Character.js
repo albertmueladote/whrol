@@ -15,7 +15,12 @@ const mutations = {
         state.profession = newProfession;
     },
     updateCareerPathStatus(state, newCareerPathStatus) {
-        state.career_path_status = newCareerPathStatus;
+        if(newCareerPathStatus == 0) {
+            state.career_path_status = '';
+        } else {
+            state.career_path_status = newCareerPathStatus;
+        }
+        
     },
     updateAge(state, newAge) {
         if(newAge.id_age == 0){
@@ -293,26 +298,16 @@ const mutations = {
     basicAbilitiesList(state) {
         state.basic_abilities.list = {};
         for (const key in state.basic_abilities.race) {
-            for (const index in state.basic_abilities.race[key]) {
-                if(!state.basic_abilities.list.hasOwnProperty(key)) {
-                    state.basic_abilities.list[key] = {};
-                }
-                if(!state.basic_abilities.list[key].hasOwnProperty(state.basic_abilities.race[key][index])) {
-                    state.basic_abilities.list[key][state.basic_abilities.race[key][index]] = 0;
-                }
-                state.basic_abilities.list[key][state.basic_abilities.race[key][index]]++;
+            if(!state.basic_abilities.list.hasOwnProperty(key)) {
+                state.basic_abilities.list[key] = 0;
             }
+            state.basic_abilities.list[key]++;
         }
         for (const key in state.basic_abilities.career_path) {
-            for (const index in state.basic_abilities.career_path[key]) {
-                if(!state.basic_abilities.list.hasOwnProperty(key)) {
-                    state.basic_abilities.list[key] = {};
-                }
-                if(!state.basic_abilities.list[key].hasOwnProperty(state.basic_abilities.career_path[key][index])) {
-                    state.basic_abilities.list[key][state.basic_abilities.career_path[key][index]] = 0;
-                }
-                state.basic_abilities.list[key][state.basic_abilities.career_path[key][index]]++;
+            if(!state.basic_abilities.list.hasOwnProperty(key)) {
+                state.basic_abilities.list[key] = 0;
             }
+            state.basic_abilities.list[key]++;
         }
     },
     advancedAbilitiesList(state) {

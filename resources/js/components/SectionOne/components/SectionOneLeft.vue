@@ -65,18 +65,29 @@ export default {
         async randomAge() {
             const ageFromAPI = await getAgeFromAPI(this.currentRace);
             this.updateAge(ageFromAPI);
+            this.modified("age");
         },
         async randomHeight() {
             const heightFromAPI = await getHeightFromAPI(this.currentRace);
             this.updateHeight(heightFromAPI);
+            this.modified("height");
         },
         async randomHair() {
             const hairFromAPI = await getHairFromAPI(this.currentRace);
             this.updateHair(hairFromAPI);
+            this.modified("hair");
         },
         async randomEyes() {
             const eyesFromAPI = await getEyesFromAPI(this.currentRace);
             this.updateEyes(eyesFromAPI);
+            this.modified("eyes");
+        },
+        modified(name) {
+            var inputElements = $("input[name='" + name + "']");
+            inputElements.addClass("modified");
+            setTimeout(function () {
+                inputElements.removeClass("modified");
+            }, 2000);
         },
     },
     computed: {

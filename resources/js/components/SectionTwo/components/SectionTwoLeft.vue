@@ -58,6 +58,16 @@ export default {
             const randomCharFromAPI = await getRandomCharFromAPI();
             this.updateRandomChar(randomCharFromAPI);
             this.updateTotalChar();
+            this.modified("ha_imp");
+            this.modified("hp_imp");
+            this.modified("f_imp");
+            this.modified("r_imp");
+            this.modified("ini_imp");
+            this.modified("ag_imp");
+            this.modified("des_imp");
+            this.modified("i_imp");
+            this.modified("v_imp");
+            this.modified("em_imp");
         },
         async throwDice() {
             const throwDiceFromAPI = await getThrowDiceFromAPI();
@@ -69,6 +79,13 @@ export default {
         },
         takeDice(divClass) {
             document.querySelector(`.${divClass}`).classList.add("taked");
+        },
+        modified(name) {
+            var inputElements = $("input[name='" + name + "']");
+            inputElements.addClass("modified");
+            setTimeout(function () {
+                inputElements.removeClass("modified");
+            }, 2000);
         },
     },
     computed: {

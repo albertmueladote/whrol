@@ -48,15 +48,30 @@ export default {
         ]),
         destinyUp() {
             this.updateDestinyUp();
+            this.modified("destiny");
+            this.modified("fortune");
         },
         destinyDown() {
             this.updateDestinyDown();
+            this.modified("destiny");
+            this.modified("fortune");
         },
         resilienceUp() {
             this.updateResilienceUp();
+            this.modified("resilience");
+            this.modified("resolution");
         },
         resilienceDown() {
             this.updateResilienceDown();
+            this.modified("resilience");
+            this.modified("resolution");
+        },
+        modified(name) {
+            var inputElements = $("input[name='" + name + "']");
+            inputElements.addClass("modified");
+            setTimeout(function () {
+                inputElements.removeClass("modified");
+            }, 2000);
         },
     },
     computed: {

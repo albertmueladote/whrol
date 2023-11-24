@@ -31,7 +31,8 @@ export default {
         margin-bottom: 10px;
         button {
             margin-left: 5px;
-            width: 10%;
+            width: 15%;
+            font-size: 1.2rem;
         }
     }
 
@@ -46,10 +47,17 @@ export default {
         display: none;
         color: transparent;
         transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out;
-        padding: 0 10px;
         &:hover {
             opacity: 1;
             color: initial;
+            .block {
+                overflow: auto;
+            }
+        }
+        .block {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            overflow: hidden;
         }
     }
 
@@ -65,9 +73,13 @@ export default {
         text-align: center;
         padding-top: 5px;
         font-size: 1rem;
+        transition: box-shadow 0.5s ease-in-out;
         :focus {
             border: none;
             outline: none;
+        }
+        &.modified {
+            box-shadow: inset 0 0 10px red;
         }
     }
 

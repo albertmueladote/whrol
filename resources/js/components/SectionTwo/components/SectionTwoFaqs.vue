@@ -1,7 +1,7 @@
 <template>
     <div class="faqs">
         <div class="column-1">
-            <div class="block-1">
+            <div class="block block-1">
                 <h3>Características</h3>
                 Aquí tenemos las carácterísticas básicas de nuestro personaje.
                 <br />
@@ -44,10 +44,21 @@
                 - Em: Empatía. La capacidad de caer bien a otros y determina
                 como otros te ven. Tu ropa y aspecto influyen. <br />
                 <hr />
+                Durante la partida podrás subir estas estadísticas, pero no de
+                cualquier manera. Cada carrera se divide en 4 niveles en los
+                cuales tu personaje irá ascendiendo.<br />
+                - En su primer nivel, solo podrá subir las características
+                marcadas en verde.<br />
+                - En su segundo nivel, además, podrá subir la característica
+                marcada en cobre.<br />
+                - En su tercer nivel, además, podrá subir la característica
+                marcada en plata.<br />
+                - En su cuarto nivel, además, podrá subir la característica
+                marcada en oro.<br />
             </div>
         </div>
         <div class="column-2">
-            <div class="block-2">
+            <div class="block block-2">
                 <h3>Fortuna y Resilencia</h3>
                 - La fortuna nos permite sobrevivir a situaciones que nos
                 matarían. En lugar de morir, perdemos un punto de fortuna y nos
@@ -60,15 +71,19 @@
                 - La resolución indica cuantos puntos de resilencia nos quedan.
                 Se reinician al principio de cada aventura.<br />
                 <hr />
+                Durante la creación del personaje tendremos puntos extra en
+                función a la raza elegida para repartir entre fortuna y
+                resilencia.
+                <hr />
                 - La motivación es una palabra que define nuestras motivaciones,
                 si actuamos en función a ellas durante la partida, podríamos
                 ganar puntos de resolución adicionales.
             </div>
-            <div class="block-3">
+            <div class="block block-3">
                 <h3>Experiencia</h3>
                 La experiencia que ganaremos durante la partida.
             </div>
-            <div class="block-4">
+            <div class="block block-4">
                 <h3>Movimiento</h3>
                 Lo que nos movemos en cada turno durante un combate.<br />
                 Determinado por la raza.<br />
@@ -88,7 +103,6 @@
         height: 100%;
         .block-1 {
             height: 100%;
-            overflow-y: auto;
         }
     }
     .column-2 {
@@ -97,22 +111,20 @@
         vertical-align: top;
         height: 100%;
         .block-2 {
-            width: 62%;
+            width: 58%;
             height: 55%;
-            overflow-y: auto;
             display: inline-block;
             vertical-align: top;
         }
         .block-3 {
-            width: 38%;
+            width: 42%;
             height: 55%;
             display: inline-block;
             vertical-align: top;
         }
         .block-4 {
             width: 100%;
-            height: 55%;
-            overflow-y: auto;
+            height: 45%;
             display: inline-block;
             vertical-align: top;
         }

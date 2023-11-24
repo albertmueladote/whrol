@@ -110,8 +110,11 @@
             type="text"
             name="endurance_imp"
             :value="
-                (basic_abilities.race.endurance || '') +
-                (basic_abilities.career_path.endurance || '')
+                basic_specializations.list.endurance &&
+                Object.values(basic_specializations.list.endurance)[0]
+                    ? Object.values(basic_specializations.list.endurance)[0]
+                    : (basic_abilities.race.endurance || '') +
+                      (basic_abilities.career_path.endurance || '')
             "
             disabled
         />
@@ -119,8 +122,11 @@
             type="text"
             name="art_imp"
             :value="
-                (basic_abilities.race.art || '') +
-                (basic_abilities.career_path.art || '')
+                basic_specializations.list.art &&
+                Object.values(basic_specializations.list.art)[0]
+                    ? Object.values(basic_specializations.list.art)[0]
+                    : (basic_abilities.race.art || '') +
+                      (basic_abilities.career_path.art || '')
             "
             disabled
         />
@@ -128,8 +134,11 @@
             type="text"
             name="athletics_imp"
             :value="
-                (basic_abilities.race.athletics || '') +
-                (basic_abilities.career_path.athletics || '')
+                basic_specializations.list.athletics &&
+                Object.values(basic_specializations.list.athletics)[0]
+                    ? Object.values(basic_specializations.list.athletics)[0]
+                    : (basic_abilities.race.athletics || '') +
+                      (basic_abilities.career_path.athletics || '')
             "
             disabled
         />
@@ -137,8 +146,11 @@
             type="text"
             name="calm_imp"
             :value="
-                (basic_abilities.race.calm || '') +
-                (basic_abilities.career_path.calm || '')
+                basic_specializations.list.calm &&
+                Object.values(basic_specializations.list.calm)[0]
+                    ? Object.values(basic_specializations.list.calm)[0]
+                    : (basic_abilities.race.calm || '') +
+                      (basic_abilities.career_path.calm || '')
             "
             disabled
         />
@@ -146,8 +158,11 @@
             type="text"
             name="charisma_imp"
             :value="
-                (basic_abilities.race.charisma || '') +
-                (basic_abilities.career_path.charisma || '')
+                basic_specializations.list.charisma &&
+                Object.values(basic_specializations.list.charisma)[0]
+                    ? Object.values(basic_specializations.list.charisma)[0]
+                    : (basic_abilities.race.charisma || '') +
+                      (basic_abilities.career_path.charisma || '')
             "
             disabled
         />
@@ -155,8 +170,13 @@
             type="text"
             name="animal_charisma_imp"
             :value="
-                (basic_abilities.race.animal_charisma || '') +
-                (basic_abilities.career_path.animal_charisma || '')
+                basic_specializations.list.animal_charisma &&
+                Object.values(basic_specializations.list.animal_charisma)[0]
+                    ? Object.values(
+                          basic_specializations.list.animal_charisma
+                      )[0]
+                    : (basic_abilities.race.animal_charisma || '') +
+                      (basic_abilities.career_path.animal_charisma || '')
             "
             disabled
         />
@@ -164,8 +184,11 @@
             type="text"
             name="melee_imp"
             :value="
-                (basic_abilities.race.melee || '') +
-                (basic_abilities.career_path.melee || '')
+                basic_specializations.list.melee &&
+                Object.values(basic_specializations.list.melee)[0]
+                    ? Object.values(basic_specializations.list.melee)[0]
+                    : (basic_abilities.race.melee || '') +
+                      (basic_abilities.career_path.melee || '')
             "
             disabled
         />
@@ -173,8 +196,11 @@
             type="text"
             name="close_combat_imp"
             :value="
-                (basic_abilities.race.close_combat || '') +
-                (basic_abilities.career_path.close_combat || '')
+                basic_specializations.list.close_combat &&
+                Object.values(basic_specializations.list.close_combat)[0]
+                    ? Object.values(basic_specializations.list.close_combat)[0]
+                    : (basic_abilities.race.close_combat || '') +
+                      (basic_abilities.career_path.close_combat || '')
             "
             disabled
         />
@@ -182,8 +208,11 @@
             type="text"
             name="drive_imp"
             :value="
-                (basic_abilities.race.drive || '') +
-                (basic_abilities.career_path.drive || '')
+                basic_specializations.list.drive &&
+                Object.values(basic_specializations.list.drive)[0]
+                    ? Object.values(basic_specializations.list.drive)[0]
+                    : (basic_abilities.race.drive || '') +
+                      (basic_abilities.career_path.drive || '')
             "
             disabled
         />
@@ -191,8 +220,13 @@
             type="text"
             name="to_drink_alcohol_imp"
             :value="
-                (basic_abilities.race.to_drink_alcohol || '') +
-                (basic_abilities.career_path.to_drink_alcohol || '')
+                basic_specializations.list.to_drink_alcohol &&
+                Object.values(basic_specializations.list.to_drink_alcohol)[0]
+                    ? Object.values(
+                          basic_specializations.list.to_drink_alcohol
+                      )[0]
+                    : (basic_abilities.race.to_drink_alcohol || '') +
+                      (basic_abilities.career_path.to_drink_alcohol || '')
             "
             disabled
         />
@@ -200,8 +234,11 @@
             type="text"
             name="gossip_imp"
             :value="
-                (basic_abilities.race.gossip || '') +
-                (basic_abilities.career_path.gossip || '')
+                basic_specializations.list.gossip &&
+                Object.values(basic_specializations.list.gossip)[0]
+                    ? Object.values(basic_specializations.list.gossip)[0]
+                    : (basic_abilities.race.gossip || '') +
+                      (basic_abilities.career_path.gossip || '')
             "
             disabled
         />
@@ -209,8 +246,11 @@
             type="text"
             name="entertain_imp"
             :value="
-                (basic_abilities.race.entertain || '') +
-                (basic_abilities.career_path.entertain || '')
+                basic_specializations.list.entertain &&
+                Object.values(basic_specializations.list.entertain)[0]
+                    ? Object.values(basic_specializations.list.entertain)[0]
+                    : (basic_abilities.race.entertain || '') +
+                      (basic_abilities.career_path.entertain || '')
             "
             disabled
         />
@@ -218,8 +258,11 @@
             type="text"
             name="climb_imp"
             :value="
-                (basic_abilities.race.climb || '') +
-                (basic_abilities.career_path.climb || '')
+                basic_specializations.list.climb &&
+                Object.values(basic_specializations.list.climb)[0]
+                    ? Object.values(basic_specializations.list.climb)[0]
+                    : (basic_abilities.race.climb || '') +
+                      (basic_abilities.career_path.climb || '')
             "
             disabled
         />
@@ -452,8 +495,11 @@
             type="text"
             name="dodge_imp"
             :value="
-                (basic_abilities.race.dodge || '') +
-                (basic_abilities.career_path.dodge || '')
+                basic_specializations.list.dodge &&
+                Object.values(basic_specializations.list.dodge)[0]
+                    ? Object.values(basic_specializations.list.dodge)[0]
+                    : (basic_abilities.race.dodge || '') +
+                      (basic_abilities.career_path.dodge || '')
             "
             disabled
         />
@@ -461,8 +507,11 @@
             type="text"
             name="intimidate_imp"
             :value="
-                (basic_abilities.race.intimidate || '') +
-                (basic_abilities.career_path.intimidate || '')
+                basic_specializations.list.intimidate &&
+                Object.values(basic_specializations.list.intimidate)[0]
+                    ? Object.values(basic_specializations.list.intimidate)[0]
+                    : (basic_abilities.race.intimidate || '') +
+                      (basic_abilities.career_path.intimidate || '')
             "
             disabled
         />
@@ -470,8 +519,11 @@
             type="text"
             name="intuition_imp"
             :value="
-                (basic_abilities.race.intuition || '') +
-                (basic_abilities.career_path.intuition || '')
+                basic_specializations.list.intuition &&
+                Object.values(basic_specializations.list.intuition)[0]
+                    ? Object.values(basic_specializations.list.intuition)[0]
+                    : (basic_abilities.race.intuition || '') +
+                      (basic_abilities.career_path.intuition || '')
             "
             disabled
         />
@@ -479,8 +531,11 @@
             type="text"
             name="play_imp"
             :value="
-                (basic_abilities.race.play || '') +
-                (basic_abilities.career_path.play || '')
+                basic_specializations.list.play &&
+                Object.values(basic_specializations.list.play)[0]
+                    ? Object.values(basic_specializations.list.play)[0]
+                    : (basic_abilities.race.play || '') +
+                      (basic_abilities.career_path.play || '')
             "
             disabled
         />
@@ -488,8 +543,11 @@
             type="text"
             name="leadership_imp"
             :value="
-                (basic_abilities.race.leadership || '') +
-                (basic_abilities.career_path.leadership || '')
+                basic_specializations.list.leadership &&
+                Object.values(basic_specializations.list.leadership)[0]
+                    ? Object.values(basic_specializations.list.leadership)[0]
+                    : (basic_abilities.race.leadership || '') +
+                      (basic_abilities.career_path.leadership || '')
             "
             disabled
         />
@@ -497,8 +555,11 @@
             type="text"
             name="mount_imp"
             :value="
-                (basic_abilities.race.mount || '') +
-                (basic_abilities.career_path.mount || '')
+                basic_specializations.list.mount &&
+                Object.values(basic_specializations.list.mount)[0]
+                    ? Object.values(basic_specializations.list.mount)[0]
+                    : (basic_abilities.race.mount || '') +
+                      (basic_abilities.career_path.mount || '')
             "
             disabled
         />
@@ -506,8 +567,11 @@
             type="text"
             name="orientation_imp"
             :value="
-                (basic_abilities.race.orientation || '') +
-                (basic_abilities.career_path.orientation || '')
+                basic_specializations.list.orientation &&
+                Object.values(basic_specializations.list.orientation)[0]
+                    ? Object.values(basic_specializations.list.orientation)[0]
+                    : (basic_abilities.race.orientation || '') +
+                      (basic_abilities.career_path.orientation || '')
             "
             disabled
         />
@@ -515,8 +579,11 @@
             type="text"
             name="perception_imp"
             :value="
-                (basic_abilities.race.perception || '') +
-                (basic_abilities.career_path.perception || '')
+                basic_specializations.list.perception &&
+                Object.values(basic_specializations.list.perception)[0]
+                    ? Object.values(basic_specializations.list.perception)[0]
+                    : (basic_abilities.race.perception || '') +
+                      (basic_abilities.career_path.perception || '')
             "
             disabled
         />
@@ -524,8 +591,11 @@
             type="text"
             name="bargain_imp"
             :value="
-                (basic_abilities.race.bargain || '') +
-                (basic_abilities.career_path.bargain || '')
+                basic_specializations.list.bargain &&
+                Object.values(basic_specializations.list.bargain)[0]
+                    ? Object.values(basic_specializations.list.bargain)[0]
+                    : (basic_abilities.race.bargain || '') +
+                      (basic_abilities.career_path.bargain || '')
             "
             disabled
         />
@@ -533,8 +603,11 @@
             type="text"
             name="row_imp"
             :value="
-                (basic_abilities.race.row || '') +
-                (basic_abilities.career_path.row || '')
+                basic_specializations.list.row &&
+                Object.values(basic_specializations.list.row)[0]
+                    ? Object.values(basic_specializations.list.row)[0]
+                    : (basic_abilities.race.row || '') +
+                      (basic_abilities.career_path.row || '')
             "
             disabled
         />
@@ -542,8 +615,11 @@
             type="text"
             name="stealth_imp"
             :value="
-                (basic_abilities.race.stealth || '') +
-                (basic_abilities.career_path.stealth || '')
+                basic_specializations.list.stealth &&
+                Object.values(basic_specializations.list.stealth)[0]
+                    ? Object.values(basic_specializations.list.stealth)[0]
+                    : (basic_abilities.race.stealth || '') +
+                      (basic_abilities.career_path.stealth || '')
             "
             disabled
         />
@@ -551,8 +627,11 @@
             type="text"
             name="bribe_imp"
             :value="
-                (basic_abilities.race.bribe || '') +
-                (basic_abilities.career_path.bribe || '')
+                basic_specializations.list.bribe &&
+                Object.values(basic_specializations.list.bribe)[0]
+                    ? Object.values(basic_specializations.list.bribe)[0]
+                    : (basic_abilities.race.bribe || '') +
+                      (basic_abilities.career_path.bribe || '')
             "
             disabled
         />
@@ -560,8 +639,11 @@
             type="text"
             name="survival_imp"
             :value="
-                (basic_abilities.race.survival || '') +
-                (basic_abilities.career_path.survival || '')
+                basic_specializations.list.survival &&
+                Object.values(basic_specializations.list.survival)[0]
+                    ? Object.values(basic_specializations.list.survival)[0]
+                    : (basic_abilities.race.survival || '') +
+                      (basic_abilities.career_path.survival || '')
             "
             disabled
         />

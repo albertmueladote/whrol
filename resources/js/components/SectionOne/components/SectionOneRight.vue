@@ -74,18 +74,29 @@ export default {
                 id_eye: event.target.value,
                 name: event.target.selectedOptions[0].text,
             });
+            this.modified("eyes");
         },
         onHairSelected(event) {
             this.updateHair({
                 id_hair: event.target.value,
                 name: event.target.selectedOptions[0].text,
             });
+            this.modified("hair");
         },
         onHeightSelected(event) {
             this.updateHeight(event.target.value);
+            this.modified("height");
         },
         onAgeSelected(event) {
             this.updateAge(event.target.value);
+            this.modified("age");
+        },
+        modified(name) {
+            var inputElements = $("input[name='" + name + "']");
+            inputElements.addClass("modified");
+            setTimeout(function () {
+                inputElements.removeClass("modified");
+            }, 2000);
         },
     },
     computed: {
@@ -131,7 +142,7 @@ export default {
             font-family: ancient;
             width: 90%;
             margin: 11px auto;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="faqs">
-        <div class="block-1">
+        <div class="block block-1">
             <h3>Talentos</h3>
             Los talentos son habilidades específicas para situaciones
             concretas.<br /><br />
@@ -8,7 +8,7 @@
             activarse y las veces que puede subirse de nivel.<br /><br />
             Cada raza y profesión tienen una serie de talentos.
         </div>
-        <div class="block-2">
+        <div class="block block-2">
             <h3>Ambiciones</h3>
             Hay dos tipos de ambiciones, las del grupo y las individuales.
             <hr />

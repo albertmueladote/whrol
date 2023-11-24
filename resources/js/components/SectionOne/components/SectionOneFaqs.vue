@@ -1,6 +1,6 @@
 <template>
     <div class="faqs">
-        <div class="block-1">
+        <div class="block block-1">
             <h3>Rasgos físicos y profesión</h3>
             En esta sección seleccionamos los rasgos físicos de nuestro
             personaje.<br />
