@@ -9,7 +9,7 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void
-    {
+    { /*
         Schema::create('talent_basic_ability_check', function (Blueprint $table) {
             $table->increments('id_talent_basic_ability_check');
             $table->unsignedInteger('id_talent');
@@ -147,7 +147,7 @@ return new class extends Migration {
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]
-        ]);
+        ]);*/
     }
 
     /**
