@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('basic_ability', function (Blueprint $table) {
             $table->increments('id_basic_ability');
             $table->string('name', 100);
+            $table->string('label', 100);
             $table->unsignedInteger('id_characteristic');
             $table->text('description');
             $table->timestamps();
