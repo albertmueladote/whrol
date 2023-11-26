@@ -1,5 +1,6 @@
 <template>
     <settings></settings>
+    <background></background>
     <page-one></page-one>
     <page-two></page-two>
 </template>

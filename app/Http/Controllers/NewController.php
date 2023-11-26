@@ -361,4 +361,27 @@ class NewController extends Controller
 
         return $result;
     }
+
+    public function background_image_upload(request $request)
+    {
+        $images = Gallery::all()->toArray();
+        foreach ($images as $image) {
+            $tableImages[] = $image['filename'];
+        }
+        $storeFolder = public_path('uploads/gallery');
+        $file_path = public_path('uploads/gallery/');
+        $files = scandir($storeFolder);
+        foreach ($files as $file) {
+            if ($file != '.' && $file != '..' && in_array($file, $tableImages)) {
+                $obj['name'] = $file;
+                $file_path = public_path('uploads/gallery/') . $file;
+                $obj['size'] = filesize($file_path);
+                $obj['path'] = url('public/uploads/gallery/' . $file);
+                $data[] = $obj;
+            }
+
+        }
+        //dd($data);
+        return response()->json($data);
+    }
 }
