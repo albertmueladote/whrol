@@ -29,4 +29,9 @@ class AdvancedAbility extends Model
     {
         return $this->belongsTo(Characteristic::class, 'id_characteristic');
     }
+
+    public function talents()
+    {
+        return $this->belongsToMany(Talent::class, 'talent_advanced_ability_check', 'id_advanced_ability', 'id_talent');
+    }
 }

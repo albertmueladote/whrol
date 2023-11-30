@@ -15,6 +15,7 @@ use App\Models\BasicAbility;
 use App\Models\AdvancedAbility;
 use App\Models\BasicSpecialization;
 use App\Models\AdvancedSpecialization;
+use App\Models\Talent;
 
 class TestController extends Controller
 {
@@ -34,14 +35,32 @@ class TestController extends Controller
 
     public function Create()
     {
-        //Relacionar career_path y advanced_ability
-        //$career_path = CareerPath::all();
-        //$advanced_abilities = AdvancedAbility::all();
-        //return view('create')->with('career_path', $career_path)->with('advanced_abilities', $advanced_abilities);
+        $talents = Talent::all();
+        $characteristics = Characteristic::all();
+        $basicAbilities = BasicAbility::all();
+        $advancedAbilities = AdvancedAbility::all();
 
-        $careerPaths = CareerPath::with('advancedAbilities')->get();
-        $advancedSpecializations = AdvancedSpecialization::all();
+        $select_ch = '<select class="char"><option value="0">Selecciona característica</option>';
+        foreach ($characteristics as $ch) {
+            $select_ch .= '<option value=' . $ch->id_characteristic . '>' . $ch->name . '</option>';
+        }
+        $select_ch .= '</select>';
+        $select_ch = html_entity_decode($select_ch);
 
-        return view('create')->with('careerPathAdvancedAbilities', $careerPaths)->with('advancedSpecializations', $advancedSpecializations);
+        $select_ba = '<select class="char"><option value="0">Selecciona habilidad básica</option>';
+        foreach ($basicAbilities as $ba) {
+            $select_ba .= '<option value=' . $ba->id_basic_ability . '>' . $ba->label . '</option>';
+        }
+        $select_ba .= '</select>';
+        $select_ba = html_entity_decode($select_ba);
+
+        $select_aa = '<select class="char"><option value="0">Selecciona habilidad avanzada</option>';
+        foreach ($advancedAbilities as $aa) {
+            $select_aa .= '<option value=' . $aa->id_advanced_ability . '>' . $aa->name . '</option>';
+        }
+        $select_aa .= '</select>';
+        $select_aa = html_entity_decode($select_aa);
+
+        return view('create')->with('talents', $talents)->with('select_ch', $select_ch)->with('select_ba', $select_ba)->with('select_aa', $select_aa);
     }
 }

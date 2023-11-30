@@ -14,6 +14,7 @@ use App\Models\BasicAbility;
 use App\Models\AdvancedAbility;
 use App\Models\BasicSpecialization;
 use App\Models\AdvancedSpecialization;
+use App\Models\Talent;
 
 class NewController extends Controller
 {
@@ -362,9 +363,28 @@ class NewController extends Controller
         return $result;
     }
 
+    public function race_talents(request $request)
+    {
+        $result = array();
+        $id_race = $request->input('id_race');
+
+        $race_talents = Talent::whereHas('races', function ($query) use ($id_race) {
+            $query->where('race_talent.id_race', $id_race);
+        })->get();
+
+        $result['random'] = Race::find($id_race)->randomTalent;
+        if (!is_null($result['random'])) {
+            $result['random'] = $result['random']['random_talents'];
+        }
+        foreach ($race_talents as $rt) {
+            $result['talents'][$rt->name] = $rt;
+        }
+        return $result;
+    }
+
     public function background_image_upload(request $request)
     {
-        $images = Gallery::all()->toArray();
+        /*$images = Gallery::all()->toArray();
         foreach ($images as $image) {
             $tableImages[] = $image['filename'];
         }
@@ -382,6 +402,6 @@ class NewController extends Controller
 
         }
         //dd($data);
-        return response()->json($data);
+        return response()->json($data);*/
     }
 }

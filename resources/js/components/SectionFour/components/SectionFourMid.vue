@@ -2,11 +2,40 @@
     <div class="sheet sheet-4">
         <section-four-faqs></section-four-faqs>
         <div class="talents_list">
-            <div class="talent">
+            <div
+                class="talent"
+                v-for="(talent, index) in talents.list"
+                :key="index"
+            >
                 <input
                     type="text"
                     class="talent_name"
                     name="talent_name_1"
+                    :value="talent.name"
+                    disabled
+                />
+                <input
+                    type="text"
+                    class="talent_level"
+                    data-value="0"
+                    name="talent_level_1"
+                    :value="talent.level"
+                    disabled
+                />
+                <input
+                    type="text"
+                    class="talent_description"
+                    name="talent_description_1"
+                    :value="talent.description"
+                    disabled
+                />
+            </div>
+            <div class="talent" v-for="index in talents.random" :key="index">
+                <input
+                    type="text"
+                    class="talent_name"
+                    name="talent_name_1"
+                    value="Talento aleatorio"
                     disabled
                 />
                 <input
@@ -34,7 +63,15 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapMutations } from "vuex";
+export default {
+    computed: {
+        ...mapState("Character", ["talents"]),
+    },
+    mounted() {
+        console.log("Random Number:" + this.talents.random);
+    },
+};
 </script>
 
 <style lang="scss">

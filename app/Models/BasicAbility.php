@@ -24,4 +24,9 @@ class BasicAbility extends Model
     {
         return $this->belongsTo(BasicSpecialization::class, 'id_basic_specialization');
     }
+
+    public function talents()
+    {
+        return $this->belongsToMany(Talent::class, 'talent_basic_ability_check', 'id_basic_ability', 'id_talent');
+    }
 }

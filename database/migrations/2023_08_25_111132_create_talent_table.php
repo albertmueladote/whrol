@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('talent', function (Blueprint $table) {
             $table->increments('id_talent');
-            $table->unsignedInteger('name');
+            $table->text('name');
             $table->text('description');
             $table->timestamps();
         });
@@ -478,279 +478,286 @@ return new class extends Migration {
             ],
             [
                 'id_talent' => 66,
+                'name' => 'Fornido',
+                'description' => 'Tienes un físico musculoso o estás muy acostumbrado a llevar pesos. Aumenta el número de puntos de Impedimenta que puedes llevar en una cantidad igual a tu nivel de Fornido x2.',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'id_talent' => 67,
                 'name' => 'Francotirador',
                 'description' => 'La distancia no importa para tu puntería, y puedes acertar tanto a objetivos lejanos como a cercanos. No sufres penalizador alguno por disparar a alcance Largo, y sólo la mitad de los penalizadores por alcance Extremo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 67,
+                'id_talent' => 68,
                 'name' => 'Frenesí',
                 'description' => 'Eres más capaz de controlar tu Furia en combate. Puedes acabar tu Furia mediante un Chequeo con éxito de Frialdad al final del asalto.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 68,
+                'id_talent' => 69,
                 'name' => 'Fullero',
                 'description' => 'Estás acostumbrado a jugar y a ganar a las cartas, aunque tus métodos pueden implicar alguna que otra trampa. Cuando utilizas con éxito Jugar o Prestidigitación al jugar a cartas, puedes elegir o bien utilizar el NE obtenido, o el número que ha salido en el dado de las unidades. Así, una tirada con éxito de 28 se podría utilizar para +8 NE. Si juegas una partida real de cartas para representar lo que está sucediendo en la partida, puedes obtener un número de cartas adicionales por mano igual a tu nivel de Fullero, y luego descartar las que te sobren hasta tener una mano de la cantidad apropiada antes de cada ronda de juego.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 69,
+                'id_talent' => 70,
                 'name' => 'Furia',
                 'description' => 'Puedes entrar en Furia.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 70,
+                'id_talent' => 71,
                 'name' => 'Gato callejero',
                 'description' => 'Te sientes como en casa en los callejones sombríos. Al utilizar Movimiento silencioso (urbano), puedes invertir los dados de  cualquier Chequeo fallido si eso te representa un éxito.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 71,
+                'id_talent' => 72,
                 'name' => 'Genio aritmético',
                 'description' => 'Tienes un don para el cálculo y puedes encontrar con facilidad la solución a muchos problemas matemáticos. Puedes utilizar una simple calculadora para representar de lo que es capaz tu PJ a la hora de calcular mentalmente',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 72,
+                'id_talent' => 73,
                 'name' => 'Giro',
                 'description' => 'Chequeos: Cuerpo a cuerpo cuando te defiendes Estás acostumbrado a los combates desesperados, y eres capaz de convertir en Ventaja incluso la más terrible de las circunstancias. Si ganas un Chequeo Enfrentado de Cuerpo a cuerpo, en lugar de obtener +1 Ventaja, puedes llevarte toda la Ventaja actual de tu oponente. Si lo haces, no causas Daño alguno, incluso si es tu Turno en ese Asalto.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 73,
+                'id_talent' => 74,
                 'name' => 'Golpe conmocionador',
                 'description' => 'Sabes dónde pegar a un oponente para tumbarlo rápido. Ignoras el penalizador de ‘Golpe apuntado’ para atacar la Ubicación de impacto Cabeza utilizando un arma cuerpo a cuerpo con la Cualidad Contundente. Además, para ti todas las armas improvisadas cuentan como si tuvieran la Cualidad Contundente.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 74,
+                'id_talent' => 75,
                 'name' => 'Golpe cuidadoso',
                 'description' => 'Tienes habilidad en golpear a tu enemigo exactamente donde quieres, ya sea a distancia o en cuerpo a cuerpo. Puedes modificar el resultado de tu Ubicación de impacto en ± 10 por cada vez que tienes este talento. Así que, si tuvieras este Talento dos veces e impactaras en la Ubicación de impacto 34 (brazo derecho), podrías modificar hacia abajo hasta 14 (brazo izquierdo) o hacia arriba hasta 54 (cuerpo).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 75,
+                'id_talent' => 76,
                 'name' => 'Golpe de reacción',
                 'description' => 'Tus reacciones rápidas te han permitido abatir a muchos oponentes antes de que hayan conseguido siquiera blandir sus armas. Cuando alguien Carga contra ti, puedes intentar de inmediato un Chequeo Desafiante (+0) de Iniciativa para obtener un Ataque gratuito inmediato fuera de la secuencia normal del turno. Este ataque se resolverá con cualquier arma que empuñes en tu mano principal. Podrás llevar a cabo tantos Golpes de reacción en un Asalto como niveles tengas en este Talento, pero sólo podrás atacar una vez a cada individuo que cargue contra ti.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 76,
+                'id_talent' => 77,
                 'name' => 'Golpe letal',
                 'description' => 'Eres un experto en golpear las áreas más vulnerables de tus enemigos. Infliges tu nivel de Golpe letal en forma de Heridas adicionales cuando causas una Herida Crítica.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 77,
+                'id_talent' => 78,
                 'name' => 'Golpe poderoso',
                 'description' => '¡Sabes cómo pegar duro! Aplicas tu nivel de Golpe poderoso en forma de Daño adicional con las armas cuerpo a cuerpo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 78,
+                'id_talent' => 79,
                 'name' => 'Golpear el filo',
                 'description' => 'Te han entrenado para propinar golpes controlados al arma de tu oponente, creando una abertura para un ataque, o simplemente evitando un ataque inminente. Como acción, puedes elegir Golpear el filo antes de tirar los dados. Haz un Chequeo de Cuerpo a cuerpo; si tienes éxito, tu oponente se anota -1 Ventaja y un -1 adicional por cada NE que consigues. Este Chequeo no es Enfrentado. Este talento no tiene utilidad si tu oponente no va armado o si su Tamaño es mayor que el tuyo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 79,
+                'id_talent' => 80,
                 'name' => 'Gregario',
                 'description' => 'Te gusta hablar con otra gente y parece que a ellos les gusta hablar contigo. Puedes invertir cualquier Chequeo fallido de cotilleo si esto permite que el Chequeo tenga éxito.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 80,
+                'id_talent' => 81,
                 'name' => 'Guerrero nato',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica de Habilidad de arma inicial (no cuenta como Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 81,
+                'id_talent' => 82,
                 'name' => 'Guía fluvial',
                 'description' => 'Conoces todos los trucos de navegar por ríos peligrosos. No necesitas hacer un Chequeo para atravesar tramos peligrosos de un río a menos que la Dificultad para hacerlo sea -10 o inferior; tienes éxito de forma automática en todos los Chequeos más fáciles que eso. Además, si dispones de la Habilidad Sabiduría académica (local) apropiada, nunca necesitas hacer Chequeos para navegar por aguas peligrosas; se supone que dominas la ruta por completo',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 82,
+                'id_talent' => 83,
                 'name' => 'Hechicero de guerra',
                 'description' => 'Estás entrenado para lanzar magia en el fragor del combate. En tu turno, puedes lanzar un hechizo con un Número de Lanzamiento de 5 o menos de forma gratuita sin utilizar tu Acción. Sin embargo, si lo haces, no puedes lanzar otro hechizo ese turno.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 83,
+                'id_talent' => 84,
                 'name' => 'Identidad secreta',
                 'description' => 'Mantienes una identidad secreta que te permite parecer más rico (o quizás más pobre) de lo que realmente eres. Con permiso del DJ, elige cualquier Carrera. Mientras vayas adecuadamente vestido, podrás utilizar el Estatus social de la Carrera elegida de la que te disfraces como si fuera tuyo a efectos de modificar los Chequeos de Empatía, pudiendo incluso ignorar el Talento Delincuente. Sin embargo, mantener dicha identidad requiere Chequeos de Animar (actuar) cuando te encuentras con quienes son capaces de reconocer tu falsedad. Puedes crear una nueva Identidad secreta por cada nivel que tienes en este Talento',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 84,
+                'id_talent' => 85,
                 'name' => 'Imitador',
                 'description' => 'Tienes buen oído para los acentos y los dialectos, y los puedes reproducir de forma precisa. Puedes reproducir cualquier acento con el que has estado en contacto por lo menos un día mediante un Chequeo de Iniciativa; este Chequeo se puede intentar una vez al día. Una vez lo consigues, siempre puedes limitar el acento y los lugareños creen que eres uno de ellos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 85,
+                'id_talent' => 86,
                 'name' => 'Imperturbable',
                 'description' => 'Eres un veterano curtido, que ha sobrevivido a más de una ráfaga de disparos procedentes de armas de Pólvora negra. Tan sólo necesitas llevar a cabo un Chequeo de Frialdad para resistirte al estado de Quebrantado si resultas herido con éxito por un arma de Pólvora negra, no si simplemente te disparan con ella.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 86,
+                'id_talent' => 87,
                 'name' => 'Implacable',
                 'description' => 'Cuesta bastante acabar contigo. Puedes ignorar las Heridas perdidas debido a un Estado de Sangrando. Cada nivel en este Talento te permite ignorar las Heridas perdidas debido a un Estado de Sangrando adicional.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 87,
+                'id_talent' => 88,
                 'name' => 'Incansable',
                 'description' => 'Cuando has fijado tu mente en un objetivo, no hay nada que nadie pueda hacer para impedirte llegar al mismo. Si usas Ventaja al Destrabarte, puedes guardar un número de Ventajas igual a tu nivel de Incansable. Además, puedes utilizar Ventaja para Destrabarte, incluso si tu Ventaja es menor que la de los oponentes.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 88,
+                'id_talent' => 89,
                 'name' => 'Inspirador',
                 'description' => 'Tus palabras de aliento y tus súplicas pueden cambiar el curso de una batalla. Consulta la tabla siguiente para ver a cuánta gente puedes ahora influenciar con tu Habilidad de Mando en tiempo de guerra.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 89,
+                'id_talent' => 90,
                 'name' => 'Intelectual',
                 'description' => 'Te sientes tan en casa en una biblioteca como un marino en el mar o un granjero en sus tierras. Al Investigar, puedes invertir los dados de cualquier Chequeo fallido si esto te reporta un éxito.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 90,
+                'id_talent' => 91,
                 'name' => 'Intrépido (enemigo)',
                 'description' => 'Eres, o bien lo suficientemente valiente o lo suficientemente insensato como para que el miedo a ciertos enemigos se haya convertido en un recuerdo lejano. Mediante un único Chequeo Normal (+20%) de Frialdad, puedes ignorar cualquier efecto de Intimidar, Miedo o Terror por parte del enemigo especificado cuando te encuentras con él. Los enemigos típicos incluyen hombres bestia, pieles verdes, forajidos, vampiros, vigilantes y brujas.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 91,
+                'id_talent' => 92,
                 'name' => 'Intrigante',
                 'description' => 'Eres un maestro de la política y ves conspiraciones en cada esquina. Una vez por sesión de juego, puedes formular una pregunta al DJ relativa a una situación política o a una red enmarañada de conexiones sociales; éste llevará a cabo en secreto un Chequeo de Inteligencia y te proporcionará algunas observaciones sobre la situación basadas en tu NE',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 92,
+                'id_talent' => 93,
                 'name' => 'Invocar (Saber divino)',
                 'description' => 'Has sido bendecido por uno de los dioses y puedes potenciar uno de los Milagros de tu Culto. Además, puedes comprar milagros adicionales al coste de 100 PX por milagro que conoces actualmente. Así, si ya conoces 3 milagros, el siguiente te cuesta 300 PX. En circunstancias normales no podrías aprender más que un Talento de Invocar (Saber divino). Además, no puedes aprender los Talentos Magia menor ni Magia arcana cuando tienes el Talento Invocar. Puedes borrar de tu memoria este Talento por 100 PX, pero si lo haces perderás todos los demás, y por si fuera poco te ganarás la extrema desaprobación de tu dios, los efectos de lo cual serán determinados por tu DJ.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 93,
+                'id_talent' => 94,
                 'name' => 'Jinete experto',
                 'description' => 'Te encuentras a gusto en la silla de montar incluso en las circunstancias más difíciles, y sabes cómo sacar el máximo partido de tu montura durante un conflicto. Suponiendo que tienes la Habilidad de Montar, puedes ordenar a tu montura que lleve a cabo una Acción, no tan sólo un Movimiento, sin necesidad de un Chequeo de Montar.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 94,
+                'id_talent' => 95,
                 'name' => 'Juerguista',
                 'description' => 'Eres un bebedor experto y sabes cómo ir de fiesta a lo grande. Puedes invertir los dados de cualquier Chequeo fallido de Consumir alcohol si esto te lo convierte en un Éxito.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 95,
+                'id_talent' => 96,
                 'name' => 'Lector rápido',
                 'description' => 'Lees libros a un ritmo voraz. Puedes invertir un Chequeo de Investigar fallido si esto te concede un éxito. Si la velocidad a la que lees es importante durante el combate, un Chequeo con éxito de Leer y escribir te permite leer y entender por completo tantas páginas por Asalto como tu NE más tu nivel de Lector rápido (mínimo 1, incluso si fallas el Chequeo).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 96,
+                'id_talent' => 97,
                 'name' => 'Leer labios',
                 'description' => 'Puedes saber lo que la gente dice tan sólo mirándole a los labios; no necesitas oír lo que están diciendo. Si tienes una línea visual ininterrumpida hasta la parte inferior del rostro de quien habla, puedes intentar un Chequeo de Percepción para entender lo que está diciendo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 97,
+                'id_talent' => 98,
                 'name' => 'Leer y escribir',
                 'description' => 'Eres uno de los raros individuos del Viejo Mundo que sabe leer y escribir. Se supone que eres capaz de leer y escribir (si existe forma escrita) todos los idiomas que puedes hablar.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 98,
+                'id_talent' => 99,
                 'name' => 'Levantarse de un salto',
                 'description' => 'Es difícil mantenerte en el suelo. Puedes llevar a cabo un Chequeo Desafiante (+0) de Atletismo para ponerte en pie de inmediato cada vez que pasas al Estado Tumbado. Este Chequeo de Atletismo a menudo se modifica por la Fuerza que hay tras el golpe que te derriba: por cada +10 puntos de Fuerza en los que el golpe supera tu Resistencia, sufres un penalizador -10 al Chequeo de Atletismo, y viceversa.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 99,
+                'id_talent' => 100,
                 'name' => 'Líder de guerra',
                 'description' => 'Tu severa mirada y tus inspiradoras palabras motivan a tus soldados para luchar hasta el final. Todos los subordinados capaces de verte pueden sumar tu nivel en Líder de guerra a tu NE en un Chequeo de Voluntad por Asalto. Este bonificador no se apila.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 100,
+                'id_talent' => 101,
                 'name' => 'Lingüística',
                 'description' => 'Tienes una afinidad natural por los idiomas. Tras una exposición de un mes a cualquier idioma, cuentas la Habilidad de Hablar idioma asociada como una Habilidad básica si llevas a cabo un Chequeo con éxito de Inteligencia (que se puede intentar una vez al mes). Nota: la Lingüística sólo funciona con idiomas utilizados para comunicarse frecuentemente con los demás, por lo que no funciona con Hablar idioma (magia).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 101,
+                'id_talent' => 102,
                 'name' => 'Lobo de mar',
                 'description' => 'Eres un marinero experto, y estás muy habituado a la vida del mar. Puedes ignorar todos los modificadores negativos a los Chequeos en el mar derivados del mal tiempo, del movimiento del navío y de cosas similares. Además, y a efectos de la tripulación mínima de un navío en alta mar, cuentas como dos marineros.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 102,
+                'id_talent' => 103,
                 'name' => 'Maestro del combate',
                 'description' => 'Tus años acumulados de experiencia de combate te permiten mantener a raya a combatientes menores. Por cada nivel en este Talento, cuentas como una persona más a efectos de determinar si un bando tiene superioridad numérica sobre el otro. Este Talento sólo entra en juego cuando te ves superado en número.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 103,
+                'id_talent' => 104,
                 'name' => 'Magia arcana (Saber)',
                 'description' => 'Puedes, o bien estudiar uno de los ocho Saberes arcanos de la Magia (Bestias, Cielos, Fuego, Luz, Metal, Muerte, Sombra y Vida) o practicar un Saber menos conocido como Adivinación o Nigromancia. Ahora puedes memorizar hechizos de tu Saber elegido al siguiente coste en PX. Por lo tanto, si tu Bonificador por Inteligencia es 4, el primer hechizo y los siguientes 4 te costarán 100 PX, los segundos 4 te costarán 200 PX, etc. En circunstancias normales, no puedes aprender más de un talento de Magia arcana (Saber). Además, cuando tienes el Talento Magia arcana, no puedes aprender los Talentos Bendecir ni Invocar. Puedes borrar de la memoria este Talento por 100 PX, pero si lo haces perderás de inmediato todos tus hechizos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 104,
+                'id_talent' => 105,
                 'name' => 'Magia del Caos (Saber)',
                 'description' => 'Por accidente o por diseño has perdido una parte de tu alma a manos de uno de los Dioses Oscuros, y ahora puedes practicar la sucia magia del Caos. Tu pernicioso patrón te concede acceso de inmediato a un solo hechizo del Saber elegido (los más comunes son los Saberes de Nurgle, Slaanesh o Tzeentch) y te anotas 1 punto de Corrupción cuando el hechizo (que nunca olvidarás) se infiltra en tu mente. Cada vez que adquieres este Talento, que siempre cuesta 100 PX por vez en lugar del coste normal, aprendes un nuevo hechizo de tu Saber elegido y te anotas 1 punto de Corrupción. En circunstancias normales, sólo puedes conocer uno de los Saberes de la Magia del Caos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 105,
+                'id_talent' => 106,
                 'name' => 'Magia menor',
                 'description' => 'Tienes en ti la chispa necesaria para hacer magia, y has dominado las
                 técnicas capaces de controlarla a un nivel básico. Cuando adquieres este Talento, manifiestas (y memorizas de forma permanente) tantos hechizos como tu Bonificador por Voluntad. Puedes aprender hechizos adicionales de Magia menor al siguiente coste en PX. Así, si tu Bonificador por Voluntad es 3 y conocías 3 hechizos menores, el primer hechizo aprendido te costará 50 PX, los tres siguientes te costarán 100 PX cada uno, y así sucesivamente.',
@@ -758,427 +765,427 @@ return new class extends Migration {
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 106,
+                'id_talent' => 107,
                 'name' => 'Manitas',
                 'description' => 'Sabes de todo un poco, y eres capaz de reparar casi cualquier cosa. Cuentas todas las Habilidades de Oficio no mágicas como básicas cuando reparas objetos rotos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 107,
+                'id_talent' => 108,
                 'name' => 'Mano dura',
                 'description' => 'Sabes cómo sacar el máximo partido de tus animales. Cuando un animal que controlas huye o corre, obtienes un +1 al Movimiento si estás utilizando un látigo',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 108,
+                'id_talent' => 109,
                 'name' => 'Manos rápidas',
                 'description' => 'Puedes mover las manos con sorprendente destreza. Los presentes no tienen derecho a Chequeos de Percepción pasivos para darse cuenta de tu uso de la Habilidad Prestidigitación, y en su lugar tan sólo pueden enfrentarse a tus Chequeos de Prestidigitación si sospechan de forma activa y están vigilando tus movimientos. Además, todo intento de utilizar Cuerpo a cuerpo (pelea) para simplemente tocar a un oponente te da un bonificador +10 x tu nivel en Manos rápidas.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 109,
+                'id_talent' => 110,
                 'name' => 'Matador',
                 'description' => 'Al determinar el Daño utiliza el Bonificador por Resistencia de tu oponente como tu Bonificador por Fuerza si es superior; determina siempre esto antes de que cualquier otra regla modifique tu Fuerza o tu Bonificador por fuerza. Además, si tu objetivo es más grande que tú y consigues un Crítico, multiplica todo el Daño cuerpo a cuerpo que causas por el número de pasos mayor que es tu objetivo (así, 2 pasos = x2, 3 pasos = x3, y así sucesivamente); esta multiplicación se calcula una vez se han aplicado todos los modificadores.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 110,
+                'id_talent' => 111,
                 'name' => 'Memoria visual',
                 'description' => 'Una técnica de memorización que introdujo inicialmente el Culto de Verena, según parece a partir de prácticas de los elfos que enseñaban los Maestros del saber de Hoeth, la Memoria visual permite recordar perfectamente una secuencia de hechos almacenándola en una espira imaginaria. Puedes recordar una secuencia tan larga como tu Inteligencia sin tener siquiera que hacer un Chequeo. Por cada 10 objetos más que intentas memorizar, debes llevar a cabo un Chequeo de Inteligencia cada vez más difícil para recordar correctamente la lista, empezando por Muy Fácil (+60) para +10, Fácil (+40) para +20, Normal (+20) para +30 y así sucesivamente. Más allá de su utilidad obvia para los Chequeos de Jugar, donde disponer de este Talento añadirá un bonificador de entre +20 y +60 dependiendo de lo útil que sea recordar secuencias para el juego de que se trate, el DJ podrá aplicar modificadores a otros Chequeos según vea apropiado. Cada vez que adquieres este Talento, puedes recordar una secuencia adicional sin tener que olvidar otra almacenada previamente.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 111,
+                'id_talent' => 112,
                 'name' => 'Muy fuerte',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica de Fuerza inicial (esto no cuenta contra tus Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 112,
+                'id_talent' => 113,
                 'name' => 'Muy resistente',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica de Resistencia inicial (esto no cuenta contra tus Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 113,
+                'id_talent' => 114,
                 'name' => 'Negociador',
                 'description' => 'Eres un hábil hombre de negocios, que sabe cerrar un trato. Utilizando la habilidad de Regatear reduces o incrementas el precio de los productos en un 10% adicional.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 114,
+                'id_talent' => 115,
                 'name' => 'Numismático',
                 'description' => 'Estás bien versado en las diferentes monedas del Viejo Mundo, y se te da bien determinar su valor. Puedes juzgar el verdadero valor de una moneda sólo por experiencia, sin siquiera necesitar un Chequeo. Además, puedes identificar monedas falsificadas con un Chequeo Sencillo de Tasar; nunca se ve enfrentado al NE del falsificador.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 115,
+                'id_talent' => 116,
                 'name' => 'Obra maestra',
                 'description' => 'Eres un maestro indiscutible en tu campo, capaz de crear obras de tan increíble complejidad que los demás sólo pueden relajarse y maravillarse de tu genio. Cada vez que adquieres este Talento puedes crear una obra de arte única y extraordinaria con una de tus Habilidades de Arte u Oficio. Esta obra no tiene parangón en su campo, una pieza única que siempre impresionará y que concede bonificadores a determinar por el DJ, lo más normal es que sea a los Chequeos de Empatía por parte de quienes han sido testigos de tu asombrosa labor. Vender la pieza te reportará por lo menos diez veces su valor normal, y a veces mucho más que eso.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 116,
+                'id_talent' => 117,
                 'name' => 'Odio sagrado',
                 'description' => 'De tus plegarias gotea el odio que sientes hacia tus blasfemos enemigos. Infliges +1 Daño con tus Milagros por cada nivel que tienes en este Talento.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 117,
+                'id_talent' => 118,
                 'name' => 'Odio visceral (grupo)',
                 'description' => 'Te consume el odio contra algo del Viejo Mundo, tal y como se describe en la pág. 190. Cada vez que adquieres este Talento desarrollas un nuevo odio hacia un nuevo grupo. Ejemplos de lo que podrías elegir incluyen: hombres bestia, pieles verdes, monstruos, forajidos, sigmaritas, muertos vivientes o brujos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 118,
+                'id_talent' => 119,
                 'name' => 'Olfato para los problemas',
                 'description' => 'Estás acostumbrado a meterte en problemas y, preferiblemente, a salir de ellos. Puedes intentar un Chequeo de Intuición para divisar a quienes buscan causar problemas o hacerte daño, incluso si normalmente no se te permitiría (debido a Talentos o a un Hechizo, por ejemplo). Este Chequeo será normalmente Enfrentado si los otros están escondidos, y es posible que el DJ prefiera llevarlo a cabo él mismo en secreto para que no sepas el resultado si fallas. Si algún alborotador al que divisas inicia combate, puedes ignorar cualquier Estado de Sorprendido que inflige de forma normal.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 119,
+                'id_talent' => 120,
                 'name' => 'Orador',
                 'description' => 'Eres un orador experimentado y sabes cómo influenciar a grandes grupos de personas. Consulta la siguiente tabla para ver a cuánta gente puedes influenciar ahora con tu Habilidad de Carisma, como Orador.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 120,
+                'id_talent' => 121,
                 'name' => 'Orador experto',
                 'description' => 'Como Ranald, el dios bromista, mezclas verdades y mentiras como si no hubiera diferencia. Cuando utilizas el Carisma para mentir, quienes escuchan no tienen derecho a oponerse a tu Carisma con su Intuición para detectar si hay algo sospechoso en lo que dices.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 121,
+                'id_talent' => 122,
                 'name' => 'Orador maestro',
                 'description' => 'Eres hábil en inflamar a las multitudes. Obtienes un bonificador al NE igual a tus niveles de Orador maestro a cualquier Chequeo de Carisma cuando hablas en público ante una multitud.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 122,
+                'id_talent' => 123,
                 'name' => 'Orientarse',
                 'description' => 'Tienes una afinidad instintiva para conocer la dirección. Sabes automáticamente en qué dirección está el norte con tan sólo mirar a las estrellas, a los árboles o a cualesquiera otros signos familiares.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 123,
+                'id_talent' => 124,
                 'name' => 'Parloteo',
                 'description' => 'Denominado ‘abrir la boca y dejar que las tripas gruñan’ en Nordland o simplemente ‘decir tonterías’ en Ostland, el Parloteo implica hablar de forma rápida e incesante, o hablar de forma voluble y prolongada sobre temas intrascendentes o directamente inanes, y se utiliza para confundir y aturullar verbalmente a un objetivo. Utilizas tu Habilidad de Carisma para Parlotear. Intenta un Chequeo Enfrentado Carisma/Inteligencia. Un éxito hace que tu oponente sufta 1 Estado de Aturdido. Además, por cada nivel que tengas en Parloteo, tu oponente sufrirá otro Estado de Aturdido. Los objetivos Aturdidos por Parloteo no pueden hacer otra cosa que quedársete mirando embobados mientras intentan seguir o entender lo que dices. Una vez se acaba el último estado de Aturdido, el objetivo consigue finalmente meter baza y puede que esté algo irritado contigo, al fin y al cabo llevas bastante rato diciendo tonterías o hablando de nada en concreto. Si dejas de hablar, tu oponente pierde de inmediato todos los Estados de Aturdido originados por tu Parloteo. En general, sólo puedes intentar el Parloteo una vez por escena, o quizá más tiempo si lo permite el DJ, puesto que el objetivo se habitúa rápidamente a tus payasadas.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 124,
+                'id_talent' => 125,
                 'name' => 'Pedigüeño',
                 'description' => 'Eres un mendigo experto, capaz de hacer que incluso el individuo más insensible contribuya a tu causa. Puedes llevar a cabo un Chequeo de Carisma cada media hora cuando mendigas, no cada hora.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 125,
+                'id_talent' => 126,
                 'name' => 'Pelea callejera',
                 'description' => 'Te han enseñado todos los trucos sucios del combate sin armas. Puedes causar +1 Daño adicional por cada nivel en Pelea callejera con cualquier impacto en Cuerpo a cuerpo (pelea). Utilizar este Talento se considera hacer trampas en cualquier combate formal.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 126,
+                'id_talent' => 127,
                 'name' => 'Pequeño',
                 'description' => 'Eres mucho más bajito que la mayoría de gente del Viejo Mundo. Las reglas completas de los diferentes',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 127,
+                'id_talent' => 128,
                 'name' => 'Percepción de combate',
                 'description' => 'Estás acostumbrado a escrutar el campo de batalla a fin de tomar decisiones rápidas, de acuerdo con las cambiantes corrientes de la guerra. Puedes llevar a cabo un Chequeo Desafiante (+0) de Percepción para ignorar la Sorpresa, modificado por las circunstancias de la forma habitual.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 128,
+                'id_talent' => 129,
                 'name' => 'Pescador',
                 'description' => 'Eres un pescador muy capaz y conoces las mejores formas de obtener capturas. Suponiendo que haya una masa de agua lo suficientemente grande cerca, se supone que eres automáticamente capaz de pescar lo suficiente como para alimentarte a ti mismo y a tantos otros como tu nivel en Pescador, si cada día pasas por lo menos 1 hora dedicado a esta actividad. Puedes conseguir más pescado utilizando las reglas normales de forrajeo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 129,
+                'id_talent' => 130,
                 'name' => 'Piernas recias',
                 'description' => 'Tienes unas piernas fuertes, capaces de permitirte cubrir una buena distancia cuando saltas. Suma tu nivel de Piernas recias a tu NE en cualquier Chequeo de Atletismo que implica Saltar.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 130,
+                'id_talent' => 131,
                 'name' => 'Pies ligeros',
                 'description' => 'Obtienes +1 a tu Atributo de Movimiento.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 131,
+                'id_talent' => 132,
                 'name' => 'Piloto',
                 'description' => 'Eres hábil en conducir navíos a través de aguas peligrosas. Si fallas en un Chequeo para recorrer aguas peligrosas, puedes invertir el resultado si ello resulta en un éxito; sin embargo, si lo haces no puedes anotarte más de +1 NE puesto que te das cuenta del peligro inminente en el último momento.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 132,
+                'id_talent' => 133,
                 'name' => 'Pistolero experto',
                 'description' => 'Puedes recargar armas de pólvora negra con facilidad practicada. Sumas tantos NE como tu nivel en Pistolero experto a cualquier Chequeo Prolongado para recargar un arma de Pólvora negra.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 133,
+                'id_talent' => 134,
                 'name' => 'Presencia imponente',
                 'description' => 'Tu presencia llena a los demás de un asombro y una admiración profundos. Tal es tu aura de autoridad que los de un Estatus menor no pueden resistirse a tus pruebas de Mando con su Voluntad. Por supuesto, eso no hace que tus enemigos sean más proclives a respetarte y obedecerte, pero la gente común raramente se te enfrenta.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 134,
+                'id_talent' => 135,
                 'name' => 'Primeros auxilios',
                 'description' => 'Estas acostumbrado a tratar heridas rápidamente. Si fallas un Chequeo de Sanar utilizando Vendas, puedes invertir el resultado si esto te representa un éxito; sin embargo, si lo haces, no puedes obtener más que +1 NE, puesto que te centras en la velocidad y no en la precisión.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 135,
+                'id_talent' => 136,
                 'name' => 'Proyectil infalible',
                 'description' => 'Puedes llevar a cabo disparos apuntados de una precisión excepcional. Ignoras cualquier modificador negativo por Dificultad a los Chequeos de A distancia debidos al tamaño del objetivo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 136,
+                'id_talent' => 137,
                 'name' => 'Puntería',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Habilidad de proyectiles inicial (esto no cuenta contra tus Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 137,
+                'id_talent' => 138,
                 'name' => 'Quijada de hierro',
                 'description' => 'Estás hecho de una pasta muy dura y puedes resistir incluso los golpes más fuertes. Cuando sufres 1 o más Estados de Aturdido puedes llevar a cabo de inmediato un Chequeo Desafiante (+0) de Aguante para evitarlo, y cada NE elimina 1 estado de Aturdido adicional.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 138,
+                'id_talent' => 139,
                 'name' => 'Rata de túnel',
                 'description' => 'Te sientes como en casa en túneles, alcantarillas y otros entornos subterráneos. Cuando utilizas Movimiento silencioso en un entorno subterráneo, quienes te rodean no tienen derecho a Chequeos de Percepción pasiva para detectarte; tan sólo pueden verte si están específicamente vigilando o buscando gente oculta.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 139,
+                'id_talent' => 140,
                 'name' => 'Recarga rápida',
                 'description' => 'Puedes recargar armas a distancia con facilidad practicada. Sumas tantos NE como tu nivel en Recarga rápida a cualquier Chequeo para recargar un arma a distancia.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 140,
+                'id_talent' => 141,
                 'name' => 'Recio',
                 'description' => 'Obtienes una suma permanente a tus Heridas igual a tu Bonificador por Resistencia. Si tu Bonificador por Resistencia se incrementa, también lo hace el número de Heridas que proporciona este Talento.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 141,
+                'id_talent' => 142,
                 'name' => 'Reflejos de combate',
                 'description' => 'Reaccionas como el fogonazo de un relámpago. Suma 10 a tu Iniciativa por cada nivel en este Talento cuando determinas la Iniciativa de Combate.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 142,
+                'id_talent' => 143,
                 'name' => 'Reflejos rápidos',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica inicial de Agilidad (esto no cuenta contra tus Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 143,
+                'id_talent' => 144,
                 'name' => 'Resistencia (amenaza)',
                 'description' => 'Tu recia constitución te permite sobrevivir con más facilidad a una amenaza específica. Puedes tener éxito automáticamente en el primer Chequeo para resistir la amenaza específica, como por ejemplo Magia, Veneno, Enfermedad o Mutación en cada sesión de juego. Si el NE es importante, utiliza tu Bonificador por Resistencia como NE para el Chequeo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 144,
+                'id_talent' => 145,
                 'name' => 'Resistencia a la magia',
                 'description' => 'El NE de cualquier hechizo que te afecta se reduce en 2 por cada punto que tienes en este Talento. El NE de un hechizo sólo lo modifica el talento de Resistencia a la magia mayor de los que puede haber en su área objetivo.. Además, nunca podrás aprender los Talentos Magia arcana, Bendecir, Invocar, Magia menor o ¡Brujo!',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 145,
+                'id_talent' => 146,
                 'name' => 'Resuelto',
                 'description' => 'Te lanzas a atacar con sobria determinación. Sumas tu nivel de Resuelto a tu Bonificador por Fuerza cuando cargas.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 146,
+                'id_talent' => 147,
                 'name' => 'Rico',
                 'description' => 'Eres fabulosamente rico y raramente vas corto de dinero. Cuando Ganas dinero (incluyendo las Empresas de Salario) consigues +1 corona de oro por cada vez que has adquirido este Talento.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 147,
+                'id_talent' => 148,
                 'name' => 'Robusto',
                 'description' => 'Eres tan coriáceo como unas botas viejas, y absorbes el daño como si nada. Reduces todo el Daño que sufres en un +1 adicional por cada vez que has adquirido el Talento Robusto, incluso si el daño no puede ser reducido de la forma normal, pero aun así sufres un mínimo de 1 Herida de cualquier fuente de Daño.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 148,
+                'id_talent' => 149,
                 'name' => 'Sabio (Saber)',
                 'description' => 'Eres excepcionalmente docto, y tienes un grado significativo de conocimiento especializado en un único campo de estudio. Automáticamente conoces tantos fragmentos de información correcta como tu nivel de Sabio (Saber) acerca de un tema relevante sin tener que chequear tu Habilidad de Sabiduría académica. Un Chequeo, como siempre, proporcionará más información de la forma habitual, según determine el DJ',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 149,
+                'id_talent' => 150,
                 'name' => 'Sangre fría',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica de Voluntad inicial, que no cuenta contra tus Avances.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 150,
+                'id_talent' => 151,
                 'name' => 'Sangre noble',
                 'description' => 'O bien naciste en la nobleza o bien fuiste elevado a la misma debido a acontecimientos del juego. Suponiendo que te vistas de la forma apropiada, siempre se te considerará de un Estatus superior a los demás, a menos que ellos tengan también el Talento Sangre noble, en cuyo caso el Estatus se comparará de la forma habitual.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 151,
+                'id_talent' => 152,
                 'name' => 'Sentidos desarrollados',
                 'description' => 'Uno de tus cinco sentidos principales está muy desarrollado, lo que te permite ver lo que otros no ven. Podrás llevar a cabo Chequeos de Percepción para detectar detalles normalmente imperceptibles con el sentido asociado, tal y como indique el DJ. Esto podría incluir: divisar a un águila más allá del alcance visual de todos los demás, oler un veneno casi inodoro, oír la respiración de un ratón inmóvil en el interior de una pared, reconocer una letra desgastada en un grabado o detectar que dos cervezas de una misma cervecería proceden de barriles diferentes.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 152,
+                'id_talent' => 153,
                 'name' => 'Sentir magia',
                 'description' => 'Eres capaz de detectar en los demás los Vientos de la Magia. Puedes intentar un Chequeo Normal (+20) de Intuición al encontrarte con un hechicero. Si lo consigues, detectas que el objetivo es un hechicero. Además, si consigues un Éxito asombroso (+6), también puedes determinar la mayor Especialización en Canalización del objetivo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 153,
+                'id_talent' => 154,
                 'name' => 'Sexto sentido',
                 'description' => 'Tienes una extraña sensación cuando te ves amenazado, y puedes reaccionar en consecuencia. El DJ puede avisarte de que vas directo al peligro; esto normalmente sucederá después de que haga un Chequeo secreto de Intuición en tu beneficio. Además, si consigues un Chequeo de Intuición puedes ignorar la Sorpresa.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 154,
+                'id_talent' => 155,
                 'name' => 'Sin importancia',
                 'description' => 'Los mandamases no prestan atención alguna a tu presencia, sabiendo que estás muy por debajo de su nivel. Suponiendo que vayas correctamente vestido y no estés en una posición incongruente, aquellos de un Grado de Estatus superior tenderán a ignorarte a menos que tu presencia se convierta en inapropiada, lo que facilitará que oigas conversaciones que quizás no deberías. Además, los personajes de un Grado de Estatus superior al tuyo no obtienen ventaja alguna golpeándote o hiriéndote en combate, puesto que no hay nada que ganar derrotando a un perro callejero tan bajo como tú',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 155,
+                'id_talent' => 156,
                 'name' => 'Sobornador',
                 'description' => 'Tu capacidad para sobornar es excelente. El DJ debería reducir el coste base de cualquier soborno requerido en un 10% por nivel que tengas en Sobornador, hasta un mínimo del 10% del importe original.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 156,
+                'id_talent' => 157,
                 'name' => 'Sombra',
                 'description' => 'Eres hábil en seguir a la gente sin ser visto. Puedes utilizar las reglas de Seguimiento de la pág. 127 sin tener que llevar a cabo un Chequeo Combinado. En vez de eso, chequeas simplemente tu Percepción o tu Habilidad de Movimiento silencioso, la mayor de las dos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 157,
+                'id_talent' => 158,
                 'name' => 'Suerte',
                 'description' => 'Dicen que cuando naciste, Ranald sonrió. El número máximo de tus Puntos de Fortuna es ahora igual a tu número actual de puntos de Destino, más el número de veces que has adquirido Suerte.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 158,
+                'id_talent' => 159,
                 'name' => 'Tenaz',
                 'description' => 'Nunca te das por vencido, por imposibles que parezcan las tareas a las que te enfrentas. Puedes doblar la longitud del tiempo que los Chequeos de Aguante te permiten soportar una adversidad. Esto incluye soportar un período prolongado de monta, la exposición a los elementos, los rituales y otras adversidades similares.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 159,
+                'id_talent' => 160,
                 'name' => 'Tono perfecto',
                 'description' => 'Tienes un tono perfecto, y eres capaz de reproducir las notas perfectamente e identificarlas sin ni siquiera llevar a cabo un Chequeo. Además, añade Animar (cantar) a cualquier Carrera en la que entras; si ya está en la misma, en vez de eso puedes comprar la Habilidad a razón de 5 PX menos por Avance.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 160,
+                'id_talent' => 161,
                 'name' => 'Viajero curtido',
                 'description' => 'Eres una persona inquisitiva y que ha viajado mucho, averiguando todo tipo de informaciones locales. Añade Sabiduría académica (local) a cualquier Carrera en la que entra; si ya está en la Carrera, puedes comprar la Habilidad otra vez (una especialidad diferente cada vez, como por ejemplo Altdorf, Vorbergland o Ubersreik) a razón de 5 PX menos por Avance.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 161,
+                'id_talent' => 162,
                 'name' => 'Vigilancia',
                 'description' => 'Obtienes un bonificador +5 permanente a tu Característica inicial de Iniciativa (esto no cuenta contra tus Avances).',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 162,
+                'id_talent' => 163,
                 'name' => 'Visión nocturna',
                 'description' => 'Puedes ver muy bien en la oscuridad natural. Suponiendo que tengas por lo menos una fuente de luz débil (como por ejemplo la de las estrellas, la de la luna o la bioluminiscencia) puedes ver con claridad a 20 yardas por nivel de Visión nocturna. Además, puedes extender la distancia de iluminación efectiva de cualquier fuente de luz en 20 yardas por nivel de Visión nocturna.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 163,
+                'id_talent' => 164,
                 'name' => 'Visiones sagradas',
                 'description' => 'Puedes ver claramente las grandes obras de los dioses a tu alrededor. Sabes automáticamente cuándo entras en terreno sagrado y puedes llevar a cabo un Chequeo de Intuición para obtener visiones (a menudo oscuras, y vistas a través del paradigma de tu culto o de tu sistema de creencias individual) respecto a la zona local si en ella han tenido lugar en el pasado acontecimientos significativos.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 164,
+                'id_talent' => 165,
                 'name' => 'Vista excelente',
                 'description' => 'Eres un cazador experto y conoces las mejores técnicas para encontrar caza. Cuando viajas a través de tierras bien provistas, se supone que eres automáticamente capaz de cazar lo suficiente como para alimentarte a ti mismo y a tantos otros como tu nivel en Vista excelente, si dispones de tiempo y del equipo correcto. Puedes conseguir más comida además de ésta utilizando las reglas normales de forrajeo.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 165,
+                'id_talent' => 166,
                 'name' => 'Voluntad de hierro',
                 'description' => 'Tienes una voluntad indomable y jamás te inclinarás voluntariamente ante otro. El uso de la Habilidad Intimidar no te causa Miedo, y no te impide manifestar tu oposición al intimidador',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'id_talent' => 166,
+                'id_talent' => 167,
                 'name' => 'Zancadas',
                 'description' => 'Estás versado en atravesar terreno difícil. Ignoras todos los penalizadores al movimiento al atravesar o recorrer un terreno específico. Las especialidades típicas incluyen: costero, desiertos, marismas, rocoso, tundra o bosques.',
                 'created_at' => date('Y-m-d H:i:s'),

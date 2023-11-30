@@ -15,7 +15,7 @@
             <table>
                 <thead>
                     <tr>
-                    <th>Professión</th><th>Carrera laboral</th><th>Habilidades</th>
+                        <th>Talento</th>
                     </tr>
                 </thead>
                 @foreach ($professions as $profession)

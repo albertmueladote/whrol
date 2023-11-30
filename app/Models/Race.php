@@ -40,4 +40,14 @@ class Race extends Model
     {
         return $this->belongsToMany(Characteristic::class, 'race_characteristic', 'id_race', 'id_characteristic')->withPivot('value');
     }
+
+    public function talents()
+    {
+        return $this->belongsToMany(Talent::class, 'race_talent', 'id_race', 'id_talent');
+    }
+
+    public function randomTalent()
+    {
+        return $this->hasOne(RaceRandomTalent::class, 'id_race');
+    }
 }

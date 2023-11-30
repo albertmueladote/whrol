@@ -49,6 +49,7 @@ Route::post('/random_characteristics', [App\Http\Controllers\NewController::clas
 Route::post('/throw_dice', [App\Http\Controllers\NewController::class, 'throw_dice'])->name('throw_dice');
 Route::post('/race_basic_abilities', [App\Http\Controllers\NewController::class, 'race_basic_abilities'])->name('race_basic_abilities');
 Route::post('/race_advanced_abilities', [App\Http\Controllers\NewController::class, 'race_advanced_abilities'])->name('race_advanced_abilities');
+Route::post('/race_talents', [App\Http\Controllers\NewController::class, 'race_talents'])->name('race_talents');
 Route::post('/career_path_basic_abilities', [App\Http\Controllers\NewController::class, 'career_path_basic_abilities'])->name('career_path_basic_abilities');
 Route::post('/career_path_advanced_abilities', [App\Http\Controllers\NewController::class, 'career_path_advanced_abilities'])->name('career_path_advanced_abilities');
 Route::post('/background_image_upload', [App\Http\Controllers\NewController::class, 'background_image_upload'])->name('background_image_upload');

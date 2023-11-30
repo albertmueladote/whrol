@@ -25,4 +25,14 @@ class Characteristic extends Model
     {
         return $this->belongsToMany(AdvancedAbility::class);
     }
+
+    public function talents_characteristics()
+    {
+        return $this->belongsToMany(Talent::class, 'talent_max_characteristic', 'characteristic_id', 'talent_id');
+    }
+
+    public function talents_check()
+    {
+        return $this->belongsToMany(Talent::class, 'talent_characteristic_check', 'characteristic_id', 'talent_id');
+    }
 }

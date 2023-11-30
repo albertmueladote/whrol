@@ -250,3 +250,17 @@ export async function getCareerPathAdvancedAbilitiesFromAPI(id_profession) {
     return [];
   }
 }
+
+export async function getRaceTalentsFromAPI(id_race) {
+  try {
+    const response = await axios.post("/race_talents", null, {
+      params: {
+        id_race: id_race
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los talentos de raza:", error);
+    return [];
+  }
+}

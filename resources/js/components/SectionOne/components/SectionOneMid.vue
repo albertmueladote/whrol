@@ -76,6 +76,7 @@ import {
     getRandomCharFromAPI,
     getRaceAdvancedAbilitiesFromAPI,
     getCareerPathAdvancedAbilitiesFromAPI,
+    getRaceTalentsFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -104,12 +105,14 @@ export default {
             "resetRaceTraits",
             "updateCareerPathBasicSpecializations",
             "resetCareerPathBasicSpecializations",
+            "resetRaceTalents",
             "updateRaceBasicSpecializations",
             "resetRaceBasicSpecializations",
             "updateRaceAdvancedAbilities",
             "resetRaceAdvancedAbilities",
             "updateRaceAdvancedSpecializations",
             "updateCareerPathAdvancedSpecializations",
+            "updateRaceTalents",
             "resetRaceAdvancedSpecializations",
             "resetCareerPathAdvancedSpecializations",
             "resetWealth",
@@ -140,6 +143,7 @@ export default {
             this.resetCareerPathAdvancedAbilities();
             this.resetRaceAdvancedSpecializations();
             this.resetCareerPathBasicSpecializations();
+            this.resetRaceTalents();
             this.loadProfessions();
             this.resetRaceTraits();
             this.resetWealth();
@@ -161,6 +165,7 @@ export default {
                 this.visibleCategory = true;
                 this.loadRaceBasicAbilities();
                 this.loadRaceAdvancedAbilities();
+                this.loadRaceTalents();
                 this.loadRaceTraits();
                 this.eyesChoose();
                 this.hairsChoose();
@@ -337,6 +342,10 @@ export default {
             this.updateCareerPathAdvancedSpecializations(
                 career_path_advanced_abilities.advanced_specializations
             );
+        },
+        async loadRaceTalents() {
+            const race_talents = await getRaceTalentsFromAPI(this.currentRace);
+            this.updateRaceTalents(race_talents);
         },
     },
     computed: {
