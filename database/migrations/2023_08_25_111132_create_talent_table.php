@@ -1081,7 +1081,7 @@ return new class extends Migration {
             ],
             [
                 'id_talent' => 152,
-                'name' => 'Sentidos desarrollados',
+                'name' => 'Sentidos desarrollados (Sentido)',
                 'description' => 'Uno de tus cinco sentidos principales está muy desarrollado, lo que te permite ver lo que otros no ven. Podrás llevar a cabo Chequeos de Percepción para detectar detalles normalmente imperceptibles con el sentido asociado, tal y como indique el DJ. Esto podría incluir: divisar a un águila más allá del alcance visual de todos los demás, oler un veneno casi inodoro, oír la respiración de un ratón inmóvil en el interior de una pared, reconocer una letra desgastada en un grabado o detectar que dos cervezas de una misma cervecería proceden de barriles diferentes.',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')

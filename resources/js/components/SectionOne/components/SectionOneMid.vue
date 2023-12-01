@@ -106,6 +106,8 @@ export default {
             "updateCareerPathBasicSpecializations",
             "resetCareerPathBasicSpecializations",
             "resetRaceTalents",
+            "resetRaceChooseTalents",
+            "resetRandomTalents",
             "updateRaceBasicSpecializations",
             "resetRaceBasicSpecializations",
             "updateRaceAdvancedAbilities",
@@ -144,6 +146,8 @@ export default {
             this.resetRaceAdvancedSpecializations();
             this.resetCareerPathBasicSpecializations();
             this.resetRaceTalents();
+            this.resetRaceChooseTalents();
+            this.resetRandomTalents();
             this.loadProfessions();
             this.resetRaceTraits();
             this.resetWealth();

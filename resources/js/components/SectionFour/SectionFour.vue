@@ -15,14 +15,17 @@ export default {};
     height: 26rem;
     .talents_list {
         height: 284px;
-        width: 401px;
+        width: 389px;
         position: absolute;
         top: 75px;
         left: 63px;
         overflow-y: auto;
         .talent {
-            height: 22px;
             width: 384px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid black;
+            min-height: 22px;
             .talent_name {
                 height: 22px;
                 width: 135px;
@@ -32,8 +35,12 @@ export default {};
                 width: 50px;
             }
             .talent_description {
+                position: relative;
                 left: 185px;
                 width: 194px;
+                height: auto;
+                font-size: 1rem;
+                padding: 5px;
             }
         }
     }

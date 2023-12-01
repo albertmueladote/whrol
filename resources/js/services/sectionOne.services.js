@@ -264,3 +264,17 @@ export async function getRaceTalentsFromAPI(id_race) {
     return [];
   }
 }
+
+export async function getRandomTalents(random_talents_n) {
+  try {
+    const response = await axios.post("/random_talents", null, {
+      params: {
+        random_talents_n: random_talents_n
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los talentos aleatorios:", error);
+    return [];
+  }
+}

@@ -1385,7 +1385,7 @@ select[name="survival_hab"] {
     position: absolute;
     top: 56px;
     left: 598px;
-    width: 270px;
+    width: 255px;
     height: 283px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -1427,7 +1427,7 @@ select[name="survival_hab"] {
     .advanced_characteristic
     .advanced_characteristics_hab {
     left: 222px;
-    width: 46px;
+    width: 37px;
     height: 22px;
 }
 

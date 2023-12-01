@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: {}, height: {}, hair: {}, eyes: {},  characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, talents: {race: {}, career_path: {}, list: {}, random: 0}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: {}, height: {}, hair: {}, eyes: {},  characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, talents: {race: {}, career_path: {}, list: {}, random: {}, random_n: 0, choose: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -272,8 +272,25 @@ const mutations = {
             const items = newRaceTalents.talents[key];
             state.talents.race[new_key] = newRaceTalents.talents[key];
          }
-         state.talents.random = newRaceTalents.random;
+         state.talents.random = {};
+         state.talents.random_n = 0;
+         for(var x = 1; x <= newRaceTalents.random; x++) {
+            state.talents.random['random_' + x] = {'name': 'Talento aleatorio', 'level': 1, 'description': ''};
+            state.talents.random_n++;
+         }
+         state.talents.choose = newRaceTalents.choose;
          mutations.talentsList(state);
+    },
+    updateRandomTalents(state, newRandomTalents) {
+        state.talents.random = {};
+        for(const key in newRandomTalents){
+            var new_key = key.normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/\s+/g, "_");
+            state.talents.random[new_key] = newRandomTalents[key];
+        }
+        mutations.talentsList(state);
     },
     resetRaceBasicAbilities(state) {
         state.basic_abilities.race = {};
@@ -293,6 +310,13 @@ const mutations = {
     },
     resetRaceTalents(state) {
         state.talents.race = {};
+        mutations.talentsList(state);
+    },
+    resetRaceChooseTalents(state) {
+        state.talents.choose = {};
+    },
+    resetRandomTalents(state) {
+        state.talents.random = {};
         mutations.talentsList(state);
     },
     resetRaceAdvancedAbilities(state) {
@@ -403,10 +427,18 @@ const mutations = {
         }
         for (const key in state.talents.career_path) {
             if(state.talents.list.hasOwnProperty(key)) {
-                state.talents.list[key] = state.talents.career_path[key]['level']++   
+                state.talents.list[key]['level']++   
             } else {
                 state.talents.list[key] = state.talents.career_path[key];
-                state.talents.list[key] = state.talents.career_path[key]['level'] = 1;
+                state.talents.list[key]['level'] = 1;
+            }
+        }
+        for (const key in state.talents.random) {
+            if(state.talents.list.hasOwnProperty(key)) {
+                state.talents.list[key]['level']++   
+            } else {
+                state.talents.list[key] = state.talents.random[key];
+                state.talents.list[key]['level'] = 1;
             }
         }
     },

@@ -15,6 +15,9 @@ use App\Models\AdvancedAbility;
 use App\Models\BasicSpecialization;
 use App\Models\AdvancedSpecialization;
 use App\Models\Talent;
+use App\Models\RandomTalent;
+use App\Models\RaceRandomTalent;
+use App\Models\RaceChooseTalent;
 
 class NewController extends Controller
 {
@@ -372,12 +375,29 @@ class NewController extends Controller
             $query->where('race_talent.id_race', $id_race);
         })->get();
 
+        $race_choose_talents = RaceChooseTalent::with('talent')
+            ->where('id_race', $id_race)
+            ->get();
+
         $result['random'] = Race::find($id_race)->randomTalent;
         if (!is_null($result['random'])) {
             $result['random'] = $result['random']['random_talents'];
         }
         foreach ($race_talents as $rt) {
             $result['talents'][$rt->name] = $rt;
+        }
+        foreach ($race_choose_talents as $rct) {
+            $result['choose'][$rct->group][$rct->id_talent] = $rct->talent;
+        }
+        return $result;
+    }
+
+    public function random_talents(request $request)
+    {
+        $random_talents_n = $request->input('random_talents_n');
+        $random_talents = RandomTalent::with('talent')->inRandomOrder()->limit($random_talents_n)->get();
+        foreach ($random_talents as $rt) {
+            $result[$rt->talent->name] = $rt->talent;
         }
         return $result;
     }
@@ -405,3 +425,4 @@ class NewController extends Controller
         return response()->json($data);*/
     }
 }
+

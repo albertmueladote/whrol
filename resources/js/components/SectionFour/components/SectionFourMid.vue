@@ -10,7 +10,7 @@
                 <input
                     type="text"
                     class="talent_name"
-                    name="talent_name_1"
+                    :name="'talent_name_' + index"
                     :value="talent.name"
                     disabled
                 />
@@ -18,39 +18,13 @@
                     type="text"
                     class="talent_level"
                     data-value="0"
-                    name="talent_level_1"
+                    :name="'talent_level_' + index"
                     :value="talent.level"
                     disabled
                 />
-                <input
-                    type="text"
-                    class="talent_description"
-                    name="talent_description_1"
-                    :value="talent.description"
-                    disabled
-                />
-            </div>
-            <div class="talent" v-for="index in talents.random" :key="index">
-                <input
-                    type="text"
-                    class="talent_name"
-                    name="talent_name_1"
-                    value="Talento aleatorio"
-                    disabled
-                />
-                <input
-                    type="text"
-                    class="talent_level"
-                    data-value="0"
-                    name="talent_level_1"
-                    disabled
-                />
-                <input
-                    type="text"
-                    class="talent_description"
-                    name="talent_description_1"
-                    disabled
-                />
+                <div type="text" class="talent_description">
+                    {{ talent.description }}
+                </div>
             </div>
         </div>
         <textarea name="self_short_ambitions"></textarea>
@@ -67,9 +41,6 @@ import { mapState, mapMutations } from "vuex";
 export default {
     computed: {
         ...mapState("Character", ["talents"]),
-    },
-    mounted() {
-        console.log("Random Number:" + this.talents.random);
     },
 };
 </script>

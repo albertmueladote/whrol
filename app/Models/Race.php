@@ -50,4 +50,9 @@ class Race extends Model
     {
         return $this->hasOne(RaceRandomTalent::class, 'id_race');
     }
+
+    public function chooseTalents()
+    {
+        return $this->belongsToMany(Talent::class, 'race_choose_talent', 'id_race', 'id_race_choose_talent');
+    }
 }

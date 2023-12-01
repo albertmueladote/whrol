@@ -40,4 +40,9 @@ class Talent extends Model
     {
         return $this->belongsToMany(Race::class, 'race_talent', 'id_talent', 'id_race');
     }
+
+    public function chooseTalents()
+    {
+        return $this->belongsToMany(Race::class, 'race_choose_talent', 'id_talent', 'id_race');
+    }
 }
