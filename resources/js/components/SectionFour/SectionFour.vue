@@ -14,14 +14,14 @@ export default {};
 .section-4 {
     height: 26rem;
     .talents_list {
-        height: 284px;
+        height: 270px;
         width: 389px;
         position: absolute;
         top: 75px;
         left: 63px;
         overflow-y: auto;
         .talent {
-            width: 384px;
+            width: 372px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid black;
@@ -37,7 +37,7 @@ export default {};
             .talent_description {
                 position: relative;
                 left: 185px;
-                width: 194px;
+                width: 187px;
                 height: auto;
                 font-size: 1rem;
                 padding: 5px;

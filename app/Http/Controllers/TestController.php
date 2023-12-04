@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Category;
 use App\Models\Characteristic;
@@ -36,31 +37,56 @@ class TestController extends Controller
     public function Create()
     {
         $talents = Talent::all();
-        $characteristics = Characteristic::all();
-        $basicAbilities = BasicAbility::all();
-        $advancedAbilities = AdvancedAbility::all();
+        $career_path = CareerPath::whereBetween('id_career_path', [201, 260])->get();
+        $career_path_talents = DB::select('SELECT * FROM career_path_talent');
 
-        $select_ch = '<select class="char"><option value="0">Selecciona característica</option>';
-        foreach ($characteristics as $ch) {
-            $select_ch .= '<option value=' . $ch->id_characteristic . '>' . $ch->name . '</option>';
+        $cpt_array = array();
+
+        foreach ($career_path_talents as $cpt) {
+            if (!isset($cpt_array[$cpt->id_career_path])) {
+                $cpt_array[$cpt->id_career_path] = array();
+            }
+            array_push($cpt_array[$cpt->id_career_path], $cpt->id_talent);
         }
-        $select_ch .= '</select>';
-        $select_ch = html_entity_decode($select_ch);
+        $selects = array();
+        foreach ($career_path as $cp) {
+            if (!isset($selects[$cp->id_career_path])) {
+                $selects[$cp->id_career_path] = array();
+            }
+            if (isset($cpt_array[$cp->id_career_path])) {
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, $cpt_array[$cp->id_career_path][0]));
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, $cpt_array[$cp->id_career_path][1]));
+                if (isset($cpt_array[$cp->id_career_path][2])) {
+                    array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, $cpt_array[$cp->id_career_path][2]));
+                } else {
+                    array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+                }
+            } else {
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+                array_push($selects[$cp->id_career_path], $this->find_talent_in_array($cp, $talents, null));
+            }
 
-        $select_ba = '<select class="char"><option value="0">Selecciona habilidad básica</option>';
-        foreach ($basicAbilities as $ba) {
-            $select_ba .= '<option value=' . $ba->id_basic_ability . '>' . $ba->label . '</option>';
         }
-        $select_ba .= '</select>';
-        $select_ba = html_entity_decode($select_ba);
+        return view('create')->with('career_path', $career_path)->with('selects', $selects);
+    }
 
-        $select_aa = '<select class="char"><option value="0">Selecciona habilidad avanzada</option>';
-        foreach ($advancedAbilities as $aa) {
-            $select_aa .= '<option value=' . $aa->id_advanced_ability . '>' . $aa->name . '</option>';
+    private function find_talent_in_array($cp, $talents, $talent = null)
+    {
+        $select = '<select class="char"><option value="0">Selecciona talento</option>';
+        $found = false;
+        foreach ($talents as $t) {
+            if ($t->id_talent == $talent && !$found) {
+                $select .= '<option selected value="' . $t->id_talent . '">' . $t->name . '</option>';
+                $found = true;
+            } else {
+                $select .= '<option value="' . $t->id_talent . '">' . $t->name . '</option>';
+            }
         }
-        $select_aa .= '</select>';
-        $select_aa = html_entity_decode($select_aa);
-
-        return view('create')->with('talents', $talents)->with('select_ch', $select_ch)->with('select_ba', $select_ba)->with('select_aa', $select_aa);
+        $select .= '</select>';
+        $select = html_entity_decode($select);
+        return $select;
     }
 }

@@ -402,6 +402,26 @@ class NewController extends Controller
         return $result;
     }
 
+    public function career_path_talents(request $request)
+    {
+        $result = array();
+        $id_profession = $request->input('id_profession');
+        if ($id_profession == 0) {
+            return false;
+        }
+        $career_path = CareerPath::where('id_profession', $id_profession)->where('level', 1)->first();
+        $id_career_path = $career_path->id_career_path;
+        $career_path_talents = Talent::whereHas('careerPaths', function ($query) use ($id_career_path) {
+            $query->where('career_path_talent.id_career_path', $id_career_path);
+        })->get();
+
+        foreach ($career_path_talents as $cpt) {
+            $result['talents'][$cpt->name] = $cpt;
+        }
+
+        return $result;
+    }
+
     public function background_image_upload(request $request)
     {
         /*$images = Gallery::all()->toArray();

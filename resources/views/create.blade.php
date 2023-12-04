@@ -11,20 +11,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        @php $cont = 1; @endphp
         <div class="col-md-12">
             <table id="data">
                 <thead>
-                    <tr><th>Talentos</th><th>Características</th><th>Max</th><th>Habilidades básicas</th><th>Habilidades avanzadas</th></tr>
+                    <tr><th>Profesión</th><th>Talento</th><th>Talento</th><th>Talento</th><th>Talento</th></tr>
                 </thead>
                 <tbody>
-                @foreach ($talents as $talent)
-                    <tr data-talent = "{{$talent->id_talent}}">
-                        <td class="talent">{{$talent->name}}</td>
-                        <td class="ch">{!! $select_ch !!}</td>
-                        <td class="max"><input class="max" type="text"></td>
-                        <td class="ba">{!! $select_ba !!}</td>
-                        <td class="aa">{!! $select_aa !!}</td>
+                @foreach ($career_path as $cp)
+                    <tr data-cp = "{{$cp->id_career_path}}">
+                        <td class="career_path">{{$cp->name}}</td>
+                        <td class="talent_1">{!! $selects[$cp->id_career_path][0] !!}</td>
+                        <td class="talent_2">{!! $selects[$cp->id_career_path][1] !!}</td>
+                        <td class="talent_3">{!! $selects[$cp->id_career_path][2] !!}</td>
+                        <td class="talent_4">{!! $selects[$cp->id_career_path][3] !!}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -40,10 +39,7 @@
         <div class="col-md-12">
             <table id="result">
                 <tr>
-                    <td class="ch"></td>
-                    <td class="max"></td>
-                    <td class="ba"></td>
-                    <td class="aa"></td>
+                    <td class="result"></td>
                 </tr>
             </table>
         </div>
@@ -52,87 +48,50 @@
 <script>
     function create()
     {
-        var talent_max_characteristics_table = [];
-        var talent_max_table = [];
-        var talent_basic_ability_check = [];
-        var talent_advanced_ability_check = [];
+        $('#result .result').html('');
         $('#data tbody tr').each(function() {
-            var id_talent = $(this).data('talent');
-            
-            var ch = $(this).find('td.ch select').val();
-            var max = $(this).find('td.max input').val();
-            var ba = $(this).find('td.ba select').val();
-            var aa = $(this).find('td.aa select').val();
-            $('#result .ch').html('');
-            $('#result .max').html('');
-            $('#result .ba').html('');
-            $('#result .aa').html('');
-            if(id_talent !== undefined){
-                if(ch > 0)
-                {
-                    talent_max_characteristics_table.push({
-                        'id_talent': id_talent,
-                        'id_characteristic': ch
-                    });
-                }
-                if(max !== '' && max !== undefined)
-                {
-                    talent_max_table.push({
-                        'id_talent': id_talent,
-                        'max': max
-                    });
-                }
-                if(ba > 0)
-                {
-                    talent_basic_ability_check.push({
-                        'id_talent': id_talent,
-                        'id_basic_ability': ba
-                    });
-                }
-                if(aa > 0)
-                {
-                    talent_advanced_ability_check.push({
-                        'id_talent': id_talent,
-                        'id_advanced_ability': aa
-                    });
-                }
+            var id_career_path = $(this).data('cp');
+            var talent_1 = $(this).find('td.talent_1 select').val();
+            var talent_2 = $(this).find('td.talent_2 select').val();
+            var talent_3 = $(this).find('td.talent_3 select').val();
+            var talent_4 = $(this).find('td.talent_4 select').val();
+           
+            if(talent_1 !== undefined && talent_1 > 0) {
+                var string = '<pre>[' +
+                '\n\t\'id_career_path\' => ' + id_career_path + ',' +
+                '\n\t\'id_talent\' => ' + talent_1 + ',' +
+                '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n],</pre>';
+                $('#result .result').append(string);
             }
-        });
-        $.each(talent_max_characteristics_table, function(index, value) {
-            var string = '<pre>[' +
-            '\n\t\'id_talent\' => ' + value.id_talent + ',' +
-            '\n\t\'id_characteristic\' => ' + value.id_characteristic + ',' +
-            '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n],</pre>';
-            $('#result .ch').append(string);
-        });
-        $.each(talent_max_table, function(index, value) {
-            var string = '<pre>[' +
-            '\n\t\'id_talent\' => ' + value.id_talent + ',' +
-            '\n\t\'max\' => ' + value.max + ',' +
-            '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n],</pre>';
-            $('#result .max').append(string);
-        });
-        $.each(talent_basic_ability_check, function(index, value) {
-            var string = '<pre>[' +
-            '\n\t\'id_talent\' => ' + value.id_talent + ',' +
-            '\n\t\'id_basic_ability\' => ' + value.id_basic_ability + ',' +
-            '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n],</pre>';
-            $('#result .ba').append(string);
-        });
-        $.each(talent_advanced_ability_check, function(index, value) {
-            var string = '<pre>[' +
-            '\n\t\'id_talent\' => ' + value.id_talent + ',' +
-            '\n\t\'id_advanced_ability\' => ' + value.id_advanced_ability + ',' +
-            '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
-            '\n],</pre>';
-            $('#result .aa').append(string);
+            if(talent_2 !== undefined && talent_2 > 0) {
+                var string = '<pre>[' +
+                '\n\t\'id_career_path\' => ' + id_career_path + ',' +
+                '\n\t\'id_talent\' => ' + talent_2 + ',' +
+                '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n],</pre>';
+                $('#result .result').append(string);
+            }
+            if(talent_3 !== undefined && talent_3 > 0) {
+                var string = '<pre>[' +
+                '\n\t\'id_career_path\' => ' + id_career_path + ',' +
+                '\n\t\'id_talent\' => ' + talent_3 + ',' +
+                '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n],</pre>';
+                $('#result .result').append(string);
+            }
+            if(talent_4 !== undefined && talent_4 > 0) {
+                var string = '<pre>[' +
+                '\n\t\'id_career_path\' => ' + id_career_path + ',' +
+                '\n\t\'id_talent\' => ' + talent_4 + ',' +
+                '\n\t\'created_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n\t\'updated_at\' => date(\'Y-m-d H:i:s\'),' +
+                '\n],</pre>';
+                $('#result .result').append(string);
+            }
         });
     }
 </script>

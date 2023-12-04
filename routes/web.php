@@ -54,6 +54,7 @@ Route::post('/random_talents', [App\Http\Controllers\NewController::class, 'rand
 Route::post('/career_path_basic_abilities', [App\Http\Controllers\NewController::class, 'career_path_basic_abilities'])->name('career_path_basic_abilities');
 Route::post('/career_path_advanced_abilities', [App\Http\Controllers\NewController::class, 'career_path_advanced_abilities'])->name('career_path_advanced_abilities');
 Route::post('/background_image_upload', [App\Http\Controllers\NewController::class, 'background_image_upload'])->name('background_image_upload');
+Route::post('/career_path_talents', [App\Http\Controllers\NewController::class, 'career_path_talents'])->name('career_path_talents');
 
 
 Route::get('/token', function () {

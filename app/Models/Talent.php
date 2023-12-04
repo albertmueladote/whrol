@@ -45,4 +45,9 @@ class Talent extends Model
     {
         return $this->belongsToMany(Race::class, 'race_choose_talent', 'id_talent', 'id_race');
     }
+
+    public function careerPaths()
+    {
+        return $this->belongsToMany(CareerPath::class, 'career_path_talent', 'id_talent', 'id_career_path');
+    }
 }

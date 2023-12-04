@@ -77,6 +77,7 @@ import {
     getRaceAdvancedAbilitiesFromAPI,
     getCareerPathAdvancedAbilitiesFromAPI,
     getRaceTalentsFromAPI,
+    getCareerPathTalentsFromAPI,
 } from "./../../../services/sectionOne.services";
 export default {
     mounted() {
@@ -108,6 +109,8 @@ export default {
             "resetRaceTalents",
             "resetRaceChooseTalents",
             "resetRandomTalents",
+            "updateCareerPathTalents",
+            "resetCareerPathTalents",
             "updateRaceBasicSpecializations",
             "resetRaceBasicSpecializations",
             "updateRaceAdvancedAbilities",
@@ -145,6 +148,7 @@ export default {
             this.resetCareerPathAdvancedAbilities();
             this.resetRaceAdvancedSpecializations();
             this.resetCareerPathBasicSpecializations();
+            this.resetCareerPathTalents();
             this.resetRaceTalents();
             this.resetRaceChooseTalents();
             this.resetRandomTalents();
@@ -162,6 +166,7 @@ export default {
                     if (this.currentProfession !== "0") {
                         this.loadCareerPathBasicAbilities();
                         this.loadCareerPathAdvancedAbilities();
+                        this.loadCareerPathTalents();
                     }
                 } else {
                     this.visibleProfession = false;
@@ -200,6 +205,7 @@ export default {
             this.updateCareerPathStatus("");
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
+            this.resetCareerPathTalents();
             this.resetCareerPathAdvancedAbilities();
             this.resetWealth();
             if (this.currentCategory === "0") {
@@ -215,10 +221,12 @@ export default {
             this.resetCareerPathBasicSpecializations();
             this.resetCareerPathAdvancedSpecializations();
             this.resetCareerPathAdvancedAbilities();
+            this.resetCareerPathTalents();
             this.resetWealth();
             if (this.currentProfession !== "0") {
                 this.loadCareerPathBasicAbilities();
                 this.loadCareerPathAdvancedAbilities();
+                this.loadCareerPathTalents();
             }
         },
         onNameInput(event) {
@@ -350,6 +358,12 @@ export default {
         async loadRaceTalents() {
             const race_talents = await getRaceTalentsFromAPI(this.currentRace);
             this.updateRaceTalents(race_talents);
+        },
+        async loadCareerPathTalents() {
+            const career_path_talents = await getCareerPathTalentsFromAPI(
+                this.currentProfession
+            );
+            this.updateCareerPathTalents(career_path_talents.talents);
         },
     },
     computed: {

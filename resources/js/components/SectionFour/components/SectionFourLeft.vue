@@ -16,10 +16,9 @@
         </div>
         <div class="choose_talent">
             <select
-                v-for="choose in talents.choose"
-                :key="choose"
-                data-group="{{ choose.group }}"
-                @change="chooseTalent"
+                v-for="(choose, index) in talents.choose"
+                :key="index"
+                @change="chooseTalent(index, $event)"
             >
                 <option value="0">-Selecciona talento-</option>
                 <option
@@ -36,17 +35,25 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { getRandomTalents } from "./../../../services/sectionOne.services";
+import { getRandomTalentsFromAPI } from "./../../../services/sectionOne.services";
 export default {
     methods: {
-        ...mapMutations("Character", ["updateRandomTalents"]),
+        ...mapMutations("Character", [
+            "updateRandomTalents",
+            "updateChooseTalent",
+        ]),
         async randomTalents() {
-            const randomTalentsFromAPI = await getRandomTalents(
+            const randomTalentsFromAPI = await getRandomTalentsFromAPI(
                 this.talents.random_n
             );
             this.updateRandomTalents(randomTalentsFromAPI);
         },
-        chooseTalent() {},
+        chooseTalent(group, event) {
+            this.updateChooseTalent({
+                group: group,
+                talent: event.target.value,
+            });
+        },
     },
     computed: {
         ...mapState("Character", ["talents"]),

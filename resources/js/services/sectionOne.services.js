@@ -265,7 +265,7 @@ export async function getRaceTalentsFromAPI(id_race) {
   }
 }
 
-export async function getRandomTalents(random_talents_n) {
+export async function getRandomTalentsFromAPI(random_talents_n) {
   try {
     const response = await axios.post("/random_talents", null, {
       params: {
@@ -275,6 +275,20 @@ export async function getRandomTalents(random_talents_n) {
     return response.data;
   } catch (error) {
     console.error("Error al obtener los talentos aleatorios:", error);
+    return [];
+  }
+}
+
+export async function getCareerPathTalentsFromAPI(id_profession) {
+  try {
+    const response = await axios.post("/career_path_talents", null, {
+      params: {
+        id_profession: id_profession
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener los talentos de profesión:", error);
     return [];
   }
 }
