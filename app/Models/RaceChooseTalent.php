@@ -18,4 +18,9 @@ class RaceChooseTalent extends Model
     {
         return $this->belongsTo(Race::class, 'id_race');
     }
+
+    public function characteristicIncrement()
+    {
+        return $this->hasOne(TalentCharacteristic::class, 'id_talent', 'id_talent');
+    }
 }

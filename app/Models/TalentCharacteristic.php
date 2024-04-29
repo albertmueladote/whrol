@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RandomTalent extends Model
+class TalentCharacteristic extends Model
 {
     use HasFactory;
-    protected $table = 'random_talent';
-    protected $primaryKey = 'id_random_talent';
-
+    protected $table = 'talent_characteristic';
+    protected $primaryKey = 'id_talent_characteristic';
     public function talent()
     {
         return $this->belongsTo(Talent::class, 'id_talent');
     }
-
-    public function characteristicIncrement()
+    public function characteristic()
     {
-        return $this->hasOne(TalentCharacteristic::class, 'id_talent');
+        return $this->belongsTo(Characteristic::class, 'id_characteristic');
     }
 }

@@ -50,4 +50,10 @@ class Talent extends Model
     {
         return $this->belongsToMany(CareerPath::class, 'career_path_talent', 'id_talent', 'id_career_path');
     }
+
+    public function characteristicIncrement()
+    {
+        return $this->hasOne(TalentCharacteristic::class, 'id_talent');
+    }
+
 }

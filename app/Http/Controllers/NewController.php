@@ -18,6 +18,7 @@ use App\Models\Talent;
 use App\Models\RandomTalent;
 use App\Models\RaceRandomTalent;
 use App\Models\RaceChooseTalent;
+use App\Models\Sheet;
 
 class NewController extends Controller
 {
@@ -373,12 +374,11 @@ class NewController extends Controller
 
         $race_talents = Talent::whereHas('races', function ($query) use ($id_race) {
             $query->where('race_talent.id_race', $id_race);
-        })->get();
+        })->with('characteristicIncrement')->get();
 
-        $race_choose_talents = RaceChooseTalent::with('talent')
+        $race_choose_talents = RaceChooseTalent::with(['talent', 'characteristicIncrement', 'talent.characteristicIncrement.characteristic'])
             ->where('id_race', $id_race)
             ->get();
-
         $result['random'] = Race::find($id_race)->randomTalent;
         if (!is_null($result['random'])) {
             $result['random'] = $result['random']['random_talents'];
@@ -388,6 +388,7 @@ class NewController extends Controller
         }
         foreach ($race_choose_talents as $rct) {
             $result['choose'][$rct->group][$rct->id_talent] = $rct->talent;
+            $result['choose'][$rct->group][$rct->id_talent]['characteristic_increment'] = $rct->characteristic_increment;
         }
         return $result;
     }
@@ -395,7 +396,11 @@ class NewController extends Controller
     public function random_talents(request $request)
     {
         $random_talents_n = $request->input('random_talents_n');
-        $random_talents = RandomTalent::with('talent')->inRandomOrder()->limit($random_talents_n)->get();
+        $random_talents = RandomTalent::with([
+            'talent',
+            'talent.characteristicIncrement',
+            'talent.characteristicIncrement.characteristic'
+        ])->inRandomOrder()->limit($random_talents_n)->get();
         foreach ($random_talents as $rt) {
             $result[$rt->talent->name] = $rt->talent;
         }
@@ -413,7 +418,7 @@ class NewController extends Controller
         $id_career_path = $career_path->id_career_path;
         $career_path_talents = Talent::whereHas('careerPaths', function ($query) use ($id_career_path) {
             $query->where('career_path_talent.id_career_path', $id_career_path);
-        })->get();
+        })->with('characteristicIncrement', 'characteristicIncrement.characteristic')->get();
 
         foreach ($career_path_talents as $cpt) {
             $result['talents'][$cpt->name] = $cpt;
@@ -443,6 +448,22 @@ class NewController extends Controller
         }
         //dd($data);
         return response()->json($data);*/
+    }
+
+    public function save(request $request)
+    {
+        //return var_dump($request['sheet']);
+        return Sheet::create([
+            'name' => $request['sheet']['name'],
+            'id_race' => $request['sheet']['id_race'],
+            'id_category' => $request['sheet']['id_category'],
+            'id_career_path' => $request['sheet']['id_career_path'],
+            'status' => $request['sheet']['status'],
+            'age' => $request['sheet']['age'],
+            'height' => $request['sheet']['height'],
+            'id_hair' => $request['sheet']['id_hair'],
+            'id_eyes' => $request['sheet']['id_eyes'],
+        ]);
     }
 }
 

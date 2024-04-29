@@ -118,6 +118,7 @@ export default {
             "updateRaceAdvancedSpecializations",
             "updateCareerPathAdvancedSpecializations",
             "updateRaceTalents",
+            "resetIncrementsTalents",
             "resetRaceAdvancedSpecializations",
             "resetCareerPathAdvancedSpecializations",
             "resetWealth",
@@ -149,6 +150,7 @@ export default {
             this.resetRaceAdvancedSpecializations();
             this.resetCareerPathBasicSpecializations();
             this.resetCareerPathTalents();
+            this.resetIncrementsTalents();
             this.resetRaceTalents();
             this.resetRaceChooseTalents();
             this.resetRandomTalents();
@@ -206,6 +208,7 @@ export default {
             this.resetCareerPathBasicAbilities();
             this.resetCareerPathBasicSpecializations();
             this.resetCareerPathTalents();
+            this.resetIncrementsTalents();
             this.resetCareerPathAdvancedAbilities();
             this.resetWealth();
             if (this.currentCategory === "0") {
@@ -222,6 +225,7 @@ export default {
             this.resetCareerPathAdvancedSpecializations();
             this.resetCareerPathAdvancedAbilities();
             this.resetCareerPathTalents();
+            this.resetIncrementsTalents();
             this.resetWealth();
             if (this.currentProfession !== "0") {
                 this.loadCareerPathBasicAbilities();

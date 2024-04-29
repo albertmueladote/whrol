@@ -292,3 +292,17 @@ export async function getCareerPathTalentsFromAPI(id_profession) {
     return [];
   }
 }
+
+export async function saveWithApi(sheet) {
+  try {
+    const response = await axios.post("/save", null, {
+      params: {
+        sheet: sheet
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al guardar los datos:", error);
+    return [];
+  }
+}

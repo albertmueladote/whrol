@@ -1,4 +1,4 @@
-const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: {}, height: {}, hair: {}, eyes: {},  characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, talents: {race: {}, career_path: {}, list: {}, random: {}, random_n: 0, choose: {}, choosed: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
+const state = {name: '', race: '0', category: '0', profession: '0', career_path_status: '', age: {}, height: {}, hair: {}, eyes: {},  characteristics_ini: {}, characteristics_imp: {}, characteristics_total: {}, total_destiny: '', destiny: '', fortune: '', total_resilience: '', resilience: '', resolution: '', motivation: '', extra: '', exp_actual: '0', exp_spent: '0', exp_total: '0', movement: '', walk: '', run: '', basic_abilities: {race: {}, career_path: {}, list: {}}, advanced_abilities: {race: {}, career_path: {}, list: {}}, basic_specializations: {race: {}, career_path: {}, list: {}}, advanced_specializations: {race: {}, career_path: {}, list: {}}, talents: {race: {}, career_path: {}, list: {}, random: {}, random_n: 0, choose: {}, choosed: {}, increments: {}}, armor:{head:0, main_hand:0, secondary_hand:0, body:0, right_leg:0, left_leg:0, shield:0}, items:{}, wealth: {penny:0, shilling:0, crown:0}, load: {weapons:0, armors:0, items:0, max_load:0, total:0}, wounds:{bf:0, br:0, bv:0, robust:0, wounds:0, total: 0}};
 const getters = {};
 const actions = {};
 const mutations = {
@@ -106,6 +106,7 @@ const mutations = {
     updateTotalChar(state) {
         for (const index in state.characteristics_ini) {
             var value_imp = 0;
+            var value_talent = 0;
             if (state.characteristics_imp.hasOwnProperty(index)) {
                 if(state.characteristics_imp[index] == '')
                 {
@@ -114,7 +115,12 @@ const mutations = {
                     value_imp = state.characteristics_imp[index];
                 }
             }
-            state.characteristics_total[index] = state.characteristics_ini[index] + parseInt(value_imp);
+            if(state.talents.increments[index] == undefined || state.talents.increments[index] == null) {
+                value_talent = 0;
+            } else {
+                value_talent = state.talents.increments[index];
+            }
+            state.characteristics_total[index] = state.characteristics_ini[index] + parseInt(value_imp) + parseInt(value_talent);
         };
         mutations.updateWounds(state);
         mutations.updateLoad(state);
@@ -290,14 +296,16 @@ const mutations = {
             .replace(/\s+/g, "_");
             state.talents.random[new_key] = newRandomTalents[key];
         }
-        mutations.talentsList(state);
+        mutations.resetIncrementsTalents(state);
     },
     updateChooseTalent(state, data) {
-        state.talents.choosed[data.group] = {};
+        state.talents.choosed = {};
+        state.talents.increments = {};
         var new_key = state.talents.choose[data.group][data.talent].name.normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .replace(/\s+/g, "_");
+        state.talents.choosed[data.group] = {};
         state.talents.choosed[data.group][new_key] = state.talents.choose[data.group][data.talent];
         mutations.talentsList(state);
     },
@@ -358,6 +366,10 @@ const mutations = {
     },
     resetCareerPathTalents(state) {
         state.talents.career_path = {};
+        mutations.talentsList(state);
+    },
+    resetIncrementsTalents(state) {
+        state.talents.increments = {};
         mutations.talentsList(state);
     },
     basicAbilitiesList(state) {
@@ -476,6 +488,15 @@ const mutations = {
                 }
             }
         }
+        for(const key in state.talents.list) {
+            if(state.talents.list[key].characteristic_increment !== null && state.talents.list[key].characteristic_increment !== undefined) {
+                if(state.talents.list[key].characteristic_increment.characteristic !== undefined)
+                {
+                    state.talents.increments[state.talents.list[key].characteristic_increment.characteristic.abbreviation.toLowerCase()] = state.talents.list[key].characteristic_increment.increment * state.talents.list[key].level;
+                }
+            }
+        }
+        mutations.updateTotalChar(state);
     },
     updateWounds(state) {
         state.wounds.bf = Math.floor((state.characteristics_total.f % 100) / 10);
@@ -521,7 +542,7 @@ const mutations = {
             default:
                 break;
         }
-    }
+    },
 };  
  
 export default {
