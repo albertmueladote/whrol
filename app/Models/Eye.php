@@ -15,4 +15,9 @@ class Eye extends Model
     {
         return $this->belongsToMany(Race::class, 'race_eye', 'id_eye', 'id_race');
     }
+
+    public function userSheets()
+    {
+        return $this->hasMany(UserSheet::class, 'id_eye');
+    }
 }

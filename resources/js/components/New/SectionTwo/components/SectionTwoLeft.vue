@@ -48,7 +48,7 @@ import { mapState, mapMutations } from "vuex";
 import {
     getRandomCharFromAPI,
     getThrowDiceFromAPI,
-} from "./../../../services/sectionOne.services";
+} from "./../../../../services/sectionOne.services";
 export default {
     props: {},
     methods: {

@@ -35,11 +35,7 @@ export default {
         initDropzone() {
             new Dropzone("form.dropzone", {
                 maxFiles: 3,
-                removedfile: function (file) {
-                    // Lógica para manejar la eliminación del archivo
-                    // Puede incluir una llamada AJAX para eliminar el archivo del servidor
-                    console.log(file);
-                },
+                removedfile: function (file) {},
             });
         },
     },
@@ -53,11 +49,11 @@ export default {
     left: 25%;
     z-index: 100;
     background-color: white;
-    overflow: hidden; /* Ocultar el contenido que se extiende más allá de la altura */
+    overflow: hidden;
     height: 0;
     transition: height 0.5s ease;
     &.visible {
-        height: 75%; /* Mostrar completamente cuando la clase 'visible' está presente */
+        height: 75%;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
         padding: 10px;
     }

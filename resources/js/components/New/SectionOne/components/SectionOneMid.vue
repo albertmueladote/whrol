@@ -78,7 +78,7 @@ import {
     getCareerPathAdvancedAbilitiesFromAPI,
     getRaceTalentsFromAPI,
     getCareerPathTalentsFromAPI,
-} from "./../../../services/sectionOne.services";
+} from "./../../../../services/sectionOne.services";
 export default {
     mounted() {
         this.loadRaces();

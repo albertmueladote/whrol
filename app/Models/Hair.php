@@ -15,4 +15,9 @@ class Hair extends Model
     {
         return $this->belongsToMany(Race::class, 'race_hair', 'id_hair', 'id_race');
     }
+
+    public function userSheets()
+    {
+        return $this->hasMany(UserSheet::class, 'id_hair');
+    }
 }

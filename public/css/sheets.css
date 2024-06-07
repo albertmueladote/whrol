@@ -1,0 +1,20 @@
+.sheet-content {  
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    min-width: 20%;
+}
+
+.sheet {
+    padding: 3px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.sheet:hover {
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.filters {
+    margin-bottom: 32px;
+}

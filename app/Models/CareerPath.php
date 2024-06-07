@@ -50,4 +50,9 @@ class CareerPath extends Model
     {
         return $this->belongsToMany(Talent::class, 'career_path_talent', 'id_career_path', 'id_talent');
     }
+
+    public function userSheets()
+    {
+        return $this->hasMany(UserSheet::class, 'id_race');
+    }
 }

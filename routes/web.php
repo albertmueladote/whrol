@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\NewController;
 
 
 /*
@@ -27,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
 Route::get('/new', [App\Http\Controllers\NewController::class, 'new'])->name('new');
+Route::get('/sheets', [App\Http\Controllers\UserSheetController::class, 'sheets'])->name('sheets');
+Route::get('/sheet', [App\Http\Controllers\UserSheetController::class, 'sheet'])->name('sheet');
 
 Route::get('/test', [App\Http\Controllers\TestController::class, 'test'])->name('test');
 Route::get('/create', [App\Http\Controllers\TestController::class, 'create'])->name('create');

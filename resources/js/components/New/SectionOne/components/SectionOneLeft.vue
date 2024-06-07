@@ -51,7 +51,7 @@ import {
     getHeightFromAPI,
     getHairFromAPI,
     getEyesFromAPI,
-} from "./../../../services/sectionOne.services";
+} from "./../../../../services/sectionOne.services";
 export default {
     props: {},
     methods: {

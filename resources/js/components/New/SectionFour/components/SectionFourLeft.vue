@@ -35,7 +35,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { getRandomTalentsFromAPI } from "./../../../services/sectionOne.services";
+import { getRandomTalentsFromAPI } from "./../../../../services/sectionOne.services";
 export default {
     methods: {
         ...mapMutations("Character", [

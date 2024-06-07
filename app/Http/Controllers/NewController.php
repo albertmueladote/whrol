@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Characteristic;
@@ -452,18 +454,52 @@ class NewController extends Controller
 
     public function save(request $request)
     {
-        //return var_dump($request['sheet']);
-        return Sheet::create([
-            'name' => $request['sheet']['name'],
-            'id_race' => $request['sheet']['id_race'],
-            'id_category' => $request['sheet']['id_category'],
-            'id_career_path' => $request['sheet']['id_career_path'],
-            'status' => $request['sheet']['status'],
-            'age' => $request['sheet']['age'],
-            'height' => $request['sheet']['height'],
-            'id_hair' => $request['sheet']['id_hair'],
-            'id_eyes' => $request['sheet']['id_eyes'],
-        ]);
+        $id_career_path = CareerPath::where('id_profession', $request['sheet']['id_career_path'])->where('level', 1)->first();
+        if (!is_null($id_career_path)) {
+            return Sheet::create([
+                'id_user' => Auth::id(),
+                'name' => $request['sheet']['name'],
+                'id_race' => $request['sheet']['id_race'],
+                'id_category' => $request['sheet']['id_category'],
+                'id_career_path' => $id_career_path->id_career_path,
+                'status' => $request['sheet']['status'],
+                'age' => $request['sheet']['age'],
+                'height' => $request['sheet']['height'],
+                'id_hair' => $request['sheet']['id_hair'],
+                'id_eyes' => $request['sheet']['id_eyes'],
+                'ha_ini' => $request['sheet']['ini']['ha'],
+                'hp_ini' => $request['sheet']['ini']['hp'],
+                'f_ini' => $request['sheet']['ini']['f'],
+                'r_ini' => $request['sheet']['ini']['r'],
+                'ini_ini' => $request['sheet']['ini']['ini'],
+                'ag_ini' => $request['sheet']['ini']['ag'],
+                'des_ini' => $request['sheet']['ini']['des'],
+                'i_ini' => $request['sheet']['ini']['i'],
+                'v_ini' => $request['sheet']['ini']['v'],
+                'em_ini' => $request['sheet']['ini']['em'],
+                'ha_imp' => $request['sheet']['imp']['ha'],
+                'hp_imp' => $request['sheet']['imp']['hp'],
+                'f_imp' => $request['sheet']['imp']['f'],
+                'r_imp' => $request['sheet']['imp']['r'],
+                'ini_imp' => $request['sheet']['imp']['ini'],
+                'ag_imp' => $request['sheet']['imp']['ag'],
+                'des_imp' => $request['sheet']['imp']['des'],
+                'i_imp' => $request['sheet']['imp']['i'],
+                'v_imp' => $request['sheet']['imp']['v'],
+                'em_imp' => $request['sheet']['imp']['em'],
+                'destiny' => $request['sheet']['destiny'],
+                'fortune' => $request['sheet']['fortune'],
+                'resilience' => $request['sheet']['resilience'],
+                'resolution' => $request['sheet']['resolution'],
+                'motivation' => $request['sheet']['motivation'],
+                "exp_actual" => $request['sheet']['exp_actual'],
+                "exp_spent" => $request['sheet']['exp_spent'],
+                "exp_total" => $request['sheet']['exp_total'],
+                'movement' => $request['sheet']['movement'],
+                'walk' => $request['sheet']['walk'],
+                'run' => $request['sheet']['run'],
+            ]);
+        }
     }
 }
 

@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasMany(Profession::class, 'id_category', 'id_category');
     }
+    public function userSheets()
+    {
+        return $this->hasMany(UserSheet::class, 'id_category');
+    }
+
 }

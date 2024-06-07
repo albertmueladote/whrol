@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('user_sheet', function (Blueprint $table) {
             $table->increments('id_user_sheet');
+            $table->unsignedBigInteger('id_user');
             $table->string('name');
             $table->integer('id_race');
             $table->integer('id_category');
@@ -45,7 +46,7 @@ return new class extends Migration {
             $table->integer('fortune');
             $table->integer('resilience');
             $table->integer('resolution');
-            $table->integer('motivation');
+            $table->string('motivation');
             $table->integer('exp_actual');
             $table->integer('exp_spent');
             $table->integer('exp_total');
@@ -53,6 +54,7 @@ return new class extends Migration {
             $table->integer('walk');
             $table->integer('run');
             $table->timestamps();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

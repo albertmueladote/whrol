@@ -55,4 +55,9 @@ class Race extends Model
     {
         return $this->belongsToMany(Talent::class, 'race_choose_talent', 'id_race', 'id_race_choose_talent');
     }
+
+    public function userSheets()
+    {
+        return $this->hasMany(UserSheet::class, 'id_race');
+    }
 }
